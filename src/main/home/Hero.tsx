@@ -69,7 +69,7 @@ const Hero = () => {
                 A vertically integrated textile mill delivering premium-quality
                 fabrics to global brands
               </p>
-              <div className="flex flex-col lg:flex-row items-center lg:justify-start justify-center gap-4 lg:gap-10 mt-7 lg:mt-12 w-full sm:w-auto">
+              <div className="flex flex-col md:flex-row! gap-4 lg:gap-10 mt-7 lg:mt-12 w-full sm:w-auto">
                 <Link
                   href="/our-products"
                   className="text-center border border-white bg-primaryBlue hover:bg-[#2d6bbb] font-bold text-white rounded w-full sm:w-52 px-5 py-3 duration-300"
@@ -78,7 +78,7 @@ const Hero = () => {
                 </Link>
                 <Link
                   href="/contact-us"
-                  className="text-center border border-white bg-white text-[#192f55] hover:text-white hover:bg-[#2d6bbb] font-bold rounded w-full sm:w-52 px-5 py-3 duration-300"
+                  className="text-center border border-white bg-white text-primaryBlue hover:text-white hover:bg-[#2d6bbb] font-bold rounded w-full sm:w-52 px-5 py-3 duration-300"
                 >
                   Contact Us
                 </Link>

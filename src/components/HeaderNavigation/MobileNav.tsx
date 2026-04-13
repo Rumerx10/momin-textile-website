@@ -12,6 +12,20 @@ const MobileNav = () => {
   const [isOpen, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   // Auto-expand dropdown that has an active sublink
   useEffect(() => {
     let activeDropdownLabel: string | null = null;
@@ -39,7 +53,7 @@ const MobileNav = () => {
 
   return (
     <nav className="relative lg:hidden">
-      <div className="z-40 fixed lg:hidden left-0 top-0 right-0 flex items-center justify-between px-5 bg-bgBlue h-20">
+      <div className="z-40 fixed lg:hidden left-0 top-0 right-0 flex items-center justify-between px-2 bg-bgBlue h-16">
         <div className="cursor-pointer">
           <Link href="/">
             <div className="flex items-center gap-2">
@@ -50,22 +64,22 @@ const MobileNav = () => {
             </div>
           </Link>
         </div>
-        <Hamburger toggled={isOpen} toggle={setOpen} color="white" />
+        <Hamburger size={32} toggled={isOpen} toggle={setOpen} color="white" />
       </div>
 
       <div
-        className={`fixed top-20 inset-0 z-50 duration-150 ${
+        className={`fixed top-16! inset-0 z-50 duration-150 ${
           isOpen ? "backdrop-blur-md" : "bg-transparent pointer-events-none"
         }`}
         onClick={() => setOpen(false)}
       ></div>
 
       <div
-        className={`fixed z-50 h-screen overflow-scroll ${
+        className={`fixed z-50 h-screen overflow-scroll  ${
           isOpen ? "translate-x-0" : "translate-x-full"
-        } duration-500 bg-bgBlue top-20 right-0 bottom-0 p-5 w-[80%]`}
+        } duration-500 bg-bgBlue top-16 right-0 bottom-0 p-5 w-[80%]`}
       >
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 pb-40">
           {NavLinks.map((link, index) => {
             // Check if this is a dropdown (has links property)
             if (link?.links && link.links.length > 0) {
