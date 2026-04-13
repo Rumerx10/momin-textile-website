@@ -48,7 +48,7 @@ const Hero = () => {
           </Swiper>
         </div>
 
-        <div className="bg-hero-overlay absolute inset-0 z-20 flex items-center justify-center text-white px-5">
+        <div className="bg-hero-overlay absolute inset-0 z-20 flex items-center justify-center text-white">
           <div className="container px-4 mx-auto flex flex-col justify-center">
             <motion.div
               initial={{ y: 50, opacity: 0 }}
