@@ -1,22 +1,15 @@
-// import Belt from "@/components/others/Belt";
-import AboutUs from "./AboutUs";
-import Features from "./Features";
-import Requirements from "./Requirements";
-import Services from "./Services";
-// import GetInTouchBelt from "@/components/others/GetInTouchBelt";
-import Foundations from "./Foundations";
 import Hero from "./Hero";
+import Features from "./Features";
+import Services from "./Services";
+import OurIntegratedStrength from "./OurIntegratedStrength";
 
 const Home = () => {
   return (
     <div className="pt-16 overflow-hidden">
       <Hero />
+      <OurIntegratedStrength />
       <Features />
-      {/* <Belt /> */}
-      {/* <AboutUs />
-      <Requirements />
-      <Foundations />
-      <Services /> */}
+      <Services />
     </div>
   );
 };

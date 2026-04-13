@@ -48,7 +48,7 @@ const DesktopNav = () => {
                   </div>
 
                   {/* Hover dropdown */}
-                  <div className="absolute left-1/2 -translate-x-1/2 mt-1 bg-white  text-primaryGray rounded-md shadow-lg opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-all duration-200">
+                  <div className="absolute left-1/2 -translate-x-1/2 mt-1 bg-white  text-pGray rounded-md shadow-lg opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-all duration-200">
                     <div className="flex flex-col gap-1 min-w-55 p-1">
                       {link.links?.map((sublink, i) => (
                         <Link

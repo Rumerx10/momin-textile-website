@@ -2,6 +2,8 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
+
 .bg-navbar {
   background: linear-gradient(
     90deg,
@@ -18,9 +20,9 @@
   );
 }
 @theme {
-  --color-primaryBlue: #192f55;
-  --color-primaryGray: #6b7280;
-  --color-textBlack: #111827;
+  --color-pBlue: #192f55;
+  --color-pGray: #6b7280;
+  --color-tBlue: #111827;
 
   --color-violet: #22218c;
   --color-textBlue: #1927d2;

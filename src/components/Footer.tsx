@@ -23,42 +23,42 @@ const Footer = () => {
               width={220}
               className="mb-4"
             />
-            <div className="text-sm text-primaryGray flex flex-col gap-3">
+            <div className="text-sm text-pGray flex flex-col gap-3">
               <p>
                 MOMIN GROUP have been established in the year 1986, our products
                 are being exported to buyers worldwide since 1995, while doing
                 so, we give special emphasis to high standard.
               </p>
               <div className="flex items-center gap-2">
-                <PiPhone className="text-primaryBlue" size={20} />
+                <PiPhone className="text-pBlue" size={20} />
                 <span>+88-01619 777333</span>
               </div>
               <div className="flex items-center gap-2">
-                <HiOutlineMail className="text-primaryBlue" size={20} />
+                <HiOutlineMail className="text-pBlue" size={20} />
                 <span>masud@momingroupbd.com</span>
               </div>
               <div className="flex space-x-6 mt-6">
                 <Link
                   href="#"
-                  className="text-primaryBlue hover:text-blue-600 transition-colors"
+                  className="text-pBlue hover:text-blue-600 transition-colors"
                 >
                   <FaFacebookF size={24} />
                 </Link>
                 <Link
                   href="#"
-                  className="text-primaryBlue hover:text-blue-600 transition-colors"
+                  className="text-pBlue hover:text-blue-600 transition-colors"
                 >
                   <FaInstagram size={24} />
                 </Link>
                 <Link
                   href="#"
-                  className="text-primaryBlue hover:text-blue-600 transition-colors"
+                  className="text-pBlue hover:text-blue-600 transition-colors"
                 >
                   <FaLinkedinIn size={24} />
                 </Link>
                 <Link
                   href="#"
-                  className="text-primaryBlue hover:text-blue-600 transition-colors"
+                  className="text-pBlue hover:text-blue-600 transition-colors"
                 >
                   <RiYoutubeLine size={24} />
                 </Link>
@@ -71,7 +71,7 @@ const Footer = () => {
             <div className="flex flex-wrap justify-between gap-8">
               {FooterLinks.map((item, index) => (
                 <div key={index} className="flex flex-col gap-3 min-w-38">
-                  <h3 className="text-lg font-semibold text-textBlack">
+                  <h3 className="text-lg font-semibold text-tBlue">
                     {item.title}
                   </h3>
                   <ul className="flex flex-col gap-2">
@@ -79,7 +79,7 @@ const Footer = () => {
                       <li key={linkIndex}>
                         <Link
                           href={link.link}
-                          className="text-sm text-primaryGray hover:text-blue-600 hover:underline transition-all duration-300"
+                          className="text-sm text-pGray hover:text-blue-600 hover:underline transition-all duration-300"
                         >
                           {link.label}
                         </Link>
@@ -96,18 +96,18 @@ const Footer = () => {
         <div className="mt-16 border-y-2 border-[#8E8E8E] py-6">
           <div className="flex flex-col lg:flex-row items-center justify-between">
             <div className="flex flex-col">
-              <h3 className="flex items-center justify-center lg:justify-start font-semibold text-textBlack">
+              <h3 className="flex items-center justify-center lg:justify-start font-semibold text-tBlue">
                 Momin Textile Mills LTD
               </h3>
-              <p className="text-sm text-primaryGray text-center lg:text-left">
+              <p className="text-sm text-pGray text-center lg:text-left">
                 @ Copyright 2022 All Rights Reserved{" "}
-                <span className="text-textBlack font-semibold">
+                <span className="text-tBlue font-semibold">
                   Momin Textile Mills LTD
                 </span>
               </p>
             </div>
             <div className="text-xs text-gray-500">
-              <div className="mt-10 lg:mt-0 flex flex-col lg:flex-row items-center justify-center gap-3 text-textBlack font-medium">
+              <div className="mt-10 lg:mt-0 flex flex-col lg:flex-row items-center justify-center gap-3 text-tBlue font-medium">
                 <p className="pr-6">Designed and Developed By </p>
                 <div className="flex items-center justify-center">
                   <Image

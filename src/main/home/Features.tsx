@@ -70,8 +70,8 @@ const Features = () => {
               className="flex flex-col items-center justify-center gap-16 p-5 rounded-md shadow w-full max-w-84 hover:bg-cardGray duration-300 bg-white"
             >
               <div>{item.img}</div>
-              <div className="flex flex-col gap-6">
-                <div className="flex flex-col items-center gap-6">
+              <div className="flex flex-col gap-5">
+                <div className="flex flex-col items-center gap-5">
                   <h1 className="text-textBlack text-2xl font-bold">
                     {item.title}
                   </h1>

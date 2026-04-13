@@ -4,6 +4,7 @@ import { Sarabun, Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import Footer from "../components/Footer";
 import Navbar from "../components/HeaderNavigation/Navbar";
+import GloballyAvailable from "../main/home/GloballyAvailable";
 
 const sarabun = Sarabun({
   subsets: ["latin"],
@@ -33,6 +34,7 @@ export default function RootLayout({
         <Navbar />
         <Toaster position="top-center" reverseOrder={false} />
         {children}
+        <GloballyAvailable />
         <Footer />
       </body>
     </html>
