@@ -7,7 +7,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { div } from "framer-motion/client";
 
 const data = [
   { img: "/hero/hero1.jpg" },
