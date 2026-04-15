@@ -1,6 +1,5 @@
 "use client";
-import "swiper/css";
-import "swiper/css/pagination";
+
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
@@ -26,8 +25,8 @@ const data = [
 
 const OurIntegratedStrength = () => {
   return (
-    <div className="mt-60 md:mt-24 lg:mt-20">
-      <div className="container mx-auto px-4 flex flex-col gap-16 items-center justify-center py-16">
+    <div className="container mx-auto px-4 py-16">
+      <div className="flex flex-col gap-5 lg:gap-16 items-center justify-center">
         <div className="flex flex-col items-center gap-0 lg:gap-20 w-full">
           <div className="flex flex-col items-center justify-center gap-4 text-center">
             <div className="flex w-full items-center gap-3">
@@ -51,7 +50,6 @@ const OurIntegratedStrength = () => {
             </motion.p>
           </div>
         </div>
-
         {/* Desktop/Tablet View */}
         <div className="grid grid-cols-2 lg:grid-cols-3 scale-0 h-0 lg:h-auto lg:scale-100 flex-wrap gap-5 w-full">
           {data.map((item, index) => (
@@ -79,50 +77,47 @@ const OurIntegratedStrength = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Mobile View - Swiper */}
-        <div className="w-full lg:hidden">
-          <Swiper
-            spaceBetween={20}
-            modules={[Autoplay, Pagination]}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
-            pagination={{
-              dynamicBullets: true,
-              clickable: true,
-              bulletClass: "swiper-pagination-bullet",
-              bulletActiveClass: "swiper-pagination-bullet-active",
-            }}
-            loop
-            className="rounded-md border-2! border-green-500! pb-10"
-          >
-            {data.map((item, index) => (
-              <SwiperSlide key={index}>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                  className="border-red-500 border-2 pb-10 flex flex-col items-center justify-center rounded-md 
+      </div>
+      {/* Mobile View - Swiper */}
+      <div className="w-full lg:hidden">
+        <Swiper
+          spaceBetween={20}
+          modules={[Autoplay, Pagination]}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          pagination={{
+            dynamicBullets: true,
+            clickable: true,
+          }}
+          loop
+          className=""
+        >
+          {data.map((item, index) => (
+            <SwiperSlide key={index}>
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="flex flex-col items-center justify-center rounded-md 
                   shadow w-full hover:bg-cardGray duration-300 bg-white"
-                >
-                  <div className="h-63 w-full">
-                    <Image
-                      src={item.img}
-                      height={272}
-                      width={500}
-                      alt="related image"
-                      className="h-full w-full rounded-t-md object-cover"
-                    />
-                  </div>
-                  <div className="rounded-b-md bg-pBlue text-white w-full p-6">
-                    <h3 className="mb-3">{item.title}</h3>
-                    <div className="mb-2 h-0.5 w-full bg-[#9CA3AF]" />
-                    <p className="text-sm text-[#B8BFCA]">{item.desc}</p>
-                  </div>
-                </motion.div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+              >
+                <div className="h-63 w-full">
+                  <Image
+                    src={item.img}
+                    height={272}
+                    width={500}
+                    alt="related image"
+                    className="h-full w-full rounded-t-md object-cover"
+                  />
+                </div>
+                <div className="rounded-b-md bg-pBlue text-white w-full p-6">
+                  <h3 className="mb-3">{item.title}</h3>
+                  <div className="mb-2 h-0.5 w-full bg-[#9CA3AF]" />
+                  <p className="text-sm text-[#B8BFCA]">{item.desc}</p>
+                </div>
+              </motion.div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );

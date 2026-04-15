@@ -1,158 +1,182 @@
 "use client";
 
-import "swiper/css";
-import "swiper/css/pagination";
 import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
-import { motion } from "framer-motion";
-import Link from "next/link";
 
-const data = [
+
+// Hero slides data
+const heroSlides = [
   { img: "/hero/hero1.jpg" },
   { img: "/hero/hero2.jpg" },
   { img: "/hero/hero3.jpg" },
   { img: "/hero/hero4.jpg" },
 ];
 
-const statsData = [
+// Statistics data for the info cards
+const statisticsData = [
   {
     id: 1,
     icon: null,
-    alt: "38+",
-    label: "Years of Experience",
-    subLabel: "Since 1986",
+    value: "38+",
+    title: "Years of Experience",
+    subtitle: "Since 1986",
   },
   {
     id: 2,
     icon: "/globalMarketers.png",
-    alt: "Global Marketers",
-    label: "Global Export Marketers",
-    subLabel: "Supplying Worldwide",
+    value: "Global Export Marketers",
+    title: "Global Export Marketers",
+    subtitle: "Supplying Worldwide",
   },
   {
     id: 3,
     icon: "/advanceMachinery.png",
-    alt: "Advance Machinery",
-    label: "Global Export Marketers",
-    subLabel: "Supplying Worldwide",
+    value: "Advanced Machinery",
+    title: "Global Export Marketers",
+    subtitle: "Supplying Worldwide",
   },
   {
     id: 4,
     icon: "/vertical.png",
-    alt: "Vertical Integration",
-    label: "Global Export Marketers",
-    subLabel: "Supplying Worldwide",
+    value: "Vertical Integration",
+    title: "Global Export Marketers",
+    subtitle: "Supplying Worldwide",
   },
 ];
 
 const Hero = () => {
   return (
-    <div>
-      <div className="relative w-full h-full lg:max-h-screen">
+    <section className="relative">
+      {/* Hero Slider Section */}
+      <div className="relative w-full h-full lg:max-h-screen mb-60 md:mb-24 lg:mb-20">
+        {/* Background Slider */}
         <div className="w-full h-full">
-          <div>
-            <Swiper
-              modules={[Autoplay, Pagination]}
-              autoplay={{ delay: 3500, disableOnInteraction: false }}
-              loop
-              className="custom-swiper-pagination"
+          <Swiper
+            modules={[Autoplay, Pagination]}
+            autoplay={{ delay: 3500, disableOnInteraction: false }}
+            loop
+            className="custom-swiper-pagination"
+          >
+            {heroSlides.map((slide, index) => (
+              <SwiperSlide key={index}>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="h-125 lg:h-212.5 w-full flex"
+                >
+                  <Image
+                    src={slide.img}
+                    alt={`Hero slide ${index + 1}`}
+                    height={850}
+                    width={1920}
+                    className="w-full h-auto object-cover"
+                    priority={index === 0}
+                  />
+                </motion.div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+
+        {/* Hero Content Overlay */}
+        <div className="absolute inset-0 bg-hero-overlay z-10 flex items-center justify-center text-white">
+          <div className="container px-4 mx-auto flex flex-col justify-center">
+            {/* Main Heading */}
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.3 }}
+              viewport={{ once: true }}
             >
-              {data.map((item, index) => (
-                <SwiperSlide key={index}>
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5 }}
-                    className="h-125 lg:h-212.5 w-full flex "
-                  >
-                    <Image
-                      src={item.img}
-                      alt={`slide-${index + 1}`}
-                      height={850}
-                      width={1920}
-                      className="w-full h-auto object-cover"
-                    />
-                  </motion.div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-          <div className="absolute inset-0 bg-hero-overlay z-10 flex items-center justify-center text-white">
-            <div className="container px-4 mx-auto flex flex-col justify-center">
-              <motion.div
-                initial={{ y: 50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                <h1 className="text-2xl md:text-4xl lg:text-7xl font-bold leading-tight">
-                  World-Class Textile <br /> Manufacturing Since 1986
-                </h1>
-              </motion.div>
-              <motion.div
-                initial={{ y: -50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.3 }}
-                className="mt-4"
-              >
-                <p className=" text-lg">
-                  A vertically integrated textile mill delivering
-                  premium-quality fabrics to global brands
-                </p>
-                <div className="flex flex-col md:flex-row! gap-4 lg:gap-10 mt-7 lg:mt-12 w-full sm:w-auto">
-                  <Link
-                    href="/our-products"
-                    className="text-center border border-white bg-pBlue hover:bg-[#2d6bbb] font-bold text-white rounded w-full sm:w-52 px-5 py-3 duration-300"
-                  >
-                    Our Products
-                  </Link>
-                  <Link
-                    href="/contact-us"
-                    className="text-center border border-white bg-white text-pBlue hover:text-white hover:bg-[#2d6bbb] font-bold rounded w-full sm:w-52 px-5 py-3 duration-300"
-                  >
-                    Contact Us
-                  </Link>
-                </div>
-              </motion.div>
-            </div>
+              <h1 className="text-2xl md:text-4xl lg:text-7xl font-bold leading-tight">
+                World-Class Textile <br /> Manufacturing Since 1986
+              </h1>
+            </motion.div>
+
+            {/* Description and CTA Buttons */}
+            <motion.div
+              initial={{ y: -50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.3 }}
+              className="mt-4"
+              viewport={{ once: true }}
+            >
+              <p className="text-lg">
+                A vertically integrated textile mill delivering
+                premium-quality fabrics to global brands
+              </p>
+              
+              <div className="flex flex-col md:flex-row! gap-4 lg:gap-10 mt-7 lg:mt-12 w-full sm:w-auto">
+                <Link
+                  href="/our-products"
+                  className="text-center border border-white bg-pBlue hover:bg-[#2d6bbb] font-bold text-white rounded w-full sm:w-52 px-5 py-3 transition duration-300"
+                >
+                  Our Products
+                </Link>
+                <Link
+                  href="/contact-us"
+                  className="text-center border border-white bg-white text-pBlue hover:text-white hover:bg-[#2d6bbb] font-bold rounded w-full sm:w-52 px-5 py-3 transition duration-300"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </motion.div>
           </div>
         </div>
 
-        <div
-          className="absolute z-20 left-1/2 -translate-x-1/2
-            -bottom-60 md:-bottom-24 lg:-bottom-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4! gap-5 p-6
-            lg:h-40 bg-pBlue max-w-425 w-[95%] lg:w-full rounded-lg"
-        >
-          {statsData.map((stat, idx) => (
-            <div key={idx} className="flex items-center justify-center gap-10">
-              <div className="text-white flex gap-5 items-center">
-                {idx === 0 ? (
+        {/* Statistics Cards - Overlapping the hero section */}
+        <div className="absolute left-0 right-0 px-4 z-20 -bottom-60 md:-bottom-24 lg:-bottom-20">
+          <div className="mx-auto max-w-425 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4! gap-5 p-6 lg:h-40 bg-pBlue rounded-lg">
+            {statisticsData.map((stat, index) => (
+              <div
+                key={stat.id}
+                className="flex items-center justify-center gap-10"
+              >
+                <div className="text-white flex gap-5 items-center">
+                  {/* Stat Value or Icon */}
+                  {index === 0 ? (
+                    <div>
+                      <p className="text-3xl lg:text-5xl font-bold">
+                        {stat.value}
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="w-10 h-10 flex items-center justify-center object-cover">
+                      <Image
+                        src={stat.icon || "/placeholder.svg"}
+                        alt={stat.title}
+                        height={40}
+                        width={40}
+                        className="object-contain"
+                      />
+                    </div>
+                  )}
+                  
+                  {/* Stat Label and Subtitle */}
                   <div>
-                    <p className="text-3xl lg:text-5xl font-bold">{stat.alt}</p>
+                    <p className="text-xl font-bold whitespace-nowrap">
+                      {stat.title}
+                    </p>
+                    <p className="text-sm text-[#B8BFCA] whitespace-nowrap">
+                      {stat.subtitle}
+                    </p>
                   </div>
-                ) : (
-                  <div className="w-10 h-10 flex items-center justify-center object-cover">
-                    <Image
-                      src={stat.icon || "/placeholder.svg"}
-                      alt={stat.alt}
-                      height={40}
-                      width={40}
-                    />
-                  </div>
-                )}
-                <div>
-                  <p className="text-xl font-bold">{stat.label}</p>
-                  <p className="text-sm text-[#B8BFCA]">{stat.subLabel}</p>
                 </div>
+
+                {/* Vertical Divider (Desktop only) */}
+                {index !== statisticsData.length - 1 && (
+                  <div className="hidden lg:flex w-0.5 h-20 rounded-full opacity-20 bg-white" />
+                )}
               </div>
-              {idx !== statsData.length - 1 && (
-                <div className="hidden lg:flex w-1 h-20 rounded-full opacity-20 bg-white" />
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

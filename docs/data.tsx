@@ -108,3 +108,31 @@ export const FooterLinks = [
     ],
   },
 ];
+
+export const CoreValuesData = [
+  {
+    img: "/quality.png",
+    title: "Commitment to Quality",
+    desc: "Every process, from yarn selection to final finishing, reflects our dedication to precision, durability, and consistency.",
+  },
+  {
+    img: "/sustainability.png",
+    title: "Sustainability in Every Thread",
+    desc: "Our eco-conscious dyeing systems, efficient water management, and ethical practices make sustainability an integral part of our identity",
+  },
+  {
+    img: "/trust.png",
+    title: "Partnership Built on Trust",
+    desc: "We see every client, vendor, and employee as a long-term partner, working together to create value, deliver excellence",
+  },
+];
+
+export const SisterConcerns = [
+  "Momin Spinning Mills Limited",
+  "Momin Spinning Mills Limited",
+  "Momin Textile Mills Limited(Unit-2)",
+  "Mashfir Sino Giant International LTD",
+  "Masud Textile",
+  "Sreenagar Textile",
+  "Ahnaf Paper Cone Factory",
+];

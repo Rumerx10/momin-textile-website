@@ -1,15 +1,13 @@
 "use client";
-import React from "react";
-import "swiper/css";
-import "swiper/css/pagination";
+
+import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Link from "next/link";
 
 const Services = () => {
   return (
     <div id="services" className="flex items-center justify-center py-20 px-5">
-      <div className="flex flex-col items-center gap-10 lg:gap-20 w-full max-w-[1536px]">
+      <div className="container flex flex-col items-center gap-10 lg:gap-20 w-full">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center justify-center lg:justify-between w-full">
           <motion.div
             initial={{ x: -100, opacity: 0 }}
@@ -32,7 +30,8 @@ const Services = () => {
               <Link href="/productions">
                 <button className="bg-red hover:bg-red-800 px-16 py-3 rounded-sm text-white font-bold mt-16 cursor-pointer">
                   See More
-                </button></Link>
+                </button>
+              </Link>
             </div>
           </motion.div>
 
