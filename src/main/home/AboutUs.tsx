@@ -69,7 +69,7 @@ const AboutUs = () => {
             >
               <div>
                 <p className="text-sm text-pGray mb-1">About Us</p>
-                <h1 className="text-tBlue text-3xl lg:text-5xl font-bold">
+                <h1 className="text-tBlue text-3xl lg:text-4xl font-bold">
                   Crafting Quality, Weaving Trust
                 </h1>
                 <div className="h-1 w-36 bg-pViolet my-7" />

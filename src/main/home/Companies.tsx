@@ -1,0 +1,60 @@
+"use client";
+import Image from "next/image";
+import { CompaniesData } from "@/docs/data";
+import Link from "next/link";
+import { FaArrowRightLong } from "react-icons/fa6";
+import Marquee from "react-fast-marquee";
+import { div } from "framer-motion/client";
+
+const Companies = () => {
+  return (
+    <div className="container px-4 mx-auto py-16">
+      <div className="flex flex-col gap-5 lg:gap-16">
+        <div className="space-y-4">
+          <h1 className="font-bold text-3xl lg:text-4xl">
+            Companies that trust us
+          </h1>
+          <div className="flex flex-col lg:flex-row! justify-between">
+            <p className="text-pGray max-w-210">
+              Over the years, Momin Textile Mills Ltd has earned the trust of
+              leading apparel manufacturers and sourcing partners worldwide. Our
+              reliability, product quality, and service excellence
+            </p>
+            <Link
+              href="/#"
+              className=" hidden lg:flex items-center justify-end gap-2 mt-6 mr-5 text-tBlue whitespace-nowrap font-medium cursor-pointeritems-center hover:mr-0 duration-300"
+            >
+              <p>See All Companies</p>
+              <FaArrowRightLong />
+            </Link>
+          </div>
+        </div>
+
+        <div className="py-16 lg:py-0">
+          <Marquee pauseOnHover={true} speed={100}>
+            {CompaniesData.map((item, index) => (
+              <div className="mx-5 lg:mx-16 h-auto lg:h-16" key={index}>
+                <Image
+                  src={item}
+                  alt="power"
+                  height={166}
+                  width={240}
+                  className="object-contain h-full w-full"
+                />
+              </div>
+            ))}{" "}
+          </Marquee>
+        </div>
+        <Link
+          href="/#"
+          className="text-tBlue font-medium cursor-pointer flex lg:hidden items-center mr-5 hover:mr-0 gap-2 justify-center mt-6 duration-300"
+        >
+          <p>See All Companies</p>
+          <FaArrowRightLong />
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+export default Companies;

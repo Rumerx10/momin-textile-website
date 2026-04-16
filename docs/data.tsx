@@ -168,3 +168,39 @@ export const Certifications2 = [
   "/certificate8.png",
   "/certificate9.png",
 ];
+
+export const OurUtilityServiceData = [
+  {
+    img: "/power.png",
+    title: "Power",
+    subTitle: "Reliable Energy for Seamless Production",
+    desc: "At Momin Textile Mills Ltd, uninterrupted power supply is the backbone of our operations. Our facilities are equipped with dedicated generators and energy-efficient systems.",
+  },
+  {
+    img: "/vehicle.png", // Assuming filename based on content
+    title: "Vehicle",
+    subTitle: "Efficient Transportation, On-Time Delivery",
+    desc: "Our logistics division operates a well-maintained fleet of transport vehicles designed to ensure smooth movement of raw materials and finished fabrics. With an organized scheduling system and professional.",
+  },
+  {
+    img: "/employee.png", // Assuming filename based on content
+    title: "Employee",
+    subTitle: "People Are the Fabric of Our Success",
+    desc: "Behind every meter of fabric we produce stands a dedicated team of professionals skilled engineers, operators, designers, and supervisors all working toward a shared goal of excellence.",
+  },
+  {
+    img: "/training.png", // Assuming filename based on content
+    title: "Training",
+    subTitle: "Empowering People Through Knowledge",
+    desc: "At Momin Textile Mills Ltd, we believe that growth begins with learning. Our training programs are designed to upgrade skills, enhance technical expertise, and promote leadership at every level of the organization.",
+  },
+];
+
+export const CompaniesData = [
+  "/company1.png",
+  "/company2.png",
+  "/company3.png",
+  "/company4.png",
+  "/company5.png",
+  "/company6.png",
+];

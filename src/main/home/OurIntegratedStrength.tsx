@@ -27,27 +27,16 @@ const OurIntegratedStrength = () => {
   return (
     <div className="container mx-auto px-4 py-16">
       <div className="flex flex-col gap-5 lg:gap-16 items-center justify-center">
-        <div className="flex flex-col items-center gap-0 lg:gap-20 w-full">
-          <div className="flex flex-col items-center justify-center gap-4 text-center">
-            <div className="flex w-full items-center gap-3">
-              <motion.h1
-                initial={{ y: -100, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                className="text-textBlack w-full text-4xl md:text-5xl font-bold"
-              >
-                Our Integrated Strength, Seamless Production Units
-              </motion.h1>
-            </div>
-            <motion.p
-              initial={{ y: -100, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.3 }}
-              className="text-pGray text-lg text-center w-full max-w-190"
-            >
+        <div className="space-y-4 text-center">
+          <h1 className="font-bold text-3xl lg:text-4xl">
+            Our Integrated Strength, Seamless Production Units
+          </h1>
+          <div className="flex justify-center">
+            <p className=" text-pGray max-w-210">
               Control comes from having every stage of production under one
-              roof. Our vertically integrated structure textile manufacturing
-            </motion.p>
+              roof. Our vertically integrated <br /> structure textile
+              manufacturing
+            </p>
           </div>
         </div>
         {/* Desktop/Tablet View */}

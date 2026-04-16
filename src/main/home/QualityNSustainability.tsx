@@ -9,7 +9,7 @@ import {
 
 const QualityNSustainability = () => {
   return (
-    <div className="relative min-h-[600px] md:min-h-[700px] lg:h-auto overflow-hidden">
+    <div className="relative min-h-150 md:min-h-175 lg:h-auto overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full">
         <Image
@@ -26,29 +26,16 @@ const QualityNSustainability = () => {
       <div className="relative container mx-auto px-4 py-12 md:py-16">
         <div className="flex flex-col gap-8 md:gap-12 lg:gap-16 items-center justify-center">
           {/* Header Section */}
-          <div className="flex flex-col items-center w-full">
-            <div className="flex flex-col items-center justify-center gap-4 text-center">
-              <motion.h1
-                initial={{ y: -100, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-                className="text-white w-full text-3xl sm:text-4xl md:text-5xl font-bold"
-              >
-                Quality and Sustainability
-              </motion.h1>
-
-              <motion.p
-                initial={{ y: -100, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.3 }}
-                viewport={{ once: true }}
-                className="text-white text-base sm:text-lg text-center w-full max-w-4xl lg:max-w-190 px-4 sm:px-0"
-              >
+          <div className="space-y-4 text-center text-white">
+            <h1 className="font-bold text-3xl lg:text-4xl">
+              Quality and Sustainability
+            </h1>
+            <div className="flex justify-center">
+              <p className="max-w-210">
                 Global-standard quality at every step from raw material
-                selection to finished fabric inspection. Our eco-friendly
-                dyeing, ETP, and waste management systems
-              </motion.p>
+                selection to finished fabric <br /> inspection. Our eco-friendly
+                dyeing, ETP , and waste management systems
+              </p>
             </div>
           </div>
 
@@ -59,9 +46,9 @@ const QualityNSustainability = () => {
               {QualityNSustainabilityData.map((item, index) => (
                 <motion.div
                   key={index}
-                  initial={{ scale: 0.2, opacity: 0 }}
+                  initial={{ scale: 0.5, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.5 }}
                   viewport={{ once: true }}
                   className="flex gap-4 justify-center w-full transition duration-300"
                 >

@@ -1,10 +1,11 @@
 import Hero from "./Hero";
-import Features from "./Features";
-import Services from "./Services";
-import OurIntegratedStrength from "./OurIntegratedStrength";
 import AboutUs from "./AboutUs";
+import Companies from "./Companies";
 import CoreValues from "./CoreValues";
+import ImageGallery from "./ImageGallery";
 import SisterConcern from "./SisterConcern";
+import OurUtilityService from "./OurUtilityService";
+import OurIntegratedStrength from "./OurIntegratedStrength";
 import QualityNSustainability from "./QualityNSustainability";
 
 const Home = () => {
@@ -16,8 +17,9 @@ const Home = () => {
       <CoreValues />
       <SisterConcern />
       <QualityNSustainability />
-      <Features />
-      <Services />
+      <OurUtilityService />
+      <ImageGallery />
+      <Companies />
     </div>
   );
 };
