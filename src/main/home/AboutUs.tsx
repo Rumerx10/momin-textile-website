@@ -34,7 +34,7 @@ const AboutUs = () => {
                 <div className="absolute w-4 top-9 bottom-54 -right-9 bg-[#91268E]"></div>
               </motion.div>
 
-              <div className="absolute bg-green-300 h-50 bottom-0 left-36 right-0">
+              <div className="absolute h-50 bottom-0 left-36 right-0">
                 <Swiper
                   modules={[Autoplay, Pagination]}
                   loop={true}

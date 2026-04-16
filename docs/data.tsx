@@ -204,3 +204,4 @@ export const CompaniesData = [
   "/company5.png",
   "/company6.png",
 ];
+

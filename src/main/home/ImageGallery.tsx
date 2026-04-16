@@ -2,7 +2,9 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { CoreValuesData } from "@/docs/data";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 const ImageGallery = () => {
   return (
     <div className="bg-bgGray">
@@ -19,32 +21,37 @@ const ImageGallery = () => {
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center w-full">
-            {CoreValuesData.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ scale: 0.2, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                className="p-5 flex gap-4 justify-center rounded-md w-full max-w-107 hover:bg-cardGray duration-300 bg-white"
-              >
-                <div className="h-13 w-13">
-                  <Image
-                    src={item.img}
-                    height={52}
-                    width={52}
-                    alt="related image"
-                    className="h-full w-full rounded-t-md object-contain"
-                  />
-                </div>
-                <div className="w-full">
-                  <h3 className="mb-2 text-tBlue font-bold text-xl">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-pGray">{item.desc}</p>
-                </div>
-              </motion.div>
+          <div className="relative flex gap-5 max-h-96 border-2 border-red-500">
+            {[
+              "/gallery1.png",
+              "/gallery2.png",
+              "/gallery3.png",
+              "/gallery4.png",
+            ].map((img, idx) => (
+              <div key={idx} className="max-h-96 max-w-92">
+                <Image
+                  src={img}
+                  alt="image"
+                  height={385}
+                  width={369}
+                  className="w-full h-full object-fill"
+                />
+              </div>
             ))}
+
+            <div className="absolute h-11 w-11 bg-white flex items-center justify-center rounded-md -left-5.5 top-1/2 -translate-y-1/2 ">
+              <FaArrowLeft />
+            </div>
+            <div className="absolute h-11 w-11 bg-white flex items-center justify-center rounded-md -right-5.5 top-1/2 -translate-y-1/2 ">
+              <FaArrowRight />
+            </div>
+          </div>
+
+          <div
+            className="border border-[#959FB1] rounded-sm px-12.5 py-2.5
+                hover:bg-tBlue hover:text-white cursor-pointer duration-300 text-tBlue font-medium text-center"
+          >
+            Explore All Images{" "}
           </div>
         </div>
       </div>
