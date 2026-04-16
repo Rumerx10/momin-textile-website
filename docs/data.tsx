@@ -136,3 +136,35 @@ export const SisterConcerns = [
   "Sreenagar Textile",
   "Ahnaf Paper Cone Factory",
 ];
+
+export const QualityNSustainabilityData = [
+  {
+    img: "/quality2.png",
+    title: "Quality Control",
+    desc: "In Bangladesh power shortage is a big concern, We can use self-power by our OWN GAS  Generator. In Bangladesh power shortage is a big concern, We can use self-power by our OWN GAS  Generator. ",
+  },
+  {
+    img: "/eco.png",
+    title: "Eco-Friendly",
+    desc: "In Bangladesh power shortage is a big concern, We can use self-power by our OWN GAS  Generator. In Bangladesh power shortage is a big concern, We can use self-power by our OWN GAS  Generator. In Bangladesh power shortage is a big concern, We can use self-power by our OWN GAS  Generator. ",
+  },
+  {
+    img: "/certified.png",
+    title: "Certified Standard",
+    desc: "In Bangladesh power shortage is a big concern, We can use self-power by our OWN GAS  Generator.  In Bangladesh power shortage is a big concern, We can use self-power by our OWN GAS  Generator.",
+  },
+];
+
+export const Certifications1 = [
+  "/certificate1.png",
+  "/certificate2.png",
+  "/certificate3.png",
+  "/certificate4.png",
+  "/certificate5.png",
+  "/certificate6.png",
+];
+export const Certifications2 = [
+  "/certificate7.png",
+  "/certificate8.png",
+  "/certificate9.png",
+];

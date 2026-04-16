@@ -5,6 +5,7 @@ import OurIntegratedStrength from "./OurIntegratedStrength";
 import AboutUs from "./AboutUs";
 import CoreValues from "./CoreValues";
 import SisterConcern from "./SisterConcern";
+import QualityNSustainability from "./QualityNSustainability";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <AboutUs />
       <CoreValues />
       <SisterConcern />
+      <QualityNSustainability />
       <Features />
       <Services />
     </div>
