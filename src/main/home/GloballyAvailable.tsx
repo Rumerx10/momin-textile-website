@@ -19,7 +19,7 @@ const GloballyAvailable = () => {
         {/* Overlay Content */}
         <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6">
           <div className="text-center text-white max-w-[90%] sm:max-w-[80%] md:max-w-150 lg:max-w-190">
-            <h2 className="mb-2 sm:mb-3 md:mb-4 font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+            <h2 className="mb-2 sm:mb-3 md:mb-4 font-semibold text-3xl lg:text-4xl">
               Globally We Are Available
             </h2>
 
