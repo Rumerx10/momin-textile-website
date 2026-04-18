@@ -36,8 +36,9 @@ const ModalImageGallery = ({
           spaceBetween={20}
           slidesPerView={1}
           pagination={{
+            type: "fraction",
             clickable: true,
-            dynamicBullets: true,
+            // dynamicBullets: true,
           }}
           className="w-full h-full"
         >
@@ -50,7 +51,7 @@ const ModalImageGallery = ({
                 key={idx}
                 className="flex items-center justify-center"
               >
-                <div className="relative h-full w-full">
+                <div className="relative h-100 w-full">
                   <Image
                     src={item.img}
                     alt={`Gallery image ${idx + 1}`}
