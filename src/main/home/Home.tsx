@@ -11,13 +11,13 @@ import QualityNSustainability from "./QualityNSustainability";
 const Home = () => {
   return (
     <div className="pt-16">
-      {/* <Hero />
+      <Hero />
       <OurIntegratedStrength />
       <AboutUs />
       <CoreValues />
       <SisterConcern />
       <QualityNSustainability />
-      <OurUtilityService /> */}
+      <OurUtilityService />
       <ImageGallery />
       <Companies />
     </div>
