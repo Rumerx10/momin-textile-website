@@ -66,14 +66,14 @@ const Hero = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
-                  className="h-125 lg:h-212.5 w-full flex"
+                  className="aspect-video lg:h-212.5 w-full"
                 >
                   <Image
                     src={slide.img}
                     alt={`Hero slide ${index + 1}`}
                     height={850}
                     width={1920}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-full object-cover"
                     priority={index === 0}
                   />
                 </motion.div>
