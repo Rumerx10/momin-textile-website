@@ -66,7 +66,7 @@ const Hero = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
-                  className="aspect-video lg:h-212.5 w-full"
+                  className="h-125 lg:h-212.5 w-full"
                 >
                   <Image
                     src={slide.img}
