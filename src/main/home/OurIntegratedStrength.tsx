@@ -1,9 +1,11 @@
 "use client";
-
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
-import Image from "next/image";
+
+
+
 
 const data = [
   {
@@ -77,7 +79,7 @@ const OurIntegratedStrength = () => {
             dynamicBullets: true,
             clickable: true,
           }}
-          loop
+          // loop
           className=""
         >
           {data.map((item, index) => (

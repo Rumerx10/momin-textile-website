@@ -1,11 +1,51 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { CoreValuesData } from "@/docs/data";
+import { RxCross2 } from "react-icons/rx";
+import type { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
+import ModalImageGallery from "@/src/components/ModalImageGallery";
+
 const ImageGallery = () => {
+  const swiperRef = useRef<SwiperType | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isModalOpen]);
+
+  const images = [
+    {
+      img: "/gallery1.png",
+      title: "Precision in Every Thread",
+      desc: "Our high-speed automated weaving looms ensure a flawless fabric finish.",
+    },
+    {
+      img: "/gallery2.png",
+      title: "Crafted with Innovation",
+      desc: "We combine advanced machinery with expert craftsmanship to produce premium textiles.",
+    },
+    {
+      img: "/gallery3.png",
+      title: "Engineered for Excellence",
+      desc: "Every fabric undergoes strict quality control to meet global standards.",
+    },
+    {
+      img: "/gallery4.png",
+      title: "Sustainable Production",
+      desc: "Our eco-friendly processes reduce waste while maintaining top-tier quality.",
+    },
+  ];
+
   return (
     <div className="bg-bgGray">
       <div className="container px-4 mx-auto py-16">
@@ -13,7 +53,7 @@ const ImageGallery = () => {
           <div className="space-y-4 text-center">
             <h1 className="font-bold text-3xl lg:text-4xl">Image Gallery</h1>
             <div className="flex justify-center">
-              <p className=" text-pGray max-w-210">
+              <p className="text-pGray max-w-210">
                 Our modern production floor combines technology and
                 craftsmanship to <br /> deliver fabrics that meet international
                 quality standards.
@@ -21,40 +61,101 @@ const ImageGallery = () => {
             </div>
           </div>
 
-          <div className="relative flex gap-5 max-h-96 border-2 border-red-500">
-            {[
-              "/gallery1.png",
-              "/gallery2.png",
-              "/gallery3.png",
-              "/gallery4.png",
-            ].map((img, idx) => (
-              <div key={idx} className="max-h-96 max-w-92">
-                <Image
-                  src={img}
-                  alt="image"
-                  height={385}
-                  width={369}
-                  className="w-full h-full object-fill"
-                />
-              </div>
-            ))}
+          <div className="relative w-full flex items-center justify-center">
+            <Swiper
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+              }}
+              modules={[Autoplay, Navigation, Pagination]}
+              autoplay={{ delay: 3000, disableOnInteraction: false }}
+              spaceBetween={20}
+              slidesPerView={1}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 16,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 20,
+                },
+                1280: {
+                  slidesPerView: 4,
+                  spaceBetween: 20,
+                },
+              }}
+              pagination={{
+                clickable: true,
+                dynamicBullets: true,
+              }}
+              className="w-full"
+            >
+              {images.map((item, idx) => (
+                <SwiperSlide
+                  key={idx}
+                  className="flex items-center justify-center"
+                >
+                  <div
+                    onClick={() => setIsModalOpen(true)}
+                    className="relative cursor-pointer overflow-hidden h-96 w-full max-w-sm rounded-lg"
+                  >
+                    <Image
+                      src={item.img}
+                      alt={`Gallery image ${idx + 1}`}
+                      height={385}
+                      width={369}
+                      className="w-full h-full object-cover rounded-lg bg-gray-50"
+                    />
+                    <div
+                      className="absolute inset-0 opacity-0 hover:opacity-100 px-4
+                      duration-300 flex flex-col items-center justify-center space-y-1
+                      bg-pBlue/80 text-white text-center"
+                    >
+                      <h3 className="font-bold text-lg">{item.title}</h3>
+                      <p>{item.desc}</p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
 
-            <div className="absolute h-11 w-11 bg-white flex items-center justify-center rounded-md -left-5.5 top-1/2 -translate-y-1/2 ">
-              <FaArrowLeft />
-            </div>
-            <div className="absolute h-11 w-11 bg-white flex items-center justify-center rounded-md -right-5.5 top-1/2 -translate-y-1/2 ">
-              <FaArrowRight />
-            </div>
+            {/* Navigation Buttons - Hidden on mobile, visible on desktop */}
+            <button
+              onClick={() => {
+                if (swiperRef.current) {
+                  swiperRef.current.slidePrev();
+                }
+              }}
+              className="absolute left-0 -ml-20 z-10 text-pGray h-11 w-11 bg-white items-center justify-center rounded-sm hover:bg-gray-100 transition-colors md:-ml-16 sm:-ml-12 hidden md:flex"
+              aria-label="Previous slide"
+            >
+              <RiArrowLeftSLine size={24} />
+            </button>
+
+            <button
+              onClick={() => {
+                if (swiperRef.current) {
+                  swiperRef.current.slideNext();
+                }
+              }}
+              className="absolute right-0 -mr-20 z-10 text-pGray h-11 w-11 bg-white items-center justify-center rounded-md hover:bg-gray-100 transition-colors md:-mr-16 sm:-mr-12 hidden md:flex"
+              aria-label="Next slide"
+            >
+              <RiArrowRightSLine size={24} />
+            </button>
           </div>
 
           <div
             className="border border-[#959FB1] rounded-sm px-12.5 py-2.5
-                hover:bg-tBlue hover:text-white cursor-pointer duration-300 text-tBlue font-medium text-center"
+            hover:bg-tBlue hover:text-white cursor-pointer duration-300 text-tBlue font-medium text-center"
           >
             Explore All Images{" "}
           </div>
         </div>
       </div>
+      {isModalOpen && (
+        <ModalImageGallery images={images} setIsModalOpen={setIsModalOpen} />
+      )}
     </div>
   );
 };

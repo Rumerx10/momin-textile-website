@@ -64,7 +64,9 @@ const MobileNav = () => {
             </div>
           </Link>
         </div>
-        <Hamburger size={32} toggled={isOpen} toggle={setOpen} color="white" />
+        <div className="scale-90">
+          <Hamburger toggled={isOpen} toggle={setOpen} color="white" />
+        </div>   
       </div>
 
       <div

@@ -1,5 +1,7 @@
 @import "tailwindcss";
-
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
 @custom-variant dark (&:is(.dark *));
 
 .bg-navbar {
@@ -24,6 +26,7 @@
   --color-tBlue: #111827;
   --color-bgBlue: #033a60;
   --color-pViolet: #91268e;
+  --color-red: #dc2626;
 
   --color-violet: #22218c;
   --color-textBlue: #1927d2;
@@ -32,7 +35,7 @@
   --color-textBlue: #2e86c2;
   --color-liteGray: #e5e5e5;
   --color-cardGray: #f5f9fb;
-  --color-red: #dc2626;
+
   --color-borderGray: #f2f2f2;
   --color-hoverRed: #f00000;
   --color-barBlue: #6db7ea;
@@ -162,6 +165,9 @@
 body {
   font-family: var(--font-inter);
 }
+button{
+  cursor: pointer;
+}
 
 h1,
 h2,
@@ -172,38 +178,28 @@ h6 {
   font-family: var(--font-sarabun);
 }
 
-/* My Pagination Design  */
-.swiper-pagination {
-  width: 100% !important;
-  height: 60px;
-  /* border: 4px solid pink; */
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  align-items: center;
+/* Custom pagination styles - only visible on mobile */
+@media (max-width: 640px) {
+  .swiper-slide {
+    padding-bottom: 40px;
+  }
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-red) !important;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+  }
+  .swiper-pagination-bullet-active {
+    border-radius: 4px;
+    background-color: #0066b3; /* Your tBlue color */
+    opacity: 1;
+  }
 }
 
-.swiper-pagination-bullet {
-  width: 5px !important;
-  height: 5px !important;
-  border-radius: 100%;
-  background-color: var(--color-bgBlue);
-  opacity: 0.6;
-  transition: transform 0.3s ease;
+/* Hide pagination on tablet and desktop */
+@media (min-width: 641px) {
+  .swiper-pagination {
+    display: none;
+  }
 }
-
-.swiper-pagination-bullet-active {
-  background-color: var(--color-bgBlue); /* active bullet */
-  opacity: 1;
-  transform: scale(1.5);
-}
-.swiper-pagination-bullet-active-prev,
-.swiper-pagination-bullet-active-next {
-  transform: scale(1.3) !important;
-}
-.swiper-pagination-bullet-active-prev-prev,
-.swiper-pagination-bullet-active-next-next {
-  transform: scale(1) !important;
-}
-
-
