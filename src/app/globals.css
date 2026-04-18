@@ -182,7 +182,7 @@ h6 {
 /* Custom pagination styles - only visible on mobile */
 @media (max-width: 640px) {
   .swiper-slide {
-    padding-bottom: 60px !important;
+    padding-bottom: 50px !important;
   }
   .swiper-pagination-bullet {
     width: 8px;
