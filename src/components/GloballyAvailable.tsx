@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const GloballyAvailable = () => {
   return (
-    <div className="py-8 sm:py-12 md:py-16 flex items-center justify-center bg-tBlue min-h-100 sm:min-h-125 md:min-h-150">
+    <div className="flex items-center justify-center bg-tBlue min-h-100 sm:min-h-125 md:min-h-150">
       <div className="relative container mx-auto px-4 sm:px-6 flex items-center justify-center">
         {/* Background Image */}
         <div className="relative w-full h-75 sm:h-100 md:h-125 lg:h-150">
