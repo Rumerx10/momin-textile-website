@@ -10,9 +10,11 @@ import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 const ModalImageGallery = ({
   images,
   setIsModalOpen,
+  initialIndex,
 }: {
   images: { img: string; title: string; desc: string }[];
   setIsModalOpen: (value: boolean) => void;
+  initialIndex: number;
 }) => {
   const swiperRef = useRef<SwiperType | null>(null);
 
@@ -31,6 +33,7 @@ const ModalImageGallery = ({
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
           }}
+          initialSlide={initialIndex}
           modules={[Autoplay, Navigation, Pagination]}
           // autoplay={{ delay: 3000, disableOnInteraction: false }}
           spaceBetween={20}

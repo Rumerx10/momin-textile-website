@@ -11,6 +11,7 @@ import ModalImageGallery from "@/src/components/ModalImageGallery";
 const ImageGallery = () => {
   const swiperRef = useRef<SwiperType | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     if (isModalOpen) {
@@ -96,7 +97,10 @@ const ImageGallery = () => {
                   className="flex items-center justify-center"
                 >
                   <div
-                    onClick={() => setIsModalOpen(true)}
+                    onClick={() => {
+                      setIsModalOpen(true);
+                      setActiveIndex(idx);
+                    }}
                     className="relative cursor-pointer overflow-hidden h-96 w-full max-w-sm rounded-lg"
                   >
                     <Image
@@ -154,7 +158,11 @@ const ImageGallery = () => {
         </div>
       </div>
       {isModalOpen && (
-        <ModalImageGallery images={images} setIsModalOpen={setIsModalOpen} />
+        <ModalImageGallery
+          images={images}
+          setIsModalOpen={setIsModalOpen}
+          initialIndex={activeIndex}
+        />
       )}
     </div>
   );
