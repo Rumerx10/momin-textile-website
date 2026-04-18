@@ -23,7 +23,7 @@ const ModalImageGallery = ({
       onClick={() => setIsModalOpen(false)}
     >
       <div
-        className="h-[50%] lg:h-[80%]! relative container mx-auto px-4 
+        className="border-2 h-[50%] lg:h-[80%]! relative container mx-auto px-4 
         flex items-center justify-center"
         onClick={(e) => e.stopPropagation()}
       >
@@ -51,12 +51,12 @@ const ModalImageGallery = ({
                 key={idx}
                 className="flex items-center justify-center"
               >
-                <div className="relative h-100 w-full">
+                <div className="relative h-full w-full">
                   <Image
                     src={item.img}
                     alt={`Gallery image ${idx + 1}`}
-                    height={385}
-                    width={369}
+                    height={900}
+                    width={1920}
                     className="w-full h-full object-cover bg-gray-50"
                   />
                   <div className="absolute inset-0 duration-300 flex flex-col justify-end text-white">
