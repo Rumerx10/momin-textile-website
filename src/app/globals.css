@@ -19,6 +19,13 @@
     rgba(0, 0, 0, 0.8) 49.45%
   );
 }
+.bg-video-overlay {
+  background: linear-gradient(
+    180.74deg,
+    rgba(0, 0, 0, 0) 0.63%,
+    rgba(0, 0, 0, 0.6) 69.02%
+  );
+}
 @theme {
   --color-pBlue: #192f55;
   --color-pGray: #6b7280;
@@ -27,6 +34,7 @@
   --color-bgBlue: #033a60;
   --color-pViolet: #91268e;
   --color-red: #dc2626;
+  --color-bdrGray: #d1d5db;
 
   --color-violet: #22218c;
   --color-textBlue: #1927d2;
@@ -180,9 +188,13 @@ h6 {
 }
 
 /* Custom pagination styles - only visible on mobile */
-@media (max-width: 640px) {
+
+@media (max-width: 968px) {
   .swiper-slide {
-    padding-bottom: 40px !important;
+    padding-bottom: 40px;
+  }
+  .swiper-slide.no-bottom-padding {
+    padding-bottom: 0px !important;
   }
   .swiper-pagination-bullet {
     width: 8px;
@@ -199,7 +211,7 @@ h6 {
 }
 
 /* Hide pagination on tablet and desktop */
-@media (min-width: 641px) {
+@media (min-width: 969px) {
   .swiper-pagination {
     display: none;
   }

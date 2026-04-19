@@ -43,7 +43,7 @@ const SisterConcern = () => {
                   {SisterConcerns.map((sis, idx) => (
                     <div
                       key={idx}
-                      className="border-b-2 border-[#D1D5DB] max-w-98 w-full group cursor-pointer
+                      className="border-b-2 border-bdrGray max-w-98 w-full group cursor-pointer
                     flex items-center"
                     >
                       <div

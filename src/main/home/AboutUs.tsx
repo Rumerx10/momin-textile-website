@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Autoplay, Pagination } from "swiper/modules";
+import LCarousel from "@/src/components/LCarousel";
 
 const AboutUs = () => {
   // Gallery images data
@@ -16,47 +17,8 @@ const AboutUs = () => {
         <div className="container flex flex-col items-center gap-10 lg:gap-20 w-full">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center justify-center lg:justify-between w-full">
             {/* Left Side - Images */}
-            <div className="relative flex w-full lg:w-6/12 h-full">
-              <motion.div
-                initial={{ x: 100, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-                className="relative w-[75%] h-150"
-              >
-                <Image
-                  src="/abt1.png"
-                  alt="about img"
-                  height={665}
-                  width={513}
-                  className="bg-gray-100 h-full w-full object-cover"
-                />
-                <div className="absolute w-4 top-9 bottom-54 -right-9 bg-[#91268E]"></div>
-              </motion.div>
-
-              <div className="absolute h-50 bottom-0 left-36 right-0">
-                <Swiper
-                  modules={[Autoplay, Pagination]}
-                  loop={true}
-                  autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-                  }}
-                  className="border-2 shadow-xl border-white h-50 w-full"
-                >
-                  {galleryImages.map((img, index) => (
-                    <SwiperSlide key={index}>
-                      <Image
-                        src={img}
-                        alt={`${img}`}
-                        width={375}
-                        height={200}
-                        className="w-full h-full object-fill"
-                      />
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
+            <div className="w-full lg:w-6/12 h-full">
+              <LCarousel />
             </div>
 
             {/* Right Side - Content */}

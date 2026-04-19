@@ -22,7 +22,8 @@ const Companies = () => {
             </p>
             <Link
               href="/#"
-              className=" hidden lg:flex items-center justify-end gap-2 mt-6 mr-5 text-tBlue whitespace-nowrap font-medium cursor-pointeritems-center hover:mr-0 duration-300"
+              className="hidden lg:flex items-center justify-end gap-2 mt-6 mr-5
+              text-pViolet whitespace-nowrap font-medium cursor-pointeritems-center hover:mr-0 duration-300"
             >
               <p>See All Companies</p>
               <FaArrowRightLong />
@@ -47,7 +48,7 @@ const Companies = () => {
         </div>
         <Link
           href="/#"
-          className="text-tBlue font-medium cursor-pointer flex lg:hidden items-center mr-5 hover:mr-0 gap-2 justify-center mt-6 duration-300"
+          className="text-pViolet font-medium cursor-pointer flex lg:hidden items-center mr-5 hover:mr-0 gap-2 justify-center mt-6 duration-300"
         >
           <p>See All Companies</p>
           <FaArrowRightLong />

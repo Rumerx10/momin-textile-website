@@ -2,7 +2,7 @@ import Hero from "./Hero";
 import AboutUs from "./AboutUs";
 import Companies from "./Companies";
 import CoreValues from "./CoreValues";
-import ImageGallery from "./ImageGallery";
+import ImageGallery from "../../components/ImageGallery";
 import SisterConcern from "./SisterConcern";
 import OurUtilityService from "./OurUtilityService";
 import OurIntegratedStrength from "./OurIntegratedStrength";

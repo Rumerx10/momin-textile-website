@@ -205,3 +205,29 @@ export const CompaniesData = [
   "/company6.png",
 ];
 
+export const ImagesData = [
+    {
+      img: "/gallery1.png",
+      title: "Farhana Rahman",
+      desig: "HR & Compliance Manager",
+      desc: "Oversees human resource development and compliance, ensuring employee well-being, fair practices, and a safe, ethical work environment.",
+    },
+    {
+      img: "/gallery2.png",
+      title: "Jahidul Karim",
+      desig: "Quality Control Manager",
+      desc: "Leads the QC department with a focus on maintaining fabric excellence, testing accuracy, and product reliability from raw material to final output.",
+    },
+    {
+      img: "/gallery3.png",
+      title: "Engr. Tanvir Ahmed",
+      desig: "Head of Engineering & Maintenance",
+      desc: "Manages financial operations, budgeting, and reporting with accuracy and transparency, supporting the company's strategic financial goals.",
+    },
+    {
+      img: "/gallery4.png",
+      title: "Tahmina Islam",
+      desig: "", // No specific job title listed under name in the image
+      desc: "Collaborates with production and technical teams to research new fabric technologies, color trends, and finishing techniques that meet market demands.",
+    },
+  ];

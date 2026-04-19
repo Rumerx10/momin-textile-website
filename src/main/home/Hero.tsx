@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 
-
 // Hero slides data
 const heroSlides = [
   { img: "/hero/hero1.jpg" },
@@ -19,31 +18,27 @@ const heroSlides = [
 const statisticsData = [
   {
     id: 1,
-    icon: null,
-    value: "38+",
+    icon: "38+",
     title: "Years of Experience",
     subtitle: "Since 1986",
   },
   {
     id: 2,
     icon: "/globalMarketers.png",
-    value: "Global Export Marketers",
     title: "Global Export Marketers",
     subtitle: "Supplying Worldwide",
   },
   {
     id: 3,
     icon: "/advanceMachinery.png",
-    value: "Advanced Machinery",
-    title: "Global Export Marketers",
-    subtitle: "Supplying Worldwide",
+    title: "European Technology",
+    subtitle: "European Technology",
   },
   {
     id: 4,
     icon: "/vertical.png",
-    value: "Vertical Integration",
-    title: "Global Export Marketers",
-    subtitle: "Supplying Worldwide",
+    title: "Vertical",
+    subtitle: "Integrated Production",
   },
 ];
 
@@ -106,10 +101,10 @@ const Hero = () => {
               viewport={{ once: true }}
             >
               <p className="text-lg">
-                A vertically integrated textile mill delivering
-                premium-quality fabrics to global brands
+                A vertically integrated textile mill delivering premium-quality
+                fabrics to global brands
               </p>
-              
+
               <div className="flex flex-col md:flex-row! gap-4 lg:gap-10 mt-7 lg:mt-12 w-full sm:w-auto">
                 <Link
                   href="/our-products"
@@ -141,7 +136,7 @@ const Hero = () => {
                   {index === 0 ? (
                     <div>
                       <p className="text-3xl lg:text-5xl font-bold">
-                        {stat.value}
+                        {stat.icon}
                       </p>
                     </div>
                   ) : (
@@ -155,7 +150,7 @@ const Hero = () => {
                       />
                     </div>
                   )}
-                  
+
                   {/* Stat Label and Subtitle */}
                   <div>
                     <p className="text-xl font-bold whitespace-nowrap">

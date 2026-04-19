@@ -19,10 +19,10 @@ const OurUtilityService = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4! md:px-5 shadow-lg border border-[#D1D5DB] rounded-xl">
+        <div className="grid grid-cols-1 lg:grid-cols-4! md:px-5 shadow-lg border border-bdrGray rounded-xl">
           {OurUtilityServiceData.map((item, index) => (
             <div
-              className={`p-5 ${index !== OurUtilityServiceData.length - 1 && "lg:border-r border-[#D1D5DB]"}`}
+              className={`p-5 ${index !== OurUtilityServiceData.length - 1 && "lg:border-r border-bdrGray"}`}
             >
               <div className="py-5">
                 <div className="w-10 h-10 mb-10">
