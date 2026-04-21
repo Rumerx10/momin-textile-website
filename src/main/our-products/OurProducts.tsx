@@ -2,8 +2,9 @@
 
 import { OurProductsData } from "@/docs/data";
 import { useContext, useEffect } from "react";
-import { HeroContext } from "../context/HeroContext";
-import Image from "next/image";
+import { HeroContext } from "../../context/HeroContext";
+import Link from "next/link";
+import ProductCard from "@/src/components/cards/ProductCard";
 
 const OurProducts = () => {
   const { setTitle } = useContext(HeroContext);
@@ -27,21 +28,9 @@ const OurProducts = () => {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {OurProductsData.map((item, idx) => (
-            <div className="rounded-lg overflow-hidden">
-              <div className="flex h-54">
-                <Image
-                  src={item.img}
-                  alt={item.title}
-                  height={216}
-                  width={369}
-                  className="object-cover h-full w-full"
-                />
-              </div>
-              <div className="py-3 space-y-2">
-                <p className="text-sm text-pGray">{item.category}</p>
-                <h3 className="font-bold text-tBlue text-xl">{item.title}</h3>
-              </div>
-            </div>
+            <Link href={`/our-products/${item.title}`} key={idx}>
+              <ProductCard {...item} />
+            </Link>
           ))}
         </div>
       </div>
