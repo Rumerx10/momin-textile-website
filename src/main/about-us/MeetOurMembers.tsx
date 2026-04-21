@@ -1,10 +1,10 @@
 "use client";
 import { useRef } from "react";
-import Image from "next/image";
 import type { Swiper as SwiperType } from "swiper";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 import GalleryCarousel from "@/src/components/GalleryCarousel";
 import { ImagesData } from "@/docs/data";
+import MeetOurMemberCard from "@/src/components/cards/MeetOurMemberCard";
 
 const MeetOurMembers = () => {
   const swiperRef = useRef<SwiperType | null>(null);
@@ -23,29 +23,8 @@ const MeetOurMembers = () => {
         </div>
 
         <div className="relative w-full flex items-center justify-center">
-          <GalleryCarousel images={ImagesData}>
-            {(item, idx) => (
-              <div key={idx} className="border rounded-lg overflow-hidden">
-                <div className="max-h-54 w-full flex">
-                  <Image
-                    src={item.img}
-                    height={215}
-                    width={369}
-                    alt="member image"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6 space-y-4 flex flex-col">
-                  <div>
-                    <h3 className="font-bold text-lg">{item.title}</h3>
-                    {item.desig && (
-                      <p className="text-sm text-pGray">{item.desig}</p>
-                    )}
-                  </div>
-                  <p className="text-justify grow">{item.desc}</p>
-                </div>
-              </div>
-            )}
+          <GalleryCarousel data={ImagesData}>
+            {(item, idx) => <MeetOurMemberCard key={idx} {...item} />}
           </GalleryCarousel>
 
           {/* Navigation Buttons - Hidden on mobile, visible on desktop */}

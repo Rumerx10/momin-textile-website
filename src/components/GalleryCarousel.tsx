@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { ReactNode, useRef } from "react";
 import type { Swiper as SwiperType } from "swiper";
@@ -7,13 +8,14 @@ import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 
 const GalleryCarousel = ({
   children,
-  images,
+  data,
 }: {
   children: (
-    item: { img: string; title: string; desig?: string; desc: string },
+    // item: { img: string; title: string; desig?: string; desc: string },
+    item: any,
     idx: number,
   ) => ReactNode;
-  images: { img: string; title: string; desc: string }[];
+  data: any;
 }) => {
   const swiperRef = useRef<SwiperType | null>(null);
   return (
@@ -46,15 +48,16 @@ const GalleryCarousel = ({
         }}
         className="w-full"
       >
-        {images.map(
-          (
-            item: { img: string; title: string; desig?: string; desc: string },
-            idx: number,
-          ) => (
-            <SwiperSlide key={idx} className="flex items-center justify-center">
-              {children(item, idx)}
-            </SwiperSlide>
-          ),
+        {data.map(
+          (item: any, idx: number) =>
+            idx < 4 && (
+              <SwiperSlide
+                key={idx}
+                className="flex items-center justify-center"
+              >
+                {children(item, idx)}
+              </SwiperSlide>
+            ),
         )}
       </Swiper>
 

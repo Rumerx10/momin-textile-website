@@ -27,7 +27,7 @@ const VideoContent = () => {
           </div>
         </div>
         <div className="relative w-full flex items-center justify-center">
-          <GalleryCarousel images={ImagesData}>
+          <GalleryCarousel data={ImagesData}>
             {(item, idx) => (
               <div key={idx} className="border rounded-lg overflow-hidden">
                 <div className="relative max-h-54 w-full flex">

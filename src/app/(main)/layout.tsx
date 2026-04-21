@@ -1,9 +1,14 @@
+"use client";
+import HeroProvider from "@/src/context/HeroProvider";
+import { HeroContext } from "@/src/context/HeroContext";
 import Image from "next/image";
-import { ReactNode } from "react";
+import { ReactNode, useContext } from "react";
 
-const layout = ({ children }: { children: ReactNode }) => {
+const LayoutContent = ({ children }: { children: ReactNode }) => {
+  const { title } = useContext(HeroContext);
+
   return (
-    <div className="mt-16">
+    <>
       <div className="relative h-64">
         <Image
           src="/bg1.png"
@@ -15,13 +20,23 @@ const layout = ({ children }: { children: ReactNode }) => {
         <div className="absolute inset-0 bg-black/75 h-full">
           <div className="container px-4 mx-auto text-white h-full flex items-center">
             <h1 className="font-bold text-3xl lg:text-4xl">
-              Weaving Excellence. Delivering Trust. <br /> Let&apos;s Know About
-              Us
+              {title || "Default Title"}
             </h1>
           </div>
         </div>
       </div>
+
       <div>{children}</div>
+    </>
+  );
+};
+
+const layout = ({ children }: { children: ReactNode }) => {
+  return (
+    <div className="mt-16">
+      <HeroProvider>
+        <LayoutContent>{children}</LayoutContent>
+      </HeroProvider>
     </div>
   );
 };

@@ -1,5 +1,8 @@
 @import "tailwindcss";
 @import "swiper/css";
+@import "swiper/css/free-mode";
+@import "swiper/css/navigation";
+@import "swiper/css/thumbs";
 @import "swiper/css/navigation";
 @import "swiper/css/pagination";
 @custom-variant dark (&:is(.dark *));
@@ -28,6 +31,7 @@
 }
 @theme {
   --color-pBlue: #192f55;
+  --color-hBlue: #12223e;
   --color-pGray: #6b7280;
   --color-bgGray: #f9fafb;
   --color-tBlue: #111827;
