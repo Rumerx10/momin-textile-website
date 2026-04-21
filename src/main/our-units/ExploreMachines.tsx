@@ -1,6 +1,4 @@
 "use client";
-import { useRef } from "react";
-import type { Swiper as SwiperType } from "swiper";
 import GalleryCarousel from "@/src/components/GalleryCarousel";
 import MachineCard from "@/src/components/cards/MachineCard";
 import { MachineryData } from "@/docs/data";
@@ -8,9 +6,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const ExploreMachines = () => {
-  const swiperRef = useRef<SwiperType | null>(null);
   const pathname = usePathname();
-  // alert(pathname)
+
   return (
     <div className="container px-4 mx-auto py-16">
       <div className="flex flex-col gap-5 lg:gap-16 items-center justify-center">

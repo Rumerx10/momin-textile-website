@@ -338,3 +338,66 @@ export const MachineryData = [
     productionCapacity: "80,000 MTR/DAY",
   },
 ];
+
+export const OurProductsData = [
+  {
+    category: "Any Construction or GSM",
+    title: "100% Cotton Twill Fabrics",
+    img: "/p1.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "100% Cotton Twill Fabrics",
+    img: "/p2.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "100% Cotton Twill Fabrics",
+    img: "/p3.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "100% Cotton Twill Fabrics",
+    img: "/p4.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "100% Cotton Twill Fabrics",
+    img: "/p5.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "100% Cotton Twill Fabrics",
+    img: "/p6.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "100% Cotton Twill Fabrics",
+    img: "/p7.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "100% Cotton Twill Fabrics",
+    img: "/p8.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "100% Cotton Twill Fabrics",
+    img: "/p9.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "100% Cotton Twill Fabrics",
+    img: "/p10.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "100% Cotton Twill Fabrics",
+    img: "/p11.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "100% Cotton Twill Fabrics",
+    img: "/p12.png",
+  },
+];
