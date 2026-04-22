@@ -19,7 +19,7 @@ const LayoutContent = ({ children }: { children: ReactNode }) => {
         />
         <div className="absolute inset-0 bg-black/75 h-full">
           <div className="container px-4 mx-auto text-white h-full flex items-center">
-            <h1 className="font-bold text-3xl lg:text-4xl">
+            <h1 className="font-bold text-3xl lg:text-4xl max-w-160">
               {title || "Default Title"}
             </h1>
           </div>
