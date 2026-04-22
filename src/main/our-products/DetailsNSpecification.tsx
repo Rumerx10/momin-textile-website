@@ -4,7 +4,7 @@ const DetailsNSpecification = () => {
   const [activeTab, setActiveTab] = useState("details");
 
   return (
-    <div className="py-16">
+    <div className="py-8 md:py-12 lg:py-16">
       <div className="container px-4 mx-auto space-y-6">
         <div className="flex border-b-2 border-bdrGray">
           <div

@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Autoplay, Pagination } from "swiper/modules";
 import LCarousel from "@/src/components/LCarousel";
+import ReadMoreBtn from "@/src/components/ReadMoreBtn";
 
 const AboutUs = () => {
   // Gallery images data
@@ -13,7 +14,7 @@ const AboutUs = () => {
 
   return (
     <div className="relative bg-bgGray">
-      <div className="container px-4 mx-auto py-16">
+      <div className="container px-4 mx-auto py-8 md:py-12 lg:py-16">
         <div className="container flex flex-col items-center gap-10 lg:gap-20 w-full">
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center justify-center lg:justify-between w-full">
             {/* Left Side - Images */}
@@ -56,17 +57,8 @@ const AboutUs = () => {
                 </p>
               </div>
 
-              <div>
-                <Link href="/about-us">
-                  <button
-                    className="flex items-center justify-center 
-                    duration-300 gap-2 hover:gap-5 py-3 rounded-sm text-pViolet
-                    font-medium mt-16 cursor-pointer"
-                  >
-                    <p>Read More Details</p>
-                    <FaArrowRightLong />
-                  </button>
-                </Link>
+              <div className="mt-16">
+                <ReadMoreBtn link="/about-us" />
               </div>
             </motion.div>
           </div>

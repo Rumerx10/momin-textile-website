@@ -3,7 +3,7 @@ import QuickLinks from "@/src/components/QuickLinks";
 
 const AboutUsDescription = () => {
   return (
-    <div className="container px-4 mx-auto py-16">
+    <div className="container px-4 mx-auto py-8 md:py-12 lg:py-16">
       <div className="flex flex-col gap-5 lg:gap-16 items-center justify-center">
         <div className="flex flex-col lg:flex-row gap-10">
           <div className="w-full lg:w-[65%] space-y-10">

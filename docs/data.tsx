@@ -24,7 +24,7 @@ export const NavLinks = [
     label: "Our Services",
     link: "/our-services",
     links: [
-      { label: "General Services", link: "/our-services/general-services" },
+      { label: "General Services", link: "/our-services" },
       {
         label: "ETP Service",
         link: "/our-services/etp-service",
@@ -401,3 +401,99 @@ export const OurProductsData = [
     img: "/p12.png",
   },
 ];
+// docs/data.js
+
+export const OurServicesData = {
+  metadata: {
+    total: 40,
+    itemPerPage: 10,
+    totalPage: 4,
+    currentPage: 1,
+  },
+  data: [
+    {
+      id: 1,
+      img: "/p1.png",
+      title: "Custom Fabric Dyeing & Finishing",
+      desc: "We provide precision dyeing services using advanced European machinery. Every shade is developed with care.",
+    },
+    {
+      id: 2,
+      img: "/p2.png",
+      title: "Fabric Weaving & Production",
+      desc: "Our modern weaving units produce premium woven fabrics for global brands. From yarn to finished fabric",
+    },
+    {
+      id: 3,
+      img: "/p3.png",
+      title: "Pocketing Fabric Manufacturing",
+      desc: "We manufacture high-quality soft fabrics for non-denim pants. Engineered for comfort, durability, and superior finishing.",
+    },
+    {
+      id: 4,
+      img: "/p4.png",
+      title: "Shell Fabric Supply",
+      desc: "Specialized in producing durable and smooth pocketing materials. Custom-made for leading garment manufacturers",
+    },
+    {
+      id: 5,
+      img: "/p5.png",
+      title: "Fabric Finishing & QC",
+      desc: "Our finishing unit ensures every fabric feels and looks perfect. Processes include stentering, calendaring, and soft-touch.",
+    },
+    {
+      id: 6,
+      img: "/p6.png",
+      title: "Research & Development (R&D)",
+      desc: "Our finishing unit ensures every fabric feels and looks perfect. Processes include stentering, calendaring, and soft-touch.",
+    },
+    {
+      id: 7,
+      img: "/p7.png",
+      title: "Sustainable Manufacturing",
+      desc: "We integrate green technologies to minimize waste and energy use. Effluent Treatment Plants ensure environmental responsibility",
+    },
+    {
+      id: 8,
+      img: "/p8.png",
+      title: "Export & Global Distribution",
+      desc: "Momin Textile serves international apparel brands across continents. Our strong logistics network ensures timely delivery",
+    },
+    {
+      id: 9,
+      img: "/p9.png",
+      title: "Advanced Dyeing Technology",
+      desc: "State-of-the-art dyeing machines for consistent and vibrant colors. Eco-friendly processes with minimal environmental impact.",
+    },
+    {
+      id: 10,
+      img: "/p10.png",
+      title: "Premium Fabric Blending",
+      desc: "Expert blending of natural and synthetic fibers for optimal performance. Customized compositions for specific applications.",
+    },
+    {
+      id: 11,
+      img: "/p11.png",
+      title: "Cotton Processing Excellence",
+      desc: "Premium cotton sourcing and processing for superior fabric quality. From raw cotton to finished textiles with precision.",
+    },
+    {
+      id: 12,
+      img: "/p12.png",
+      title: "Specialty Fabric Innovation",
+      desc: "Innovative fabric solutions for unique market demands. Continuous research and development for cutting-edge products.",
+    },
+    {
+      id: 13,
+      img: "/p13.png",
+      title: "Quality Assurance & Testing",
+      desc: "Rigorous quality control measures at every production stage. Advanced testing equipment ensures compliance with standards.",
+    },
+    {
+      id: 14,
+      img: "/p14.png",
+      title: "Customer Support Services",
+      desc: "Dedicated support team for all your textile needs. Quick response times and tailored solutions for every client.",
+    },
+  ],
+};

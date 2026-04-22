@@ -23,7 +23,7 @@ const QualityNSustainability = () => {
       </div>
 
       {/* Content Overlay */}
-      <div className="relative container mx-auto px-4 py-12 md:py-16">
+      <div className="relative container mx-auto px-4 py-8 md:py-12 lg:py-16">
         <div className="flex flex-col gap-8 md:gap-12 lg:gap-16 items-center justify-center">
           {/* Header Section */}
           <div className="space-y-4 text-center text-white">

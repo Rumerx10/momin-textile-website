@@ -3,7 +3,7 @@ import CompanyProfileCard from "@/src/components/CompanyProfileCard";
 import QuickLinks from "@/src/components/QuickLinks";
 import Image from "next/image";
 
-const OurUnitsDescription = () => {
+const ETP = () => {
   return (
     <div className="container px-4 mx-auto py-8 md:py-12 lg:py-16">
       <div className="flex flex-col gap-5 lg:gap-16 items-center justify-center">
@@ -77,4 +77,4 @@ const OurUnitsDescription = () => {
   );
 };
 
-export default OurUnitsDescription;
+export default ETP;

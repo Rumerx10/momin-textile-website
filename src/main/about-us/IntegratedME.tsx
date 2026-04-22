@@ -11,7 +11,7 @@ const ImeData = [
 
 const IntegratedME = () => {
   return (
-    <div className="py-16 bg-bgGray">
+    <div className="py-8 md:py-12 lg:py-16 bg-bgGray">
       <div className="container px-4 mx-auto flex flex-col lg:flex-row! gap-20 items-center justify-center">
         <div className="w-full lg:w-[35%]">
           <LCarousel />

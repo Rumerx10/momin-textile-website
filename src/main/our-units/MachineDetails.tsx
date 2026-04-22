@@ -2,10 +2,8 @@
 import MachineDetailsCarousel from "@/src/components/MachineDetailsCarousel";
 import PriceQuotation from "@/src/components/PriceQuotation";
 import { HeroContext } from "@/src/context/HeroContext";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useContext, useEffect } from "react";
-import { IoMdCall } from "react-icons/io";
 
 const MachineDetails = () => {
   const { setTitle } = useContext(HeroContext);
@@ -14,7 +12,7 @@ const MachineDetails = () => {
     setTitle(pathname.replace(/-/g, " ").toUpperCase());
   }, [setTitle, pathname]);
   return (
-    <div className="py-16">
+    <div className="py-8 md:py-12 lg:py-16">
       <div className="container px-4 mx-auto flex flex-col lg:flex-row gap-16 justify-between">
         <div className="w-full lg:w-[35%]">
           <MachineDetailsCarousel

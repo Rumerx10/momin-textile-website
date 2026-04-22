@@ -15,7 +15,7 @@ const ProductDetails = () => {
   }, [setTitle, pathname]);
   return (
     <div>
-      <div className="py-16">
+      <div className="py-8 md:py-12 lg:py-16">
         <div className="container px-4 mx-auto flex flex-col lg:flex-row gap-16 justify-between">
           <div className="w-full lg:w-[35%]">
             <div className="flex w-full h-130 rounded-lg overflow-hidden">

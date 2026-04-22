@@ -4,7 +4,7 @@ import { OurUtilityServiceData } from "@/docs/data";
 
 const OurUtilityService = () => {
   return (
-    <div className="container px-4 mx-auto py-16">
+    <div className="container px-4 mx-auto py-8 md:py-12 lg:py-16">
       <div className="flex flex-col gap-5 lg:gap-16">
         <div className="space-y-4">
           <h1 className="font-bold text-3xl lg:text-4xl">
