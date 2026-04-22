@@ -10,11 +10,7 @@ const GalleryCarousel = ({
   children,
   data,
 }: {
-  children: (
-    // item: { img: string; title: string; desig?: string; desc: string },
-    item: any,
-    idx: number,
-  ) => ReactNode;
+  children: (item: any, idx: number) => ReactNode;
   data: any;
 }) => {
   const swiperRef = useRef<SwiperType | null>(null);
@@ -48,17 +44,11 @@ const GalleryCarousel = ({
         }}
         className="w-full"
       >
-        {data.map(
-          (item: any, idx: number) =>
-            idx < 4 && (
-              <SwiperSlide
-                key={idx}
-                className="flex items-center justify-center"
-              >
-                {children(item, idx)}
-              </SwiperSlide>
-            ),
-        )}
+        {data.map((item: any, idx: number) => (
+          <SwiperSlide key={idx} className="flex items-center justify-center">
+            {children(item, idx)}
+          </SwiperSlide>
+        ))}
       </Swiper>
 
       {/* Navigation Buttons - Hidden on mobile, visible on desktop */}

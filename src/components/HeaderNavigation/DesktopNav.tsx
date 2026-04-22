@@ -8,7 +8,7 @@ import { IoIosArrowDown } from "react-icons/io";
 
 const DesktopNav = () => {
   const pathname = usePathname();
-  console.log(pathname);
+  // alert(pathname);
 
   return (
     <nav
@@ -29,11 +29,14 @@ const DesktopNav = () => {
 
         <div className="hidden lg:flex items-center gap-4 h-full">
           {NavLinks.map((link, index) => {
+            console.log("Pathname:=====",pathname);
+            console.log("Link.link ====",link.link);
+            // console.log(pathname.startsWith(`${link.link}`));
             const isActive =
               pathname === link.link ||
-              pathname.startsWith(`${link.link}/`) ||
+              pathname.startsWith(`/${link.link}/`) ||
               (pathname === "/" && link.link === "/");
-            // ----- Dropdown for Sister Concerns -----
+            // ----- Dropdown for Sublinks -----
             if (link?.links && link.links.length > 1) {
               return (
                 <div key={index} className="relative group h-full">
@@ -57,7 +60,7 @@ const DesktopNav = () => {
                           className={`w-full font-medium hover:text-white px-4 py-2 whitespace-nowrap text-sm rounded-md
                             ${
                               pathname === sublink.link
-                                ? "bg-white/40"
+                                ? "text-white hover:text-white bg-red"
                                 : "hover:bg-red"
                             }`}
                         >

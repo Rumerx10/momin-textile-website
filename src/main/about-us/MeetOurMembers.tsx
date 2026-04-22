@@ -22,36 +22,9 @@ const MeetOurMembers = () => {
           </div>
         </div>
 
-        <div className="relative w-full flex items-center justify-center">
-          <GalleryCarousel data={ImagesData}>
-            {(item, idx) => <MeetOurMemberCard key={idx} {...item} />}
-          </GalleryCarousel>
-
-          {/* Navigation Buttons - Hidden on mobile, visible on desktop */}
-          <button
-            onClick={() => {
-              if (swiperRef.current) {
-                swiperRef.current.slidePrev();
-              }
-            }}
-            className="absolute left-0 -ml-20 z-10 text-pGray h-11 w-11 bg-white items-center justify-center rounded-sm hover:bg-gray-100 transition-colors md:-ml-16 sm:-ml-12 hidden md:flex"
-            aria-label="Previous slide"
-          >
-            <RiArrowLeftSLine size={24} />
-          </button>
-
-          <button
-            onClick={() => {
-              if (swiperRef.current) {
-                swiperRef.current.slideNext();
-              }
-            }}
-            className="absolute right-0 -mr-20 z-10 text-pGray h-11 w-11 bg-white items-center justify-center rounded-md hover:bg-gray-100 transition-colors md:-mr-16 sm:-mr-12 hidden md:flex"
-            aria-label="Next slide"
-          >
-            <RiArrowRightSLine size={24} />
-          </button>
-        </div>
+        <GalleryCarousel data={ImagesData}>
+          {(item, idx) => <MeetOurMemberCard key={idx} {...item} />}
+        </GalleryCarousel>
       </div>
     </div>
   );
