@@ -125,11 +125,11 @@ const Hero = () => {
 
         {/* Statistics Cards - Overlapping the hero section */}
         <div className="absolute left-0 right-0 px-4 z-20 -bottom-60 md:-bottom-24 lg:-bottom-20">
-          <div className="mx-auto max-w-425 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4! gap-5 p-6 lg:h-40 bg-pBlue rounded-lg">
+          <div className="mx-auto max-w-425 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4! gap-5 p-6 lg:h-40 backdrop-blur-sm bg-pBlue/95 rounded-lg">
             {statisticsData.map((stat, index) => (
               <div
                 key={stat.id}
-                className="flex items-center justify-center gap-10"
+                className="flex items-center lg:justify-center gap-10"
               >
                 <div className="text-white flex gap-5 items-center">
                   {/* Stat Value or Icon */}
