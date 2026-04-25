@@ -6,6 +6,8 @@ import { useState, useEffect, useContext } from "react";
 import { IoMdCall } from "react-icons/io";
 import { HeroContext } from "@/src/context/HeroContext";
 import PriceQuotation from "@/src/components/PriceQuotation";
+import { CorePoints } from "@/docs/data";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 const ServiceDetails = () => {
   const { setTitle } = useContext(HeroContext);
@@ -140,56 +142,14 @@ const ServiceDetails = () => {
             <h2 className="font-bold text-xl md:text-2xl text-pBlue">
               Core Points
             </h2>
-            <div className="space-y-3">
-              <div className="flex gap-3 items-start">
-                <div className="w-2 h-2 bg-pBlue rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-pGray text-sm md:text-base leading-relaxed">
-                  <span className="font-semibold text-pBlue">
-                    Monini Textiles
-                  </span>{" "}
-                  newly installed European dyeing machines incorporate advanced
-                  automation systems that regulate temperature, chemical dosing,
-                  and time cycles with unmatched accuracy.
-                </p>
+            {CorePoints.map((item, idx) => (
+              <div key={idx} className="flex gap-4 items-center">
+                <div className="h-6 w-6 rounded-sm text-white flex items-center justify-center bg-pBlue">
+                  <MdOutlineKeyboardArrowRight size={24} />
+                </div>
+                <p className="text-pGray">{item}</p>
               </div>
-              <div className="flex gap-3 items-start">
-                <div className="w-2 h-2 bg-pBlue rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-pGray text-sm md:text-base leading-relaxed">
-                  <span className="font-semibold text-pBlue">
-                    The dyeing operation
-                  </span>{" "}
-                  project was made possible through collaboration with leading
-                  European machinery suppliers. Alongside technology transfer,
-                  the project included staff training sessions that equipped
-                  employees with specialized technical expertise. This synergy
-                  between global innovation and local skills enables Monini
-                  Textile to maintain a competitive edge and strengthen
-                  Bangladesh's reputation as a global textile hub.
-                </p>
-              </div>
-              <div className="flex gap-3 items-start">
-                <div className="w-2 h-2 bg-pBlue rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-pGray text-sm md:text-base leading-relaxed">
-                  <span className="font-semibold text-pBlue">
-                    The upgraded dyeing unit
-                  </span>{" "}
-                  integrates eco-efficient solutions that reduce energy and
-                  water consumption by up to 30%.
-                </p>
-              </div>
-              <div className="flex gap-3 items-start">
-                <div className="w-2 h-2 bg-pBlue rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-pGray text-sm md:text-base leading-relaxed">
-                  <span className="font-semibold text-pBlue">
-                    This strategic expansion
-                  </span>{" "}
-                  allows Monini Textile to take on larger export orders with
-                  improved turnaround times. Clients can expect higher
-                  consistency, faster color development, and superior quality
-                  control.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 

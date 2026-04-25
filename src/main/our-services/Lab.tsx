@@ -30,12 +30,13 @@ const ETP = () => {
         <div className="flex flex-col gap-5 lg:gap-16 items-center justify-center">
           <div className="space-y-4 text-center">
             <h1 className="font-bold text-3xl lg:text-4xl">
-              Effluent Treatment Plant (ETP)
+              Our Laboratory Services
             </h1>
             <div className="flex justify-center">
               <p className=" text-pGray max-w-210">
-                At Momin Textile Mills Ltd, environmental responsibility is a
-                top priority. Our <br /> modern Effluent Treatment Plant (ETP)
+                Our in-house laboratory is equipped with advanced testing
+                instruments to <br /> ensure every fabric standards of
+                durability, color & accuracy
               </p>
             </div>
           </div>
@@ -44,8 +45,8 @@ const ETP = () => {
               <div className="w-full lg:w-[65%] space-y-10">
                 <div className="flex max-h-100 rounded-lg overflow-hidden">
                   <Image
-                    src="/etp.png"
-                    alt="etp image"
+                    src="/lab.png"
+                    alt="lab image"
                     height={400}
                     width={1920}
                     className="object-cover"
@@ -53,7 +54,7 @@ const ETP = () => {
                 </div>
                 <div className="space-y-4 text-justify">
                   <h1 className="font-bold text-tBlue text-3xl lg:text-4xl">
-                    ECO-Friendly Effluent Treatment Plant (ETP)
+                    Details about Our Laboratory
                   </h1>
                   <p className="text-pGray">
                     Momin Textile Mills Limited is committed to environmental
@@ -102,7 +103,7 @@ const ETP = () => {
           </div>
         </div>
         <ExcellenceSection
-          heading="Effluent Treatment Plant (ETP) Excellence"
+          heading="Lab Excellence"
           description="Momin Textile Mills Ltd provides complete fabric manufacturing services — from spinning and weaving to dyeing and finishing"
           columns={columns}
         />

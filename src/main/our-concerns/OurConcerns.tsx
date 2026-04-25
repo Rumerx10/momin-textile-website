@@ -1,6 +1,8 @@
 "use client";
 
 import OurConcernCard from "@/src/components/cards/OurConcernCard";
+import { HeroContext } from "@/src/context/HeroContext";
+import { useContext, useEffect } from "react";
 
 const OurConcerns = () => {
   const sisterConcerns = [
@@ -26,13 +28,18 @@ const OurConcerns = () => {
     },
   ];
 
+  const { setTitle } = useContext(HeroContext);
+  useEffect(() => {
+    setTitle("Our Concerns");
+  }, [setTitle]);
+
   return (
     <div className="container px-4 mx-auto py-8 md:py-12 lg:py-16">
       <div className="flex flex-col gap-8 lg:gap-12">
         {/* Header Section - Exactly as in your image */}
         <div className="space-y-3 text-center">
-          <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl">
-            Sister Concern of <span className="text-pBlue">Momin Group</span>
+          <h1 className="font-bold text-pBlue text-2xl md:text-3xl lg:text-4xl">
+            Sister Concern ofMomin Group
           </h1>
           <p className="text-pGray text-sm md:text-base max-w-3xl mx-auto">
             MOMIN GROUP, a large contribution in manufacturing and economic

@@ -39,11 +39,11 @@ export const NavLinks = [
     label: "Others",
     link: "/others",
     links: [
-      { label: "News & Events", link: "/others/news-events" },
-      { label: "Career Opportunities", link: "/others/career-opportunities" },
-      { label: "Our Clients", link: "/others/our-clients" },
-      { label: "Quotation Request", link: "/others/quotation-request" },
-      { label: "Foreign Branches", link: "/others/foreign-branches" },
+      { label: "News & Events", link: "/news-events" },
+      { label: "Career Opportunities", link: "/career-opportunities" },
+      { label: "Our Clients", link: "/our-clients" },
+      { label: "Quotation Request", link: "/quotation-request" },
+      { label: "Foreign Branches", link: "/foreign-branches" },
     ],
   },
   { label: "Contact Us", link: "/contact-us" },
@@ -99,12 +99,12 @@ export const FooterLinks = [
   {
     title: "Our Services",
     links: [
-      { label: "General Services", link: "/general-services" },
+      { label: "General Services", link: "/our-services" },
       {
         label: "Effluent Treatment Plant (ETP)",
-        link: "/effluent-treatment-plant",
+        link: "/our-services/etp-service",
       },
-      { label: "Our Lab", link: "/our-lab" },
+      { label: "Our Lab", link: "/our-services/our-laboratory" },
     ],
   },
 ];
@@ -342,66 +342,65 @@ export const MachineryData = [
 export const OurProductsData = [
   {
     category: "Any Construction or GSM",
-    title: "100% Cotton Twill Fabrics",
+    title: "Cotton Twill Fabrics",
     img: "/p1.png",
   },
   {
     category: "Any Construction or GSM",
-    title: "100% Cotton Twill Fabrics",
+    title: "Cotton Canvas Fabrics",
     img: "/p2.png",
   },
   {
     category: "Any Construction or GSM",
-    title: "100% Cotton Twill Fabrics",
+    title: "Cotton Poplin Fabrics",
     img: "/p3.png",
   },
   {
     category: "Any Construction or GSM",
-    title: "100% Cotton Twill Fabrics",
+    title: "Cotton Oxford Fabrics",
     img: "/p4.png",
   },
   {
     category: "Any Construction or GSM",
-    title: "100% Cotton Twill Fabrics",
+    title: "Cotton Denim Fabrics",
     img: "/p5.png",
   },
   {
     category: "Any Construction or GSM",
-    title: "100% Cotton Twill Fabrics",
+    title: "Cotton Linen Fabrics",
     img: "/p6.png",
   },
   {
     category: "Any Construction or GSM",
-    title: "100% Cotton Twill Fabrics",
+    title: "Cotton Jersey Fabrics",
     img: "/p7.png",
   },
   {
     category: "Any Construction or GSM",
-    title: "100% Cotton Twill Fabrics",
+    title: "Cotton Flannel Fabrics",
     img: "/p8.png",
   },
   {
     category: "Any Construction or GSM",
-    title: "100% Cotton Twill Fabrics",
+    title: "Cotton Seersucker Fabrics",
     img: "/p9.png",
   },
   {
     category: "Any Construction or GSM",
-    title: "100% Cotton Twill Fabrics",
+    title: "Cotton Chambray Fabrics",
     img: "/p10.png",
   },
   {
     category: "Any Construction or GSM",
-    title: "100% Cotton Twill Fabrics",
+    title: "Cotton Corduroy Fabrics",
     img: "/p11.png",
   },
   {
     category: "Any Construction or GSM",
-    title: "100% Cotton Twill Fabrics",
+    title: "Cotton Duck Fabrics",
     img: "/p12.png",
   },
 ];
-// docs/data.js
 
 export const OurServicesData = {
   metadata: {
@@ -497,3 +496,10 @@ export const OurServicesData = {
     },
   ],
 };
+
+export const CorePoints = [
+  "Momin Textile’s newly installed European dyeing machines incorporate advanced automation systems that regulate temperature, chemical dosing, and time cycles with unmatched accuracy.",
+  "The dyeing expansion project was made possible through collaboration with leading European machinery suppliers. Alongside technology transfer, the project included staff training sessions that equipped employees with specialized technical expertise. This synergy between global innovation and local skill enables Momin Textile to maintain a competitive edge and strengthen Bangladesh’s reputation as a global textile hub.",
+  "The upgraded dyeing unit integrates eco-efficient solutions that reduce energy and water consumption by up to 30%.",
+  "This strategic expansion allows Momin Textile to take on larger export orders with improved turnaround times. Clients can expect higher consistency, faster color development, and superior quality control.",
+];

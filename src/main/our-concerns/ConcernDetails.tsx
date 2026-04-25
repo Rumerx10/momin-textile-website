@@ -1,11 +1,8 @@
 "use client";
-import { useRef, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
-import type { Swiper as SwiperType } from "swiper";
+import { useState } from "react";
+import SwiperCarousel from "@/src/components/SwiperCarousel";
 
 const ConcernDetails = () => {
-  const swiperRef = useRef<SwiperType>(null);
   const [activeSlide, setActiveSlide] = useState(0);
 
   const slides = [
@@ -78,16 +75,16 @@ const ConcernDetails = () => {
   const currentSlide = slides[activeSlide];
 
   return (
-    <div className="bg-white">
+    <div className="container px-4 mx-auto py-8 md:py-12 lg:py-16 ">
       {/* Carousel Section */}
-      <div className="border-2 border-red-500 flex flex-col lg:flex-row items-stretch lg:max-h-110">
+      <div className="flex flex-col lg:flex-row items-stretch lg:max-h-110">
         {/* Carousel Container */}
-        <div className="flex-1 relative bg-gray-100 min-h-96">
-          Carousel Container
+        <div className="w-full lg:w-1/2 relative bg-gray-100 min-h-96">
+          <SwiperCarousel />
         </div>
 
         {/* Info Panel */}
-        <div className="h-full flex-1 bg-slate-900 text-white p-8 flex flex-col justify-center min-h-96">
+        <div className="w-full lg:w-1/2 h-full bg-slate-900 text-white p-8 flex flex-col justify-center min-h-100">
           <h3 className="text-2xl font-semibold mb-4">
             Momin Textile Mills LTD (Unit-2)
           </h3>
@@ -109,7 +106,7 @@ const ConcernDetails = () => {
       </div>
 
       {/* Content Section */}
-      <div className="container px-4 py-12 mx-auto">
+      <div className="mt-8 md:mt-12 lg:mt-16">
         <h2 className="text-pBlue text-3xl lg:text-4xl font-bold mb-8">
           Momin Textile Mills Ltd is a distinguished name in Bangladesh&apos;s
           thriving textile industry

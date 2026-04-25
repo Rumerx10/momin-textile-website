@@ -8,7 +8,15 @@ import { HeroContext } from "@/src/context/HeroContext";
 import ServiceCard from "@/src/components/cards/ServiceCard";
 import Pagination from "@/src/components/Pagination";
 
-const GeneralServices = () => {
+const GeneralServices = ({
+  title,
+  heroTitle,
+  subTitle,
+}: {
+  title: string;
+  heroTitle?: string;
+  subTitle?: string;
+}) => {
   const { setTitle } = useContext(HeroContext);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -24,8 +32,10 @@ const GeneralServices = () => {
   const currentItems = servicesData.slice(startIndex, endIndex);
 
   useEffect(() => {
-    setTitle("Our Services");
-  }, [setTitle]);
+    {
+      heroTitle ? setTitle(heroTitle) : setTitle(title);
+    }
+  }, [setTitle, heroTitle]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -38,13 +48,11 @@ const GeneralServices = () => {
       <div className="flex flex-col gap-8 lg:gap-16 items-center justify-center">
         <div className="space-y-4 text-center">
           <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl">
-            Our Services
+            {title}
           </h1>
           <div className="flex justify-center">
             <p className="text-pGray max-w-210 text-sm md:text-base px-4">
-              We offer a comprehensive range of textile manufacturing services,
-              including spinning, weaving, dyeing, finishing, and custom fabric
-              development.
+              {subTitle && subTitle}
             </p>
           </div>
         </div>

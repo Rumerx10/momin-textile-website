@@ -27,12 +27,12 @@ const OurConcernCard = ({
           </div>
 
           {/* Title */}
-          <h3 className="font-bold text-xl md:text-2xl text-gray-800">
+          <h3 className="font-bold text-xl md:text-2xl text-pBlue">
             {title}
           </h3>
 
           {/* Description - This will take available space */}
-          <p className="text-pGray text-sm md:text-base leading-relaxed flex-grow">
+          <p className="text-pGray text-sm md:text-base grow">
             {desc}
           </p>
 
