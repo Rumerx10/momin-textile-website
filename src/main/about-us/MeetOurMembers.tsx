@@ -3,7 +3,7 @@ import { useRef } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 import GalleryCarousel from "@/src/components/GalleryCarousel";
-import { ImagesData } from "@/docs/data";
+import { MembersData } from "@/docs/data";
 import MeetOurMemberCard from "@/src/components/cards/MeetOurMemberCard";
 
 const MeetOurMembers = () => {
@@ -22,7 +22,7 @@ const MeetOurMembers = () => {
           </div>
         </div>
 
-        <GalleryCarousel data={ImagesData}>
+        <GalleryCarousel data={MembersData}>
           {(item, idx) => <MeetOurMemberCard key={idx} {...item} />}
         </GalleryCarousel>
       </div>

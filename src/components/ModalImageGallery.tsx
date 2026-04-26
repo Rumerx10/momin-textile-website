@@ -12,7 +12,7 @@ const ModalImageGallery = ({
   setIsModalOpen,
   initialIndex,
 }: {
-  images: { img: string; title: string; desc: string }[];
+  images: any;
   setIsModalOpen: (value: boolean) => void;
   initialIndex: number;
 }) => {
@@ -25,7 +25,7 @@ const ModalImageGallery = ({
       onClick={() => setIsModalOpen(false)}
     >
       <div
-        className="h-[50%] lg:h-[80%]! relative container mx-auto px-4 
+        className="h-[90%] lg:h-[80%] relative container mx-auto px-4 
         flex items-center justify-center"
         onClick={(e) => e.stopPropagation()}
       >
@@ -60,7 +60,7 @@ const ModalImageGallery = ({
                     alt={`Gallery image ${idx + 1}`}
                     height={900}
                     width={1920}
-                    className="w-full h-full object-cover bg-gray-50"
+                    className="w-full h-full object-fill"
                   />
                   <div className="absolute inset-0 duration-300 flex flex-col justify-end text-white">
                     <div className="m-6 p-5 w-[80%] lg:w-1/2 backdrop-blur-lg bg-black/70">

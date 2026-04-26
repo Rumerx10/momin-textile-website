@@ -31,7 +31,7 @@ const statisticsData = [
   {
     id: 3,
     icon: "/advanceMachinery.png",
-    title: "European Technology",
+    title: "Advance Machinery",
     subtitle: "European Technology",
   },
   {

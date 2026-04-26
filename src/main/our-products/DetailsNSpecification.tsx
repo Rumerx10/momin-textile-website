@@ -9,13 +9,13 @@ const DetailsNSpecification = () => {
         <div className="flex border-b-2 border-bdrGray">
           <div
             onClick={() => setActiveTab("details")}
-            className={`font-bold px-8 py-4 bg-pBlue duration-300 ${activeTab == "details" ? "bg-pBlue font-bold text-white" : "text-pGray font-medium bg-white"} cursor-pointer`}
+            className={`shrink-0 px-8 py-4 bg-pBlue ${activeTab == "details" ? "bg-pBlue font-bold text-white" : "text-pGray font-medium bg-white"} cursor-pointer`}
           >
             Details About Product
           </div>
           <div
             onClick={() => setActiveTab("specifications")}
-            className={`px-8 py-4 bg-pBlue duration-300 ${activeTab == "specifications" ? "bg-pBlue font-bold text-white" : "text-pGray font-medium bg-white"} cursor-pointer`}
+            className={`shrink-0 px-8 py-4 bg-pBlue ${activeTab == "specifications" ? "bg-pBlue font-bold text-white" : "text-pGray font-medium bg-white"} cursor-pointer`}
           >
             Specifications
           </div>

@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 import ModalImageGallery from "@/src/components/ModalImageGallery";
+import { GalleryImagesData } from "@/docs/data";
 
 const ImageGallery = () => {
   const swiperRef = useRef<SwiperType | null>(null);
@@ -22,29 +23,6 @@ const ImageGallery = () => {
       document.body.style.overflow = "";
     };
   }, [isModalOpen]);
-
-  const images = [
-    {
-      img: "/gallery1.png",
-      title: "Precision in Every Thread",
-      desc: "Our high-speed automated weaving looms ensure a flawless fabric finish.",
-    },
-    {
-      img: "/gallery2.png",
-      title: "Crafted with Innovation",
-      desc: "We combine advanced machinery with expert craftsmanship to produce premium textiles.",
-    },
-    {
-      img: "/gallery3.png",
-      title: "Engineered for Excellence",
-      desc: "Every fabric undergoes strict quality control to meet global standards.",
-    },
-    {
-      img: "/gallery4.png",
-      title: "Sustainable Production",
-      desc: "Our eco-friendly processes reduce waste while maintaining top-tier quality.",
-    },
-  ];
 
   return (
     <div className="bg-bgGray">
@@ -90,7 +68,7 @@ const ImageGallery = () => {
               }}
               className="w-full"
             >
-              {images.map((item, idx) => (
+              {GalleryImagesData.data.map((item: any, idx: any) => (
                 <SwiperSlide
                   key={idx}
                   className="flex items-center justify-center"
@@ -158,7 +136,7 @@ const ImageGallery = () => {
       </div>
       {isModalOpen && (
         <ModalImageGallery
-          images={images}
+          images={GalleryImagesData}
           setIsModalOpen={setIsModalOpen}
           initialIndex={activeIndex}
         />

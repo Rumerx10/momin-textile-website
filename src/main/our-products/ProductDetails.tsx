@@ -11,7 +11,7 @@ const ProductDetails = () => {
   const { setTitle } = useContext(HeroContext);
   const pathname = usePathname().split("/").pop() || "";
   useEffect(() => {
-    setTitle(pathname.replace(/-/g, " ").toUpperCase());
+    setTitle(decodeURIComponent(pathname).replace(/-/g, " ").toUpperCase());
   }, [setTitle, pathname]);
   return (
     <div>

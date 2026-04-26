@@ -1,14 +1,10 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import { useRef } from "react";
 import type { Swiper as SwiperType } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
-import ModalImageGallery from "@/src/components/ModalImageGallery";
 import GalleryCarousel from "@/src/components/GalleryCarousel";
-import { ImagesData } from "@/docs/data";
-import { FaRegCirclePlay } from "react-icons/fa6";
+import { MembersData } from "@/docs/data";
+import VideoCard from "@/src/components/cards/VideoCard";
 
 const VideoContent = () => {
   const swiperRef = useRef<SwiperType | null>(null);
@@ -27,29 +23,8 @@ const VideoContent = () => {
           </div>
         </div>
         <div className="relative w-full flex items-center justify-center">
-          <GalleryCarousel data={ImagesData}>
-            {(item, idx) => (
-              <div key={idx} className="border rounded-lg overflow-hidden">
-                <div className="relative max-h-54 w-full flex">
-                  <Image
-                    src={item.img}
-                    height={215}
-                    width={369}
-                    alt="member image"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 cursor-pointer bg-black/50 flex items-end">
-                    <div className="text-white px-6 py-4 space-y-1 flex flex-col">
-                      <h3 className="font-bold text-lg">{item.title}</h3>
-                      <p className="line-clamp-1">{item.desc}</p>
-                    </div>
-                    <div className="absolute inset-0 flex items-center justify-center text-white">
-                      <FaRegCirclePlay size={84} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
+          <GalleryCarousel data={MembersData}>
+            {(item, idx) => <VideoCard key={idx} {...item} />}
           </GalleryCarousel>
 
           {/* Navigation Buttons - Hidden on mobile, visible on desktop */}

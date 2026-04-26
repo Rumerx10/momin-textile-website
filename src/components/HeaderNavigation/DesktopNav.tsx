@@ -21,7 +21,7 @@ const DesktopNav = () => {
             <div className="flex items-center gap-2">
               <Image src="/logo.png" alt="logo" height={32} width={32} />
               <h1 className="text-3xl italic font-bold whitespace-nowrap ">
-                Momin Textile Mills LTD
+                Momin Textile Mills Ltd
               </h1>
             </div>
           </Link>

@@ -39,6 +39,7 @@ export const NavLinks = [
     label: "Others",
     link: "/others",
     links: [
+      { label: "Media Gallery", link: "/media-gallery" },
       { label: "News & Events", link: "/news-events" },
       { label: "Career Opportunities", link: "/career-opportunities" },
       { label: "Our Clients", link: "/our-clients" },
@@ -64,9 +65,8 @@ export const FooterLinks = [
     ],
   },
   {
-    title: "Name Sister Concerns",
+    title: "Name of Sister Concerns",
     links: [
-      { label: "All Sister Concerns", link: "/all-sister-concerns" },
       {
         label: "Momin Textile Mills Limited",
         link: "/momin-textile-mills-limited",
@@ -76,11 +76,11 @@ export const FooterLinks = [
         link: "/momin-spinning-mills-limited",
       },
       {
-        label: "Momin Textile Mills LTD (Unit-2)",
+        label: "Momin Textile Mills Ltd (Unit-2)",
         link: "/momin-textile-mills-ltd-unit-2",
       },
       {
-        label: "Mashfir Sino Giant Int. LTD",
+        label: "Mashfir Sino Giant Int. Ltd",
         link: "/mashfir-sino-giant-int-ltd",
       },
       { label: "Sreenagar Textile", link: "/sreenagar-textile" },
@@ -205,7 +205,7 @@ export const CompaniesData = [
   "/company6.png",
 ];
 
-export const ImagesData = [
+export const MembersData = [
   {
     img: "/gallery1.png",
     title: "Farhana Rahman",
@@ -232,6 +232,100 @@ export const ImagesData = [
   },
 ];
 
+export const GalleryImagesData = {
+  metadata: {
+    total: 12,
+    itemPerPage: 8,
+    totalPage: 2,
+    currentPage: 1,
+  },
+  data: [
+    {
+      id: 1,
+      img: "/gallery1.png",
+      title: "Precision in Every Thread",
+      desc: "Our high-speed automated weaving looms ensure a flawless fabric finish.",
+      category: "Spinning Unit",
+    },
+    {
+      id: 2,
+      img: "/gallery2.png",
+      title: "Crafted with Innovation",
+      desc: "We combine advanced machinery with expert craftsmanship to produce premium textiles.",
+      category: "Woven Dyeing & Finishing",
+    },
+    {
+      id: 3,
+      img: "/gallery3.png",
+      title: "Engineered for Excellence",
+      desc: "Every fabric undergoes strict quality control to meet global standards.",
+      category: "Fabric Manufacturing",
+    },
+    {
+      id: 4,
+      img: "/gallery4.png",
+      title: "Sustainable Production",
+      desc: "Our eco-friendly processes reduce waste while maintaining top-tier quality.",
+      category: "Spinning Unit",
+    },
+    {
+      id: 5,
+      img: "/gallery1.png",
+      title: "Advanced Weaving Technology",
+      desc: "State-of-the-art looms producing high-quality fabrics with precision and speed.",
+      category: "Woven Dyeing & Finishing",
+    },
+    {
+      id: 6,
+      img: "/gallery2.png",
+      title: "Quality Control Excellence",
+      desc: "Rigorous testing ensures every meter of fabric meets international standards.",
+      category: "Fabric Manufacturing",
+    },
+    {
+      id: 7,
+      img: "/gallery3.png",
+      title: "Modern Dyeing Facility",
+      desc: "Advanced dyeing units delivering vibrant, long-lasting colors with eco-friendly processes.",
+      category: "Spinning Unit",
+    },
+    {
+      id: 8,
+      img: "/gallery4.png",
+      title: "Research & Development Hub",
+      desc: "Innovation center focused on developing sustainable textile solutions.",
+      category: "Woven Dyeing & Finishing",
+    },
+    {
+      id: 9,
+      img: "/gallery1.png",
+      title: "Skilled Workforce",
+      desc: "Dedicated professionals ensuring excellence at every production stage.",
+      category: "Fabric Manufacturing",
+    },
+    {
+      id: 10,
+      img: "/gallery2.png",
+      title: "Automated Production Line",
+      desc: "Cutting-edge automation for consistent quality and increased efficiency.",
+      category: "Spinning Unit",
+    },
+    {
+      id: 11,
+      img: "/gallery3.png",
+      title: "Eco-Friendly Manufacturing",
+      desc: "Sustainable practices minimizing environmental impact while maximizing quality.",
+      category: "Woven Dyeing & Finishing",
+    },
+    {
+      id: 12,
+      img: "/gallery4.png",
+      title: "Global Export Standards",
+      desc: "Meeting international quality benchmarks for global textile markets.",
+      category: "Fabric Manufacturing",
+    },
+  ],
+};
 export const MachineryData = [
   {
     brand: "TAIZHOU",
@@ -503,3 +597,121 @@ export const CorePoints = [
   "The upgraded dyeing unit integrates eco-efficient solutions that reduce energy and water consumption by up to 30%.",
   "This strategic expansion allows Momin Textile to take on larger export orders with improved turnaround times. Clients can expect higher consistency, faster color development, and superior quality control.",
 ];
+
+// docs/data.js or wherever your VideoGalleryData is located
+
+export const VideoGalleryData = {
+  metadata: {
+    total: 12,
+    itemPerPage: 6,
+    totalPage: 2,
+    currentPage: 1,
+  },
+  data: [
+    {
+      id: 1,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Professional Textile Manufacturing",
+      desc: "Step inside Momin Textile Mills Ltd through our exclusive video gallery. Watch how innovation, precision, and passion come together",
+      coverImg: "/video1.png",
+      category: "Spinning Unit",
+    },
+    {
+      id: 2,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Dyeing & Finishing Process",
+      desc: "Explore our state-of-the-art dyeing and finishing production line with vibrant colors and precision.",
+      coverImg: "/video2.png",
+      category: "Woven Dyeing & Finishing",
+    },
+    {
+      id: 3,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Fabric Manufacturing Excellence",
+      desc: "Witness the complete fabric manufacturing process from raw materials to finished products.",
+      coverImg: "/video3.png",
+      category: "Fabric Manufacturing",
+    },
+    {
+      id: 4,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Innovation in Spinning Unit",
+      desc: "Our advanced spinning unit demonstrates cutting-edge textile technology.",
+      coverImg: "/video1.png",
+      category: "Spinning Unit",
+    },
+    {
+      id: 5,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Precision Dyeing Techniques",
+      desc: "Learn about our precision dyeing techniques that ensure consistent quality.",
+      coverImg: "/video2.png",
+      category: "Woven Dyeing & Finishing",
+    },
+    {
+      id: 6,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Quality Fabric Production",
+      desc: "See how we maintain quality standards throughout the fabric production process.",
+      coverImg: "/video3.png",
+      category: "Fabric Manufacturing",
+    },
+    {
+      id: 7,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Advanced Spinning Methods",
+      desc: "Explore the advanced spinning methods used in our manufacturing process.",
+      coverImg: "/video1.png",
+      category: "Spinning Unit",
+    },
+    {
+      id: 8,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Finishing Excellence",
+      desc: "Discover how we achieve finishing excellence through expert craftsmanship.",
+      coverImg: "/video2.png",
+      category: "Woven Dyeing & Finishing",
+    },
+    {
+      id: 9,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Manufacturing Best Practices",
+      desc: "Learn about our manufacturing best practices and sustainability initiatives.",
+      coverImg: "/video3.png",
+      category: "Fabric Manufacturing",
+    },
+    {
+      id: 10,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Spinning Technology Showcase",
+      desc: "A comprehensive showcase of our spinning technology and capabilities.",
+      coverImg: "/video1.png",
+      category: "Spinning Unit",
+    },
+    {
+      id: 11,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Dyeing Process Overview",
+      desc: "Get an overview of our comprehensive dyeing process and quality control.",
+      coverImg: "/video2.png",
+      category: "Woven Dyeing & Finishing",
+    },
+    {
+      id: 12,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Fabric Production Workflow",
+      desc: "Understand the complete fabric production workflow from start to finish.",
+      coverImg: "/video3.png",
+      category: "Fabric Manufacturing",
+    },
+  ],
+};
+
+export interface VideoItem {
+  id: string | number;
+  videoUrl: string;
+  title: string;
+  desc: string;
+  coverImg: string;
+  category: string;
+}
