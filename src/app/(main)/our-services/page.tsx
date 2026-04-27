@@ -1,4 +1,4 @@
-import GeneralServices from "@/src/main/our-services/GeneralServices";
+import GeneralServices from "@/src/components/main/our-services/GeneralServices";
 
 const page = () => {
   return (

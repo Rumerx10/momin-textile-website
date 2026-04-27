@@ -1,6 +1,6 @@
 "use client";
 import { HeroContext } from "@/src/context/HeroContext";
-import OurUnits from "@/src/main/our-units/OurUnits";
+import OurUnits from "@/src/components/main/our-units/OurUnits";
 import { usePathname } from "next/navigation";
 import { useContext, useEffect } from "react";
 

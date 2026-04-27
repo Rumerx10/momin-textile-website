@@ -1,4 +1,5 @@
-import AboutUs from '@/src/main/about-us/AboutUs';
+import AboutUs from "@/src/components/main/about-us/AboutUs";
+
 
 const page = () => {
   return (

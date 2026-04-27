@@ -1,4 +1,4 @@
-import ETP from "@/src/main/our-services/ETP";
+import ETP from "@/src/components/main/our-services/ETP";
 
 const page = () => {
   return <ETP />;

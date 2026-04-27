@@ -1,4 +1,4 @@
-import OurProducts from "@/src/main/our-products/OurProducts";
+import OurProducts from "@/src/components/main/our-products/OurProducts";
 
 const page = () => {
   return <OurProducts />;

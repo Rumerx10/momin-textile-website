@@ -1,4 +1,4 @@
-import Policy from "@/src/main/policy/Policy";
+import Policy from "@/src/components/main/policy/Policy";
 
 const page = () => {
   const sections = [

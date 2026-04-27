@@ -1,4 +1,4 @@
-import Certifications from "@/src/main/Certifications";
+import Certifications from "@/src/components/main/Certifications";
 
 const page = () => {
   return <Certifications />;

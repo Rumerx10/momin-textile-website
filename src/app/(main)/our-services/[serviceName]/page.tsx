@@ -1,4 +1,4 @@
-import ServiceDetails from "@/src/main/our-services/ServiceDetails";
+import ServiceDetails from "@/src/components/main/our-services/ServiceDetails";
 
 const page = () => {
   return <ServiceDetails />;

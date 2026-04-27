@@ -1,4 +1,4 @@
-import ExploreAllMachines from "@/src/main/our-units/ExploreAllMachines";
+import ExploreAllMachines from "@/src/components/main/our-units/ExploreAllMachines";
 
 const page = () => {
   return <ExploreAllMachines />;

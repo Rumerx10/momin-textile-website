@@ -1,4 +1,4 @@
-import Lab from "@/src/main/our-services/Lab";
+import Lab from "@/src/components/main/our-services/Lab";
 
 const page = () => {
   return <Lab />;
