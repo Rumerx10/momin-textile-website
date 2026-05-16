@@ -1,0 +1,1517 @@
+import {
+  Bell,
+  Edit2,
+  Mail,
+  Phone,
+  Calendar,
+  MapPin,
+  User,
+  MoreVertical,
+  Search,
+  Settings,
+  ChevronRight,
+  Home,
+  Info,
+  Building2,
+  Package,
+  Wrench,
+  AlertCircle,
+  Award,
+  MessageSquare,
+  Menu,
+  X,
+  Newspaper,
+  Users,
+  Globe,
+  FileText,
+  Briefcase,
+} from "lucide-react";
+
+export const NavLinks = [
+  { label: "Home", link: "/" },
+  { label: "About Us", link: "/about-us" },
+  { label: "Our Products", link: "/our-products" },
+  {
+    label: "Our Unit",
+    link: "/our-unit",
+    links: [
+      { label: "Spinning Unit", link: "/our-units/spinning-unit" },
+      {
+        label: "Woven Dyeing & Finishing",
+        link: "/our-units/woven-dyeing-finishing",
+      },
+      {
+        label: "Fabric Manufacturing",
+        link: "/our-units/fabric-manufacturing",
+      },
+    ],
+  },
+
+  { label: "Certifications", link: "/certifications" },
+  { label: "Our Concerns", link: "/our-concerns" },
+  {
+    label: "Our Services",
+    link: "/our-services",
+    links: [
+      { label: "General Services", link: "/our-services" },
+      {
+        label: "ETP Service",
+        link: "/our-services/etp-service",
+      },
+      {
+        label: "Our Laboratory",
+        link: "/our-services/our-laboratory",
+      },
+    ],
+  },
+  {
+    label: "Others",
+    link: "/others",
+    links: [
+      { label: "Media Gallery", link: "/media-gallery" },
+      { label: "News & Events", link: "/news-events" },
+      { label: "Career Opportunities", link: "/career-opportunities" },
+      { label: "Our Clients", link: "/our-clients" },
+      { label: "Quotation Request", link: "/quotation-request" },
+      { label: "Foreign Branches", link: "/foreign-branches" },
+    ],
+  },
+  { label: "Contact Us", link: "/contact-us" },
+];
+
+export const FooterLinks = [
+  {
+    title: "Key Features",
+    links: [
+      { label: "Home", link: "/" },
+      { label: "About Company", link: "/about-company" },
+      { label: "Sister Concerns", link: "/sister-concerns" },
+      { label: "All Products", link: "/all-products" },
+      { label: "All Clients", link: "/all-clients" },
+      { label: "Foreign Branches", link: "/foreign-branches" },
+      { label: "Media gallery", link: "/media-gallery" },
+      { label: "Contact Us", link: "/contact-us" },
+    ],
+  },
+  {
+    title: "Name of Sister Concerns",
+    links: [
+      {
+        label: "Momin Textile Mills Limited",
+        link: "/momin-textile-mills-limited",
+      },
+      {
+        label: "Momin Spinning Mills Limited",
+        link: "/momin-spinning-mills-limited",
+      },
+      {
+        label: "Momin Textile Mills Ltd (Unit-2)",
+        link: "/momin-textile-mills-ltd-unit-2",
+      },
+      {
+        label: "Mashfir Sino Giant Int. Ltd",
+        link: "/mashfir-sino-giant-int-ltd",
+      },
+      { label: "Sreenagar Textile", link: "/sreenagar-textile" },
+    ],
+  },
+  {
+    title: "Legal Articles",
+    links: [
+      { label: "Privacy Policy", link: "/privacy-policy" },
+      { label: "Terms & Conditions", link: "/terms-conditions" },
+      { label: "Cookie Policy", link: "/cookie-policy" },
+      { label: "Data Security Policy", link: "/data-security-policy" },
+      { label: "404 Error", link: "/404" },
+    ],
+  },
+  {
+    title: "Our Services",
+    links: [
+      { label: "General Services", link: "/our-services" },
+      {
+        label: "Effluent Treatment Plant (ETP)",
+        link: "/our-services/etp-service",
+      },
+      { label: "Our Lab", link: "/our-services/our-laboratory" },
+    ],
+  },
+];
+
+export const CoreValuesData = [
+  {
+    img: "/quality.png",
+    title: "Commitment to Quality",
+    desc: "Every process, from yarn selection to final finishing, reflects our dedication to precision, durability, and consistency.",
+  },
+  {
+    img: "/sustainability.png",
+    title: "Sustainability in Every Thread",
+    desc: "Our eco-conscious dyeing systems, efficient water management, and ethical practices make sustainability an integral part of our identity",
+  },
+  {
+    img: "/trust.png",
+    title: "Partnership Built on Trust",
+    desc: "We see every client, vendor, and employee as a long-term partner, working together to create value, deliver excellence",
+  },
+];
+
+export const SisterConcerns = [
+  "Momin Spinning Mills Limited",
+  "Momin Spinning Mills Limited",
+  "Momin Textile Mills Limited(Unit-2)",
+  "Mashfir Sino Giant International LTD",
+  "Masud Textile",
+  "Sreenagar Textile",
+  "Ahnaf Paper Cone Factory",
+];
+
+export const QualityNSustainabilityData = [
+  {
+    img: "/quality2.png",
+    title: "Quality Control",
+    desc: "In Bangladesh power shortage is a big concern, We can use self-power by our OWN GAS  Generator. In Bangladesh power shortage is a big concern, We can use self-power by our OWN GAS  Generator. ",
+  },
+  {
+    img: "/eco.png",
+    title: "Eco-Friendly",
+    desc: "In Bangladesh power shortage is a big concern, We can use self-power by our OWN GAS  Generator. In Bangladesh power shortage is a big concern, We can use self-power by our OWN GAS  Generator. In Bangladesh power shortage is a big concern, We can use self-power by our OWN GAS  Generator. ",
+  },
+  {
+    img: "/certified.png",
+    title: "Certified Standard",
+    desc: "In Bangladesh power shortage is a big concern, We can use self-power by our OWN GAS  Generator.  In Bangladesh power shortage is a big concern, We can use self-power by our OWN GAS  Generator.",
+  },
+];
+
+export const Certifications1 = [
+  "/certificate1.png",
+  "/certificate2.png",
+  "/certificate3.png",
+  "/certificate4.png",
+  "/certificate5.png",
+  "/certificate6.png",
+];
+export const Certifications2 = [
+  "/certificate7.png",
+  "/certificate8.png",
+  "/certificate9.png",
+];
+
+export const OurUtilityServiceData = [
+  {
+    img: "/power.png",
+    title: "Power",
+    subTitle: "Reliable Energy for Seamless Production",
+    desc: "At Momin Textile Mills Ltd, uninterrupted power supply is the backbone of our operations. Our facilities are equipped with dedicated generators and energy-efficient systems.",
+  },
+  {
+    img: "/vehicle.png", // Assuming filename based on content
+    title: "Vehicle",
+    subTitle: "Efficient Transportation, On-Time Delivery",
+    desc: "Our logistics division operates a well-maintained fleet of transport vehicles designed to ensure smooth movement of raw materials and finished fabrics. With an organized scheduling system and professional.",
+  },
+  {
+    img: "/employee.png", // Assuming filename based on content
+    title: "Employee",
+    subTitle: "People Are the Fabric of Our Success",
+    desc: "Behind every meter of fabric we produce stands a dedicated team of professionals skilled engineers, operators, designers, and supervisors all working toward a shared goal of excellence.",
+  },
+  {
+    img: "/training.png", // Assuming filename based on content
+    title: "Training",
+    subTitle: "Empowering People Through Knowledge",
+    desc: "At Momin Textile Mills Ltd, we believe that growth begins with learning. Our training programs are designed to upgrade skills, enhance technical expertise, and promote leadership at every level of the organization.",
+  },
+];
+
+export const CompaniesData = [
+  "/company1.png",
+  "/company2.png",
+  "/company3.png",
+  "/company4.png",
+  "/company5.png",
+  "/company6.png",
+];
+
+export const MembersData = [
+  {
+    img: "/gallery1.png",
+    title: "Farhana Rahman",
+    desig: "HR & Compliance Manager",
+    desc: "Oversees human resource development and compliance, ensuring employee well-being, fair practices, and a safe, ethical work environment.",
+  },
+  {
+    img: "/gallery2.png",
+    title: "Jahidul Karim",
+    desig: "Quality Control Manager",
+    desc: "Leads the QC department with a focus on maintaining fabric excellence, testing accuracy, and product reliability from raw material to final output.",
+  },
+  {
+    img: "/gallery3.png",
+    title: "Engr. Tanvir Ahmed",
+    desig: "Head of Engineering & Maintenance",
+    desc: "Manages financial operations, budgeting, and reporting with accuracy and transparency, supporting the company's strategic financial goals.",
+  },
+  {
+    img: "/gallery4.png",
+    title: "Tahmina Islam",
+    desig: "", // No specific job title listed under name in the image
+    desc: "Collaborates with production and technical teams to research new fabric technologies, color trends, and finishing techniques that meet market demands.",
+  },
+];
+
+export const GalleryImagesData = {
+  metadata: {
+    total: 12,
+    itemPerPage: 8,
+    totalPage: 2,
+    currentPage: 1,
+  },
+  data: [
+    {
+      id: 1,
+      img: "/gallery1.png",
+      title: "Precision in Every Thread",
+      desc: "Our high-speed automated weaving looms ensure a flawless fabric finish.",
+      category: "Spinning Unit",
+    },
+    {
+      id: 2,
+      img: "/gallery2.png",
+      title: "Crafted with Innovation",
+      desc: "We combine advanced machinery with expert craftsmanship to produce premium textiles.",
+      category: "Woven Dyeing & Finishing",
+    },
+    {
+      id: 3,
+      img: "/gallery3.png",
+      title: "Engineered for Excellence",
+      desc: "Every fabric undergoes strict quality control to meet global standards.",
+      category: "Fabric Manufacturing",
+    },
+    {
+      id: 4,
+      img: "/gallery4.png",
+      title: "Sustainable Production",
+      desc: "Our eco-friendly processes reduce waste while maintaining top-tier quality.",
+      category: "Spinning Unit",
+    },
+    {
+      id: 5,
+      img: "/gallery1.png",
+      title: "Advanced Weaving Technology",
+      desc: "State-of-the-art looms producing high-quality fabrics with precision and speed.",
+      category: "Woven Dyeing & Finishing",
+    },
+    {
+      id: 6,
+      img: "/gallery2.png",
+      title: "Quality Control Excellence",
+      desc: "Rigorous testing ensures every meter of fabric meets international standards.",
+      category: "Fabric Manufacturing",
+    },
+    {
+      id: 7,
+      img: "/gallery3.png",
+      title: "Modern Dyeing Facility",
+      desc: "Advanced dyeing units delivering vibrant, long-lasting colors with eco-friendly processes.",
+      category: "Spinning Unit",
+    },
+    {
+      id: 8,
+      img: "/gallery4.png",
+      title: "Research & Development Hub",
+      desc: "Innovation center focused on developing sustainable textile solutions.",
+      category: "Woven Dyeing & Finishing",
+    },
+    {
+      id: 9,
+      img: "/gallery1.png",
+      title: "Skilled Workforce",
+      desc: "Dedicated professionals ensuring excellence at every production stage.",
+      category: "Fabric Manufacturing",
+    },
+    {
+      id: 10,
+      img: "/gallery2.png",
+      title: "Automated Production Line",
+      desc: "Cutting-edge automation for consistent quality and increased efficiency.",
+      category: "Spinning Unit",
+    },
+    {
+      id: 11,
+      img: "/gallery3.png",
+      title: "Eco-Friendly Manufacturing",
+      desc: "Sustainable practices minimizing environmental impact while maximizing quality.",
+      category: "Woven Dyeing & Finishing",
+    },
+    {
+      id: 12,
+      img: "/gallery4.png",
+      title: "Global Export Standards",
+      desc: "Meeting international quality benchmarks for global textile markets.",
+      category: "Fabric Manufacturing",
+    },
+  ],
+};
+export const MachineryData = [
+  {
+    brand: "TAIZHOU",
+    img: "/mac1.png",
+    machineName: "SINGEING MACHINE",
+    origin: "China",
+    totalQuantity: "1 Set",
+    productionCapacity: "80,000 MTR/DAY",
+  },
+  {
+    brand: "MENZEL",
+    img: "/mac2.png",
+    machineName: "Scouring & Bleaching Machine",
+    origin: "Germany",
+    totalQuantity: "1 Set",
+    productionCapacity: "70,000 MTR/DAY",
+  },
+  {
+    brand: "WUXI XINLIAN",
+    img: "/mac3.png",
+    machineName: "MERCERIZE MACHINE",
+    origin: "China",
+    totalQuantity: "10 Set",
+    productionCapacity: "80,000 MTR/DAY",
+  },
+  {
+    brand: "TAIZHOU",
+    img: "/mac4.png",
+    machineName: "Scouring & Bleaching Machine",
+    origin: "China",
+    totalQuantity: "10 Set",
+    productionCapacity: "80,000 MTR/DAY",
+  },
+  {
+    brand: "MENZEL",
+    img: "/mac2.png",
+    machineName: "Scouring & Bleaching Machine",
+    origin: "Germany",
+    totalQuantity: "1 Set",
+    productionCapacity: "70,000 MTR/DAY",
+  },
+  {
+    brand: "WUXI XINLIAN",
+    img: "/mac3.png",
+    machineName: "MERCERIZE MACHINE",
+    origin: "China",
+    totalQuantity: "10 Set",
+    productionCapacity: "80,000 MTR/DAY",
+  },
+  {
+    brand: "TAIZHOU",
+    img: "/mac4.png",
+    machineName: "Scouring & Bleaching Machine",
+    origin: "China",
+    totalQuantity: "10 Set",
+    productionCapacity: "80,000 MTR/DAY",
+  },
+  {
+    brand: "MENZEL",
+    img: "/mac2.png",
+    machineName: "Scouring & Bleaching Machine",
+    origin: "Germany",
+    totalQuantity: "1 Set",
+    productionCapacity: "70,000 MTR/DAY",
+  },
+  {
+    brand: "WUXI XINLIAN",
+    img: "/mac3.png",
+    machineName: "MERCERIZE MACHINE",
+    origin: "China",
+    totalQuantity: "10 Set",
+    productionCapacity: "80,000 MTR/DAY",
+  },
+  {
+    brand: "TAIZHOU",
+    img: "/mac4.png",
+    machineName: "Scouring & Bleaching Machine",
+    origin: "China",
+    totalQuantity: "10 Set",
+    productionCapacity: "80,000 MTR/DAY",
+  },
+  {
+    brand: "MENZEL",
+    img: "/mac2.png",
+    machineName: "Scouring & Bleaching Machine",
+    origin: "Germany",
+    totalQuantity: "1 Set",
+    productionCapacity: "70,000 MTR/DAY",
+  },
+  {
+    brand: "WUXI XINLIAN",
+    img: "/mac3.png",
+    machineName: "MERCERIZE MACHINE",
+    origin: "China",
+    totalQuantity: "10 Set",
+    productionCapacity: "80,000 MTR/DAY",
+  },
+  {
+    brand: "TAIZHOU",
+    img: "/mac4.png",
+    machineName: "Scouring & Bleaching Machine",
+    origin: "China",
+    totalQuantity: "10 Set",
+    productionCapacity: "80,000 MTR/DAY",
+  },
+];
+
+export const OurProductsData = [
+  {
+    category: "Any Construction or GSM",
+    title: "Cotton Twill Fabrics",
+    img: "/p1.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "Cotton Canvas Fabrics",
+    img: "/p2.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "Cotton Poplin Fabrics",
+    img: "/p3.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "Cotton Oxford Fabrics",
+    img: "/p4.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "Cotton Denim Fabrics",
+    img: "/p5.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "Cotton Linen Fabrics",
+    img: "/p6.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "Cotton Jersey Fabrics",
+    img: "/p7.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "Cotton Flannel Fabrics",
+    img: "/p8.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "Cotton Seersucker Fabrics",
+    img: "/p9.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "Cotton Chambray Fabrics",
+    img: "/p10.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "Cotton Corduroy Fabrics",
+    img: "/p11.png",
+  },
+  {
+    category: "Any Construction or GSM",
+    title: "Cotton Duck Fabrics",
+    img: "/p12.png",
+  },
+];
+
+export const OurServicesData = {
+  metadata: {
+    total: 40,
+    itemPerPage: 10,
+    totalPage: 4,
+    currentPage: 1,
+  },
+  data: [
+    {
+      id: 1,
+      img: "/p1.png",
+      title: "Custom Fabric Dyeing & Finishing",
+      desc: "We provide precision dyeing services using advanced European machinery. Every shade is developed with care.",
+    },
+    {
+      id: 2,
+      img: "/p2.png",
+      title: "Fabric Weaving & Production",
+      desc: "Our modern weaving units produce premium woven fabrics for global brands. From yarn to finished fabric",
+    },
+    {
+      id: 3,
+      img: "/p3.png",
+      title: "Pocketing Fabric Manufacturing",
+      desc: "We manufacture high-quality soft fabrics for non-denim pants. Engineered for comfort, durability, and superior finishing.",
+    },
+    {
+      id: 4,
+      img: "/p4.png",
+      title: "Shell Fabric Supply",
+      desc: "Specialized in producing durable and smooth pocketing materials. Custom-made for leading garment manufacturers",
+    },
+    {
+      id: 5,
+      img: "/p5.png",
+      title: "Fabric Finishing & QC",
+      desc: "Our finishing unit ensures every fabric feels and looks perfect. Processes include stentering, calendaring, and soft-touch.",
+    },
+    {
+      id: 6,
+      img: "/p6.png",
+      title: "Research & Development (R&D)",
+      desc: "Our finishing unit ensures every fabric feels and looks perfect. Processes include stentering, calendaring, and soft-touch.",
+    },
+    {
+      id: 7,
+      img: "/p7.png",
+      title: "Sustainable Manufacturing",
+      desc: "We integrate green technologies to minimize waste and energy use. Effluent Treatment Plants ensure environmental responsibility",
+    },
+    {
+      id: 8,
+      img: "/p8.png",
+      title: "Export & Global Distribution",
+      desc: "Momin Textile serves international apparel brands across continents. Our strong logistics network ensures timely delivery",
+    },
+    {
+      id: 9,
+      img: "/p9.png",
+      title: "Advanced Dyeing Technology",
+      desc: "State-of-the-art dyeing machines for consistent and vibrant colors. Eco-friendly processes with minimal environmental impact.",
+    },
+    {
+      id: 10,
+      img: "/p10.png",
+      title: "Premium Fabric Blending",
+      desc: "Expert blending of natural and synthetic fibers for optimal performance. Customized compositions for specific applications.",
+    },
+    {
+      id: 11,
+      img: "/p11.png",
+      title: "Cotton Processing Excellence",
+      desc: "Premium cotton sourcing and processing for superior fabric quality. From raw cotton to finished textiles with precision.",
+    },
+    {
+      id: 12,
+      img: "/p12.png",
+      title: "Specialty Fabric Innovation",
+      desc: "Innovative fabric solutions for unique market demands. Continuous research and development for cutting-edge products.",
+    },
+    {
+      id: 13,
+      img: "/p13.png",
+      title: "Quality Assurance & Testing",
+      desc: "Rigorous quality control measures at every production stage. Advanced testing equipment ensures compliance with standards.",
+    },
+    {
+      id: 14,
+      img: "/p14.png",
+      title: "Customer Support Services",
+      desc: "Dedicated support team for all your textile needs. Quick response times and tailored solutions for every client.",
+    },
+  ],
+};
+
+export const CorePoints = [
+  "Momin Textile’s newly installed European dyeing machines incorporate advanced automation systems that regulate temperature, chemical dosing, and time cycles with unmatched accuracy.",
+  "The dyeing expansion project was made possible through collaboration with leading European machinery suppliers. Alongside technology transfer, the project included staff training sessions that equipped employees with specialized technical expertise. This synergy between global innovation and local skill enables Momin Textile to maintain a competitive edge and strengthen Bangladesh’s reputation as a global textile hub.",
+  "The upgraded dyeing unit integrates eco-efficient solutions that reduce energy and water consumption by up to 30%.",
+  "This strategic expansion allows Momin Textile to take on larger export orders with improved turnaround times. Clients can expect higher consistency, faster color development, and superior quality control.",
+];
+
+// docs/data.js or wherever your VideoGalleryData is located
+
+export const VideoGalleryData = {
+  metadata: {
+    total: 12,
+    itemPerPage: 6,
+    totalPage: 2,
+    currentPage: 1,
+  },
+  data: [
+    {
+      id: 1,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Professional Textile Manufacturing",
+      desc: "Step inside Momin Textile Mills Ltd through our exclusive video gallery. Watch how innovation, precision, and passion come together",
+      coverImg: "/video1.png",
+      category: "Spinning Unit",
+    },
+    {
+      id: 2,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Dyeing & Finishing Process",
+      desc: "Explore our state-of-the-art dyeing and finishing production line with vibrant colors and precision.",
+      coverImg: "/video2.png",
+      category: "Woven Dyeing & Finishing",
+    },
+    {
+      id: 3,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Fabric Manufacturing Excellence",
+      desc: "Witness the complete fabric manufacturing process from raw materials to finished products.",
+      coverImg: "/video3.png",
+      category: "Fabric Manufacturing",
+    },
+    {
+      id: 4,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Innovation in Spinning Unit",
+      desc: "Our advanced spinning unit demonstrates cutting-edge textile technology.",
+      coverImg: "/video1.png",
+      category: "Spinning Unit",
+    },
+    {
+      id: 5,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Precision Dyeing Techniques",
+      desc: "Learn about our precision dyeing techniques that ensure consistent quality.",
+      coverImg: "/video2.png",
+      category: "Woven Dyeing & Finishing",
+    },
+    {
+      id: 6,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Quality Fabric Production",
+      desc: "See how we maintain quality standards throughout the fabric production process.",
+      coverImg: "/video3.png",
+      category: "Fabric Manufacturing",
+    },
+    {
+      id: 7,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Advanced Spinning Methods",
+      desc: "Explore the advanced spinning methods used in our manufacturing process.",
+      coverImg: "/video1.png",
+      category: "Spinning Unit",
+    },
+    {
+      id: 8,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Finishing Excellence",
+      desc: "Discover how we achieve finishing excellence through expert craftsmanship.",
+      coverImg: "/video2.png",
+      category: "Woven Dyeing & Finishing",
+    },
+    {
+      id: 9,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Manufacturing Best Practices",
+      desc: "Learn about our manufacturing best practices and sustainability initiatives.",
+      coverImg: "/video3.png",
+      category: "Fabric Manufacturing",
+    },
+    {
+      id: 10,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Spinning Technology Showcase",
+      desc: "A comprehensive showcase of our spinning technology and capabilities.",
+      coverImg: "/video1.png",
+      category: "Spinning Unit",
+    },
+    {
+      id: 11,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Dyeing Process Overview",
+      desc: "Get an overview of our comprehensive dyeing process and quality control.",
+      coverImg: "/video2.png",
+      category: "Woven Dyeing & Finishing",
+    },
+    {
+      id: 12,
+      videoUrl: "https://www.youtube.com/embed/ik0n6wJmsnA",
+      title: "Fabric Production Workflow",
+      desc: "Understand the complete fabric production workflow from start to finish.",
+      coverImg: "/video3.png",
+      category: "Fabric Manufacturing",
+    },
+  ],
+};
+
+// docs/careerData.js
+export const CareerData = {
+  metadata: {
+    total: 12,
+    itemPerPage: 6,
+    totalPage: 2,
+    currentPage: 1,
+  },
+  data: [
+    {
+      id: 1,
+      title: "Senior Textile Engineer",
+      desc: "We are looking for an experienced textile engineer to lead our production team. The ideal candidate will have expertise in woven fabric manufacturing, quality control, and process optimization.",
+      experience: "5-7 years",
+      joiningDate: "Immediate",
+      validity: "30 May 2026",
+      department: "Production",
+      jobType: "Full Time",
+      location: "Dhaka, Bangladesh",
+      salary: "Negotiable",
+      responsibilities: [
+        "Oversee daily production operations",
+        "Ensure quality standards are met",
+        "Lead process improvement initiatives",
+        "Train and mentor junior engineers",
+        "Coordinate with maintenance team",
+      ],
+      requirements: [
+        "B.Sc in Textile Engineering",
+        "5-7 years of experience in textile manufacturing",
+        "Strong knowledge of woven fabrics",
+        "Excellent leadership skills",
+        "Good communication skills",
+      ],
+      benefits: [
+        "Competitive salary package",
+        "Performance bonus",
+        "Medical insurance",
+        "Transportation facility",
+        "Career growth opportunities",
+      ],
+    },
+    {
+      id: 2,
+      title: "Quality Control Manager",
+      desc: "Seeking a dedicated Quality Control Manager to ensure our fabrics meet international standards. Must have experience with ISO standards and quality management systems.",
+      experience: "8-10 years",
+      joiningDate: "15 June 2026",
+      validity: "15 June 2026",
+      department: "Quality",
+      jobType: "Full Time",
+      location: "Gazipur, Bangladesh",
+      salary: "80,000 - 100,000 BDT",
+      responsibilities: [
+        "Develop and implement quality control procedures",
+        "Conduct regular audits and inspections",
+        "Manage quality assurance team",
+        "Ensure compliance with ISO standards",
+        "Prepare quality reports",
+      ],
+      requirements: [
+        "B.Sc in Textile/Chemical Engineering",
+        "8-10 years of quality control experience",
+        "ISO certification knowledge",
+        "Strong analytical skills",
+        "Attention to detail",
+      ],
+      benefits: [
+        "Attractive salary",
+        "Yearly bonus",
+        "Health insurance",
+        "Provident fund",
+        "Annual leave encashment",
+      ],
+    },
+    {
+      id: 3,
+      title: "Maintenance Engineer",
+      desc: "We need a skilled maintenance engineer to handle our advanced European machinery. Experience with textile machinery maintenance is essential.",
+      experience: "3-5 years",
+      joiningDate: "Immediate",
+      validity: "20 May 2026",
+      department: "Maintenance",
+      jobType: "Full Time",
+      location: "Narayanganj, Bangladesh",
+      salary: "50,000 - 70,000 BDT",
+      responsibilities: [
+        "Perform preventive maintenance",
+        "Troubleshoot machinery issues",
+        "Maintain maintenance records",
+        "Coordinate with production team",
+        "Manage spare parts inventory",
+      ],
+      requirements: [
+        "Diploma/B.Sc in Mechanical Engineering",
+        "3-5 years of maintenance experience",
+        "Knowledge of textile machinery",
+        "Problem-solving skills",
+        "Team player",
+      ],
+      benefits: [
+        "Competitive salary",
+        "Overtime allowance",
+        "Medical facilities",
+        "Provident fund",
+        "Training opportunities",
+      ],
+    },
+    {
+      id: 4,
+      title: "Production Supervisor",
+      desc: "Looking for a motivated production supervisor to manage shift operations and ensure production targets are met efficiently.",
+      experience: "2-4 years",
+      joiningDate: "01 July 2026",
+      validity: "30 June 2026",
+      department: "Production",
+      jobType: "Full Time",
+      location: "Dhaka, Bangladesh",
+      salary: "35,000 - 45,000 BDT",
+      responsibilities: [
+        "Supervise shift production activities",
+        "Monitor machine performance",
+        "Ensure safety compliance",
+        "Maintain production records",
+        "Coordinate with quality team",
+      ],
+      requirements: [
+        "Diploma in Textile Engineering",
+        "2-4 years of supervisory experience",
+        "Good communication skills",
+        "Leadership abilities",
+        "Basic computer knowledge",
+      ],
+      benefits: [
+        "Salary review yearly",
+        "Performance bonus",
+        "Leave benefits",
+        "Uniform allowance",
+        "OT facilities",
+      ],
+    },
+    {
+      id: 5,
+      title: "Colorist - Dyeing Department",
+      desc: "Experienced colorist needed for our advanced dyeing unit. Must have expertise in color matching and dyeing processes.",
+      experience: "4-6 years",
+      joiningDate: "Immediate",
+      validity: "25 May 2026",
+      department: "Dyeing",
+      jobType: "Full Time",
+      location: "Gazipur, Bangladesh",
+      salary: "60,000 - 80,000 BDT",
+      responsibilities: [
+        "Develop color formulations",
+        "Ensure color consistency",
+        "Maintain dyeing recipes",
+        "Troubleshoot color issues",
+        "Coordinate with lab team",
+      ],
+      requirements: [
+        "B.Sc in Textile/Chemical Engineering",
+        "4-6 years of color matching experience",
+        "Knowledge of dyeing software",
+        "Excellent color vision",
+        "Attention to detail",
+      ],
+      benefits: [
+        "High competitive salary",
+        "Annual bonus",
+        "Medical coverage",
+        "Transportation",
+        "Career development",
+      ],
+    },
+    {
+      id: 6,
+      title: "HR Executive",
+      desc: "We are hiring an HR Executive to manage recruitment, employee relations, and HR operations at our factory.",
+      experience: "2-3 years",
+      joiningDate: "10 June 2026",
+      validity: "10 June 2026",
+      department: "HR",
+      jobType: "Full Time",
+      location: "Dhaka, Bangladesh",
+      salary: "30,000 - 40,000 BDT",
+      responsibilities: [
+        "Manage recruitment process",
+        "Handle employee grievances",
+        "Maintain HR records",
+        "Coordinate training programs",
+        "Assist in payroll processing",
+      ],
+      requirements: [
+        "BBA/MBA in HRM",
+        "2-3 years of HR experience",
+        "Good interpersonal skills",
+        "Knowledge of labor law",
+        "Proficient in MS Office",
+      ],
+      benefits: [
+        "Weekly 2 holidays",
+        "Performance bonus",
+        "Festival bonus",
+        "Provident fund",
+        "Lunch facility",
+      ],
+    },
+    {
+      id: 7,
+      title: "Supply Chain Coordinator",
+      desc: "Seeking a supply chain coordinator to manage raw material procurement and logistics operations.",
+      experience: "3-5 years",
+      joiningDate: "Immediate",
+      validity: "15 May 2026",
+      department: "Supply Chain",
+      jobType: "Full Time",
+      location: "Chattogram, Bangladesh",
+      salary: "45,000 - 60,000 BDT",
+      responsibilities: [
+        "Coordinate procurement activities",
+        "Manage supplier relationships",
+        "Monitor inventory levels",
+        "Handle logistics operations",
+        "Prepare supply chain reports",
+      ],
+      requirements: [
+        "BBA/ MBA in Supply Chain",
+        "3-5 years of relevant experience",
+        "Strong negotiation skills",
+        "Good communication skills",
+        "ERP knowledge",
+      ],
+      benefits: [
+        "Attractive salary",
+        "Mobile allowance",
+        "Medical insurance",
+        "Annual increment",
+        "Bonuses",
+      ],
+    },
+    {
+      id: 8,
+      title: "Junior Merchandiser",
+      desc: "Looking for a junior merchandiser to handle buyer communications and order processing for export orders.",
+      experience: "1-2 years",
+      joiningDate: "Immediate",
+      validity: "30 May 2026",
+      department: "Merchandising",
+      jobType: "Full Time",
+      location: "Dhaka, Bangladesh",
+      salary: "25,000 - 35,000 BDT",
+      responsibilities: [
+        "Communicate with buyers",
+        "Process purchase orders",
+        "Coordinate with production team",
+        "Track order status",
+        "Prepare shipping documents",
+      ],
+      requirements: [
+        "B.Sc in Textile Engineering",
+        "1-2 years of merchandising experience",
+        "Good English communication",
+        "Computer proficiency",
+        "Detail-oriented",
+      ],
+      benefits: [
+        "Weekly 2 holidays",
+        "Performance bonus",
+        "Festival bonus",
+        "Leave encashment",
+        "Career growth",
+      ],
+    },
+    {
+      id: 9,
+      title: "Electrical Engineer",
+      desc: "We need an electrical engineer to maintain and troubleshoot electrical systems in our manufacturing facility.",
+      experience: "3-5 years",
+      joiningDate: "01 July 2026",
+      validity: "25 June 2026",
+      department: "Maintenance",
+      jobType: "Full Time",
+      location: "Narayanganj, Bangladesh",
+      salary: "55,000 - 75,000 BDT",
+      responsibilities: [
+        "Maintain electrical systems",
+        "Troubleshoot electrical faults",
+        "Ensure safety compliance",
+        "Manage electrical projects",
+        "Coordinate with production",
+      ],
+      requirements: [
+        "B.Sc in Electrical Engineering",
+        "3-5 years of industrial experience",
+        "Knowledge of PLC and automation",
+        "Problem-solving skills",
+        "Safety certification preferred",
+      ],
+      benefits: [
+        "Competitive salary",
+        "House rent allowance",
+        "Medical facilities",
+        "OT allowance",
+        "Training programs",
+      ],
+    },
+    {
+      id: 10,
+      title: "Store Officer",
+      desc: "Hiring a store officer to manage inventory, maintain records, and ensure proper material handling.",
+      experience: "2-4 years",
+      joiningDate: "Immediate",
+      validity: "20 May 2026",
+      department: "Store",
+      jobType: "Full Time",
+      location: "Gazipur, Bangladesh",
+      salary: "28,000 - 35,000 BDT",
+      responsibilities: [
+        "Manage store operations",
+        "Maintain inventory records",
+        "Coordinate with purchase department",
+        "Ensure proper material storage",
+        "Conduct stock audits",
+      ],
+      requirements: [
+        "Graduate in any discipline",
+        "2-4 years of store management experience",
+        "Computer proficiency",
+        "Good organizational skills",
+        "ERP knowledge",
+      ],
+      benefits: [
+        "Salary review",
+        "Performance bonus",
+        "Leave benefits",
+        "Uniform",
+        "OT facilities",
+      ],
+    },
+    {
+      id: 11,
+      title: "Chemical Engineer - ETP",
+      desc: "Experienced chemical engineer needed for our Effluent Treatment Plant to ensure environmental compliance.",
+      experience: "3-6 years",
+      joiningDate: "15 June 2026",
+      validity: "10 June 2026",
+      department: "Environment",
+      jobType: "Full Time",
+      location: "Dhaka, Bangladesh",
+      salary: "65,000 - 85,000 BDT",
+      responsibilities: [
+        "Monitor ETP operations",
+        "Ensure environmental compliance",
+        "Conduct water quality tests",
+        "Maintain treatment records",
+        "Implement improvement projects",
+      ],
+      requirements: [
+        "B.Sc in Chemical Engineering",
+        "3-6 years of ETP experience",
+        "Knowledge of environmental regulations",
+        "Analytical skills",
+        "Report writing ability",
+      ],
+      benefits: [
+        "Attractive package",
+        "Performance bonus",
+        "Health insurance",
+        "Transportation",
+        "Provident fund",
+      ],
+    },
+    {
+      id: 12,
+      title: "IT Support Specialist",
+      desc: "Looking for an IT specialist to manage our network, hardware, and software systems.",
+      experience: "2-4 years",
+      joiningDate: "Immediate",
+      validity: "30 May 2026",
+      department: "IT",
+      jobType: "Full Time",
+      location: "Dhaka, Bangladesh",
+      salary: "35,000 - 45,000 BDT",
+      responsibilities: [
+        "Manage network infrastructure",
+        "Provide technical support",
+        "Maintain hardware and software",
+        "Ensure data security",
+        "Train users on systems",
+      ],
+      requirements: [
+        "B.Sc in CSE/IT",
+        "2-4 years of IT support experience",
+        "Knowledge of networking",
+        "Problem-solving skills",
+        "Good communication",
+      ],
+      benefits: [
+        "Weekly 2 holidays",
+        "Festival bonus",
+        "Medical coverage",
+        "Internet allowance",
+        "Career growth",
+      ],
+    },
+  ],
+};
+
+// docs/ourClientsData.js
+export const OurClientsData = {
+  metadata: {
+    total: 18,
+    itemPerPage: 18,
+    totalPage: 1,
+    currentPage: 1,
+  },
+  data: [
+    {
+      id: 1,
+      name: "H&M Group",
+      img: "/client1.png",
+      country: "Sweden",
+      description: "Leading global fashion retailer",
+    },
+    {
+      id: 2,
+      name: "Zara (Inditex)",
+      img: "/client2.png",
+      country: "Spain",
+      description: "World's largest fast-fashion retailer",
+    },
+    {
+      id: 3,
+      name: "Nike Inc.",
+      img: "/client3.png",
+      country: "USA",
+      description: "Global sportswear manufacturer",
+    },
+    {
+      id: 4,
+      name: "Adidas",
+      img: "/client4.png",
+      country: "Germany",
+      description: "Multinational sportswear giant",
+    },
+    {
+      id: 5,
+      name: "Uniqlo",
+      img: "/client5.png",
+      country: "Japan",
+      description: "Japanese casual wear brand",
+    },
+    {
+      id: 6,
+      name: "Gap Inc.",
+      img: "/client6.png",
+      country: "USA",
+      description: "American clothing and accessories retailer",
+    },
+    {
+      id: 7,
+      name: "Levi Strauss & Co.",
+      img: "/client7.png",
+      country: "USA",
+      description: "Iconic denim and apparel company",
+    },
+    {
+      id: 8,
+      name: "Puma SE",
+      img: "/client8.png",
+      country: "Germany",
+      description: "German multinational sportswear brand",
+    },
+    {
+      id: 9,
+      name: "Target Corporation",
+      img: "/client9.png",
+      country: "USA",
+      description: "American retail corporation",
+    },
+    {
+      id: 10,
+      name: "Walmart",
+      img: "/client10.png",
+      country: "USA",
+      description: "American multinational retail corporation",
+    },
+    {
+      id: 11,
+      name: "Marks & Spencer",
+      img: "/client11.png",
+      country: "UK",
+      description: "British multinational retailer",
+    },
+    {
+      id: 12,
+      name: "C&A",
+      img: "/client12.png",
+      country: "Netherlands",
+      description: "Dutch multinational clothing retailer",
+    },
+    {
+      id: 13,
+      name: "Lululemon Athletica",
+      img: "/client13.png",
+      country: "Canada",
+      description: "Canadian athletic apparel company",
+    },
+    {
+      id: 14,
+      name: "Under Armour",
+      img: "/client14.png",
+      country: "USA",
+      description: "American sports equipment company",
+    },
+    {
+      id: 15,
+      name: "Tommy Hilfiger",
+      img: "/client15.png",
+      country: "USA",
+      description: "American premium lifestyle brand",
+    },
+    {
+      id: 16,
+      name: "Calvin Klein",
+      img: "/client16.png",
+      country: "USA",
+      description: "American fashion house",
+    },
+    {
+      id: 17,
+      name: "Primark",
+      img: "/client17.png",
+      country: "Ireland",
+      description: "Irish fast-fashion retailer",
+    },
+    {
+      id: 18,
+      name: "Decathlon",
+      img: "/client18.png",
+      country: "France",
+      description: "French sporting goods retailer",
+    },
+  ],
+};
+
+// docs/officeData.js
+
+export const OfficeData = {
+  metadata: {
+    total: 6,
+    itemPerPage: 6,
+    totalPage: 1,
+    currentPage: 1,
+  },
+  data: [
+    {
+      id: 1,
+      name: "Office Address (BD)",
+      type: "Corporate Office",
+      address:
+        "GQ Shefali Tower, House-5/A (Level-9), Road-02, Sector-03, Uttara, Dhaka.",
+      phones: ["+88-01619 777333"],
+      emails: ["masud@momingroupbd.com"],
+      mapLink: "https://maps.app.goo.gl/dH1jLemX4qtYaocQ8",
+      isMainOffice: true,
+    },
+    {
+      id: 2,
+      name: "Factory 1",
+      type: "Manufacturing Unit",
+      address: "Chowala I/A, Narsingdi Sadar, Narsingdi-1600, Bangladesh.",
+      phones: ["+880-02-9463239", "+88-02-9464245", "9463239"],
+      emails: ["factory@momingroupbd.com"],
+      mapLink: "https://maps.app.goo.gl/osKw1ZU1WfT5qg689",
+      isMainOffice: false,
+    },
+    {
+      id: 3,
+      name: "Factory 2",
+      type: "Manufacturing Unit",
+      address: "Baghata, Narsingdi Sadar, Narsingdi-1600, Bangladesh.",
+      phones: ["+88-02-9464245"],
+      emails: ["factory@momingroupbd.com"],
+      mapLink: "https://maps.app.goo.gl/osKw1ZU1WfT5qg689",
+      isMainOffice: false,
+    },
+    {
+      id: 4,
+      name: "Office Address (BD)",
+      type: "Corporate Office",
+      address:
+        "GQ Shefali Tower, House-5/A (Level-9), Road-02, Sector-03, Uttara, Dhaka.",
+      phones: ["+88-01619 777333"],
+      emails: ["masud@momingroupbd.com"],
+      mapLink: "https://maps.app.goo.gl/osKw1ZU1WfT5qg689",
+      isMainOffice: true,
+    },
+    {
+      id: 5,
+      name: "Factory 2",
+      type: "Manufacturing Unit",
+      address: "Baghata, Narsingdi Sadar, Narsingdi-1600, Bangladesh.",
+      phones: ["+88-02-9464245"],
+      emails: ["factory@momingroupbd.com"],
+      mapLink: "https://maps.app.goo.gl/osKw1ZU1WfT5qg689",
+      isMainOffice: false,
+    },
+    {
+      id: 6,
+      name: "Office Address (BD)",
+      type: "Corporate Office",
+      address:
+        "GQ Shefali Tower, House-5/A (Level-9), Road-02, Sector-03, Uttara, Dhaka.",
+      phones: ["+88-01619 777333"],
+      emails: ["masud@momingroupbd.com"],
+      mapLink: "https://maps.app.goo.gl/osKw1ZU1WfT5qg689",
+      isMainOffice: false,
+    },
+  ],
+};
+
+export interface InfoItem {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+}
+
+export const officialInfo: InfoItem[] = [
+  { icon: <User className="w-5 h-5" />, label: "User ID", value: "UX-125003" },
+  {
+    icon: <Mail className="w-5 h-5" />,
+    label: "Personal Mail Address",
+    value: "shakilahmed@atilimited.net",
+  },
+  {
+    icon: <Phone className="w-5 h-5" />,
+    label: "Personal Phone Number",
+    value: "+88016 20134121",
+  },
+  {
+    icon: <Briefcase className="w-5 h-5" />,
+    label: "Blood Group",
+    value: "B+(Positive)",
+  },
+  {
+    icon: <Calendar className="w-5 h-5" />,
+    label: "Date of Birth",
+    value: "31 December 1994",
+  },
+  {
+    icon: <Briefcase className="w-5 h-5" />,
+    label: "Department",
+    value: "UI/UX Department",
+  },
+];
+export const personalInfo: InfoItem[] = [
+  {
+    icon: <User className="w-5 h-5" />,
+    label: "Full Name",
+    value: "Shakil Ahmed",
+  },
+  {
+    icon: <Mail className="w-5 h-5" />,
+    label: "Personal Mail Address",
+    value: "shakilahmed@atilimited.net",
+  },
+  {
+    icon: <Phone className="w-5 h-5" />,
+    label: "Personal Phone Number",
+    value: "+88016 20134121",
+  },
+  {
+    icon: <Calendar className="w-5 h-5" />,
+    label: "Date of Birth",
+    value: "02 February 1995",
+  },
+  {
+    icon: <MapPin className="w-5 h-5" />,
+    label: "Present Address",
+    value: "Uttara Dhaka Bangladesh",
+  },
+  {
+    icon: <MapPin className="w-5 h-5" />,
+    label: "Present Address",
+    value: "Uttara Dhaka Bangladesh",
+  },
+];
+
+export const contentMenuItems = [
+  {
+    icon: Home, // No < > brackets, no className
+    label: "Home",
+    href: "/dashboard/home",
+  },
+  {
+    icon: Info,
+    label: "About Us",
+    href: "/dashboard/about-us",
+  },
+  {
+    icon: Building2,
+    label: "Company Profile",
+    href: "/dashboard/company-profile",
+  },
+  {
+    icon: Package,
+    label: "Our Units",
+    href: "/dashboard/our-units",
+  },
+  {
+    icon: Package,
+    label: "Our Products",
+    href: "/dashboard/our-products",
+  },
+  {
+    icon: Wrench,
+    label: "Our Services",
+    href: "/dashboard/our-services",
+  },
+  {
+    icon: AlertCircle,
+    label: "Our Concerns",
+    href: "/dashboard/our-concerns",
+  },
+  {
+    icon: Award,
+    label: "Certifications",
+    href: "/dashboard/certifications",
+  },
+  {
+    icon: MessageSquare,
+    label: "Contact Us",
+    href: "/dashboard/contact-us",
+  },
+];
+
+export const sidebarConfig = [
+  {
+    title: "Query Section",
+    items: [
+      { icon: Home, label: "Dashboard", href: "/dashboard" },
+      {
+        icon: FileText,
+        label: "Quotation Request",
+        href: "/dashboard/quotation-request",
+      },
+      {
+        icon: Globe,
+        label: "Foreign Branches",
+        href: "/dashboard/foreign-branches",
+      },
+      {
+        icon: MessageSquare,
+        label: "Contact & Support",
+        href: "/dashboard/support",
+      },
+    ],
+  },
+  {
+    title: "Utility Section",
+    items: [
+      { icon: Settings, label: "Machines", href: "/dashboard/machines" },
+      { icon: Briefcase, label: "Media", href: "/dashboard/media" },
+      { icon: Newspaper, label: "News & Events", href: "/dashboard/news" },
+      { icon: Briefcase, label: "Career", href: "/dashboard/career" },
+      { icon: Users, label: "Our Clients", href: "/dashboard/clients" },
+    ],
+  },
+];
+
+export interface VideoItem {
+  id: string | number;
+  videoUrl: string;
+  title: string;
+  desc: string;
+  coverImg: string;
+  category: string;
+}
