@@ -53,15 +53,25 @@ const DashboardDataTable = <T,>({
   const { metadata, data } = apiResponse;
 
   // Use internal state if external not provided, otherwise use external
-  const [internalCurrentPage, setInternalCurrentPage] = useState(metadata.currentPage);
-  const [internalItemsPerPage, setInternalItemsPerPage] = useState(metadata.itemsPerPage);
+  const [internalCurrentPage, setInternalCurrentPage] = useState(
+    metadata.currentPage,
+  );
+  const [internalItemsPerPage, setInternalItemsPerPage] = useState(
+    metadata.itemsPerPage,
+  );
   const [globalFilter, setGlobalFilter] = useState("");
 
-  const currentPage = externalCurrentPage !== undefined ? externalCurrentPage : internalCurrentPage;
+  const currentPage =
+    externalCurrentPage !== undefined
+      ? externalCurrentPage
+      : internalCurrentPage;
   const setCurrentPage = externalSetCurrentPage || setInternalCurrentPage;
-  const itemsPerPage = externalItemsPerPage !== undefined ? externalItemsPerPage : internalItemsPerPage;
+  const itemsPerPage =
+    externalItemsPerPage !== undefined
+      ? externalItemsPerPage
+      : internalItemsPerPage;
   const setItemsPerPage = externalSetItemsPerPage || setInternalItemsPerPage;
-  
+
   const totalPages = metadata.totalPages;
 
   // Handle page change
@@ -95,7 +105,7 @@ const DashboardDataTable = <T,>({
 
     return data.filter((row: any) => {
       return Object.values(row).some((value) =>
-        String(value).toLowerCase().includes(globalFilter.toLowerCase())
+        String(value).toLowerCase().includes(globalFilter.toLowerCase()),
       );
     });
   }, [data, globalFilter, onSearch]);
@@ -146,7 +156,7 @@ const DashboardDataTable = <T,>({
                 {pathname === "/dashboard" && (
                   <Link
                     href="/dashboard/quotation-request"
-                    className="flex items-center justify-center bg-pBlue px-7 rounded-sm h-full text-white font-medium hover:bg-pBlue/90 transition-colors"
+                    className="whitespace-nowrap flex items-center justify-center bg-pBlue px-7 rounded-sm h-full text-white font-medium hover:bg-pBlue/90 transition-colors"
                   >
                     See All Request
                   </Link>
@@ -162,11 +172,14 @@ const DashboardDataTable = <T,>({
         {/* Data Table */}
         {!isLoading && (
           <>
-            <div className="overflow-x-auto scrollbar-modern">
-              <table className="w-full">
+            <div className="overflow-x-auto! scrollbar-modern">
+              <table className="w-full overflow-x-auto! scrollbar-modern border-2 border-red">
                 <thead>
                   {table.getHeaderGroups().map((headerGroup) => (
-                    <tr key={headerGroup.id} className="bg-bgGray text-bdrGray2">
+                    <tr
+                      key={headerGroup.id}
+                      className="bg-bgGray text-bdrGray2"
+                    >
                       {headerGroup.headers.map((header) => (
                         <th
                           key={header.id}
@@ -176,7 +189,7 @@ const DashboardDataTable = <T,>({
                             ? null
                             : flexRender(
                                 header.column.columnDef.header,
-                                header.getContext()
+                                header.getContext(),
                               )}
                         </th>
                       ))}
@@ -198,7 +211,7 @@ const DashboardDataTable = <T,>({
                         >
                           {flexRender(
                             cell.column.columnDef.cell,
-                            cell.getContext()
+                            cell.getContext(),
                           )}
                         </td>
                       ))}
@@ -213,7 +226,6 @@ const DashboardDataTable = <T,>({
                 </div>
               )}
             </div>
-
             {/* Pagination */}
             {showPagination && (
               <Pagination

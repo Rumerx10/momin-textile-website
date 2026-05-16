@@ -1,6 +1,6 @@
+// components/dashboard/DashboardQuickAnalysis.jsx (already good, but ensure container)
 "use client";
 import { useState } from "react";
-
 import {
   HiOutlineOfficeBuilding,
   HiOutlineDocumentText,
@@ -61,19 +61,19 @@ const DashboardQuickAnalysis = () => {
   ];
 
   return (
-    <div className="p-6 w-full border rounded-lg bg-white">
-      <div className="flex flex-col gap-6 md:gap-8">
+    <div className="w-full bg-white rounded-xl border shadow-sm p-4 sm:p-6">
+      <div className="flex flex-col gap-5 md:gap-6">
         {/* Header Section */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <h4 className="font-semibold text-pBlue text-2xl">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <h4 className="font-semibold text-pBlue text-lg sm:text-xl lg:text-2xl">
             Dashboard Quick Analysis
           </h4>
 
           {/* Dropdown Filter */}
           <div className="relative">
             <button
-              className="flex w-full min-w-40 items-center justify-between gap-2 px-4 py-2 border border-gray-300 
-              rounded-lg bg-white text-pGray text-sm md:text-base hover:shadow hover:text-pBlue transition-all duration-300"
+              className="flex w-full sm:w-48 items-center justify-between gap-2 px-4 py-2 border border-gray-300 
+                rounded-lg bg-white text-pGray text-sm hover:shadow hover:text-pBlue transition-all duration-300"
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
               {selectedPeriod}
@@ -84,7 +84,7 @@ const DashboardQuickAnalysis = () => {
             </button>
 
             {isDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-10 overflow-hidden">
+              <div className="absolute right-0 mt-2 w-full sm:w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-10 overflow-hidden">
                 {periods.map((period) => (
                   <button
                     key={period}
@@ -104,34 +104,29 @@ const DashboardQuickAnalysis = () => {
           </div>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+        {/* Stats Grid - Responsive */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {stats.map((stat) => {
             const Icon = stat.icon;
             return (
               <div
                 key={stat.id}
-                className="group border bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1"
+                className="group w-full bg-white rounded-xl border shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="p-5 md:p-6">
-                  {/* Icon and Value Row */}
-                  <div className="flex items-start justify-between mb-4">
+                <div className="p-4 sm:p-5">
+                  <div className="flex items-start justify-between mb-3">
                     <div
-                      className={`p-3 rounded-xl ${stat.bgColor} group-hover:scale-110 transition-transform duration-300`}
+                      className={`p-2.5 rounded-xl ${stat.bgColor} group-hover:scale-110 transition-transform duration-300`}
                     >
-                      <Icon className={`w-6 h-6 ${stat.iconColor}`} />
+                      <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${stat.iconColor}`} />
                     </div>
-                    <span className="text-2xl md:text-3xl font-bold text-pGray">
+                    <span className="text-xl sm:text-2xl font-bold text-pGray">
                       {stat.value}
                     </span>
                   </div>
-
-                  {/* Title */}
-                  <h6 className="text-pGray font-semibold text-sm md:text-base">
+                  <h6 className="text-pGray font-semibold text-sm sm:text-base">
                     {stat.title}
                   </h6>
-
-                  {/* Last Updated */}
                   <p className="text-pGray/40 text-xs mt-2">
                     {stat.lastUpdated}
                   </p>

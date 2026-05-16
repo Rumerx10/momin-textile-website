@@ -101,9 +101,7 @@ const SisterConcern = () => {
                           transition-all duration-500 ease-out
                           hover:scale-105 hover:-translate-y-3
                           w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(20%-1rem)]
-                          min-w-50 lg:max-w-70
-                          border-2 border-pYellow
-                          flex
+                          min-w-50 lg:max-w-70 flex
                         `}
                       >
                         {/* Animated Background linear */}
@@ -142,9 +140,8 @@ const SisterConcern = () => {
                             <div
                               className={`w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 border border-white/30 shrink-0`}
                             >
-                              <Icon className={`w-8 h-8 text-pYellow`} />
+                              <Icon className={`w-8 h-8 text-white`} />
                             </div>
-
                             {/* Text Content */}
                             <div className="space-y-2 flex-1 flex flex-col items-center justify-center">
                               <p className="font-bold text-lg text-center text-white transition-colors">

@@ -21,7 +21,7 @@ const OurProductRange = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     const ref = document.getElementById("product-range-section");
@@ -88,11 +88,12 @@ const OurProductRange = () => {
     >
       <div className="container px-4 mx-auto">
         <div className="flex flex-col gap-12 lg:gap-16">
-          
           {/* Header */}
           <div
             className={`text-center space-y-4 transition-all duration-700 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 -translate-y-10"
             }`}
           >
             <h4 className="font-bold text-pBlue text-3xl lg:text-4xl">
@@ -153,11 +154,16 @@ const OurProductRange = () => {
                     {/* Features */}
                     <div className="space-y-1 mt-auto">
                       {product.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center justify-center gap-2">
+                        <div
+                          key={idx}
+                          className="flex items-center justify-center gap-2"
+                        >
                           <div
                             className={`w-1.5 h-1.5 rounded-full bg-linear-to-r ${product.color}`}
                           />
-                          <span className="text-pGray/70 text-xs">{feature}</span>
+                          <span className="text-pGray/70 text-xs">
+                            {feature}
+                          </span>
                         </div>
                       ))}
                     </div>
@@ -166,7 +172,6 @@ const OurProductRange = () => {
               );
             })}
           </div>
-
         </div>
       </div>
     </div>

@@ -32,10 +32,10 @@ const AboutUs = () => {
             >
               <div>
                 <p className="text-sm text-pGray mb-1">About Us</p>
-                <h4 className="text-tBlue text-3xl lg:text-4xl font-bold">
+                <h4 className="text-pBlue text-3xl lg:text-4xl font-bold">
                   Crafting Quality, Weaving Trust
                 </h4>
-                <div className="h-1 w-36 bg-pViolet my-7" />
+                <div className="h-1 w-36 my-7 bg-linear-to-r from-pBlue to-pBlue/40 rounded-full" />
               </div>
 
               <div className="flex flex-col gap-5">
