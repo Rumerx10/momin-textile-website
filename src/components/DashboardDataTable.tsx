@@ -139,10 +139,10 @@ const DashboardDataTable = <T,>({
       <div className="space-y-4">
         {/* Header with Search and See All Button */}
         <div className="flex items-center justify-between">
-          <div className="flex items-center justify-between w-full">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between w-full">
             <h4 className="font-semibold text-pBlue text-xl">{title}</h4>
-            <div>
-              <div className="h-10 flex items-center justify-center gap-5">
+            <div className="mt-4 lg:mt-0">
+              <div className="h-10 flex items-center lg:justify-center gap-5">
                 <div className="relative flex h-full">
                   <Search className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
                   <input
@@ -171,9 +171,9 @@ const DashboardDataTable = <T,>({
 
         {/* Data Table */}
         {!isLoading && (
-          <>
-            <div className="overflow-x-auto! scrollbar-modern">
-              <table className="w-full overflow-x-auto! scrollbar-modern border-2 border-red">
+          <div>
+            <div className="overflow-x-auto">
+              <table className="min-w-225 w-full">
                 <thead>
                   {table.getHeaderGroups().map((headerGroup) => (
                     <tr
@@ -238,7 +238,7 @@ const DashboardDataTable = <T,>({
                 className="mt-4"
               />
             )}
-          </>
+          </div>
         )}
       </div>
     </div>

@@ -1,13 +1,13 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
 import { RxCross2 } from "react-icons/rx";
-import { 
-  FaPlay, 
-  FaPause, 
-  FaVolumeUp, 
+import {
+  FaPlay,
+  FaPause,
+  FaVolumeUp,
   FaVolumeMute,
   FaExpand,
-  FaCompress 
+  FaCompress,
 } from "react-icons/fa";
 
 interface VideoItem {
@@ -17,6 +17,30 @@ interface VideoItem {
   desc: string;
   coverImg: string;
 }
+
+// Helper function to convert YouTube URL to embed URL
+const getEmbedUrl = (url: string): string => {
+  if (!url) return "";
+
+  // Handle youtu.be format
+  if (url.includes("youtu.be/")) {
+    const videoId = url.split("youtu.be/")[1]?.split("?")[0];
+    return `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+  }
+
+  // Handle youtube.com/watch?v= format
+  if (url.includes("youtube.com/watch?v=")) {
+    const videoId = url.split("v=")[1]?.split("&")[0];
+    return `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+  }
+
+  // Handle youtube.com/embed/ format
+  if (url.includes("youtube.com/embed/")) {
+    return url.includes("?") ? `${url}&autoplay=1` : `${url}?autoplay=1`;
+  }
+
+  return url;
+};
 
 const ModalVideoPlayer = ({
   video,
@@ -32,8 +56,11 @@ const ModalVideoPlayer = ({
   const [volume, setVolume] = useState(1);
   const [isMuted, setIsMuted] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  
-  const isYouTube = video.videoUrl.includes("youtube.com") || video.videoUrl.includes("youtu.be");
+
+  const isYouTube =
+    video.videoUrl.includes("youtube.com") ||
+    video.videoUrl.includes("youtu.be");
+  const embedUrl = isYouTube ? getEmbedUrl(video.videoUrl) : video.videoUrl;
 
   useEffect(() => {
     if (videoRef.current && !isYouTube) {
@@ -48,7 +75,7 @@ const ModalVideoPlayer = ({
     const hours = Math.floor(time / 3600);
     const minutes = Math.floor((time % 3600) / 60);
     const seconds = Math.floor(time % 60);
-    
+
     if (hours > 0) {
       return `${hours}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
     }
@@ -110,7 +137,7 @@ const ModalVideoPlayer = ({
   const handleFullscreen = () => {
     const container = document.getElementById("video-container");
     if (!container) return;
-    
+
     if (!isFullscreen) {
       if (container.requestFullscreen) {
         container.requestFullscreen();
@@ -128,7 +155,7 @@ const ModalVideoPlayer = ({
     const handleFullscreenChange = () => {
       setIsFullscreen(!!document.fullscreenElement);
     };
-    
+
     document.addEventListener("fullscreenchange", handleFullscreenChange);
     return () => {
       document.removeEventListener("fullscreenchange", handleFullscreenChange);
@@ -145,7 +172,7 @@ const ModalVideoPlayer = ({
         setIsModalOpen(false);
       }
     };
-    
+
     document.addEventListener("keydown", handleEscape);
     return () => {
       document.removeEventListener("keydown", handleEscape);
@@ -171,13 +198,14 @@ const ModalVideoPlayer = ({
         flex items-center justify-center w-full max-w-5xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative w-full bg-black rounded-lg">
+        <div className="relative w-full bg-black rounded-lg overflow-hidden">
           {/* Video Player */}
           <div className="relative w-full bg-black">
             {isYouTube ? (
               <div className="aspect-video w-full">
                 <iframe
-                  src={video.videoUrl}
+                  key={embedUrl}
+                  src={embedUrl}
                   title={video.title}
                   className="w-full h-full"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -219,10 +247,10 @@ const ModalVideoPlayer = ({
                     [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:bg-pBlue 
                     [&::-webkit-slider-thumb]:rounded-full"
                   style={{
-                    background: `linear-gradient(to right, #2563EB ${progressPercentage}%, #4B5563 ${progressPercentage}%)`
+                    background: `linear-gradient(to right, #2563EB ${progressPercentage}%, #4B5563 ${progressPercentage}%)`,
                   }}
                 />
-                
+
                 {/* Time Display */}
                 <div className="flex justify-between text-gray-400 text-sm">
                   <span>{formatTime(currentTime)}</span>
@@ -260,7 +288,7 @@ const ModalVideoPlayer = ({
                       <FaVolumeUp className="text-white text-sm" />
                     )}
                   </button>
-                  
+
                   <input
                     type="range"
                     min="0"
@@ -294,30 +322,31 @@ const ModalVideoPlayer = ({
 
           {/* For YouTube videos */}
           {isYouTube && (
-            <div className="p-4 md:p-6">
-              <h6 className="font-bold text-white text-lg md:text-xl">
-                {video.title}
-              </h6>
-              <p className="text-gray-300 text-sm md:text-base mt-2 line-clamp-2">
-                {video.desc}
-              </p>
+            <div className="flex items-center justify-between p-4 md:p-6 bg-linear-to-t from-black/80 to-transparent">
+              <div>
+                <h6 className="font-bold text-white text-lg md:text-xl">
+                  {video.title}
+                </h6>
+                <p className="text-gray-300 text-sm md:text-base mt-2 line-clamp-2">
+                  {video.desc}
+                </p>
+              </div>
+              {/* Close Button */}
+              <button
+                onClick={() => {
+                  if (videoRef.current) {
+                    videoRef.current.pause();
+                  }
+                  setIsModalOpen(false);
+                }}
+                className="h-10 w-10 rounded-full bg-pGray 
+              hover:bg-red-500 flex items-center justify-center transition-colors duration-300"
+                aria-label="Close video player"
+              >
+                <RxCross2 size={20} className="text-white" />
+              </button>
             </div>
           )}
-
-          {/* Close Button */}
-          <button
-            onClick={() => {
-              if (videoRef.current) {
-                videoRef.current.pause();
-              }
-              setIsModalOpen(false);
-            }}
-            className="absolute z-10 -top-5 -right-5 h-10 w-10 rounded-full bg-white/10 
-              hover:bg-red-500 flex items-center justify-center transition-colors duration-300"
-            aria-label="Close video player"
-          >
-            <RxCross2 size={20} className="text-white" />
-          </button>
         </div>
       </div>
     </div>

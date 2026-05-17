@@ -1,15 +1,14 @@
-// app/dashboard/machines/page.jsx
 "use client";
-import { createColumnHelper } from "@tanstack/react-table";
-import DashboardDataTable from "../../DashboardDataTable";
-import { useMemo, useState } from "react";
-import { Eye, Edit, Trash2 } from "lucide-react";
-import DashboardBodyContent from "@/components/DashboardBodyContent";
-import { useFetchData, useDeleteData } from "@/hooks/useApi";
 import toast from "react-hot-toast";
+import { useMemo, useState } from "react";
 import AddMachineForm from "./AddMachineForm";
-import MachineDetailsModal from "./MachineDetailsModal";
+import { Eye, Edit, Trash2 } from "lucide-react";
 import DeleteModal from "@/components/DeleteModal";
+import MachineDetailsModal from "./MachineDetailsModal";
+import DashboardDataTable from "../../DashboardDataTable";
+import { createColumnHelper } from "@tanstack/react-table";
+import { useFetchData, useDeleteData } from "@/hooks/useApi";
+import DashboardBodyContent from "@/components/DashboardBodyContent";
 
 const Machines = () => {
   const [openAddModal, setOpenAddModal] = useState(false);
@@ -37,15 +36,21 @@ const Machines = () => {
     isLoading,
     refetch,
   } = useFetchData(
-    ["machines", String(currentPage), String(itemsPerPage), searchTerm, sortOrder],
+    [
+      "machines",
+      String(currentPage),
+      String(itemsPerPage),
+      searchTerm,
+      sortOrder,
+    ],
     buildEndpoint(),
-    { enabled: true, refetchOnMount: true }
+    { enabled: true, refetchOnMount: true },
   );
 
   // Delete mutation
   const { mutate: deleteMachine, isPending: isDeleting } = useDeleteData(
     ["machines"],
-    "/machines"
+    "/machines",
   );
 
   // Transform API response to table format
@@ -107,12 +112,13 @@ const Machines = () => {
       },
       onError: (error: any) => {
         console.error("Delete failed:", error);
-        toast.error(error?.response?.data?.message || "Failed to delete machine");
+        toast.error(
+          error?.response?.data?.message || "Failed to delete machine",
+        );
       },
     });
   };
 
-  
   const handleFormSuccess = () => {
     setOpenAddModal(false);
     setEditModalOpen(false);
@@ -131,7 +137,11 @@ const Machines = () => {
       columnHelper.display({
         id: "sl",
         header: "SL No",
-        cell: ({ row }) => String(row.index + 1 + (currentPage - 1) * itemsPerPage).padStart(2, "0"),
+        cell: ({ row }) =>
+          String(row.index + 1 + (currentPage - 1) * itemsPerPage).padStart(
+            2,
+            "0",
+          ),
       }),
       columnHelper.accessor("name", {
         header: "Machine Name",
@@ -195,18 +205,20 @@ const Machines = () => {
         ),
       }),
     ],
-    [currentPage, itemsPerPage]
+    [currentPage, itemsPerPage],
   );
 
   // For Edit mode, we need to fetch the full machine data including images
   const { data: editData } = useFetchData(
     ["machine", selectedMachine?.id],
-    editModalOpen && selectedMachine?.id ? `/machines/${selectedMachine.id}` : "",
-    { enabled: editModalOpen && !!selectedMachine?.id }
+    editModalOpen && selectedMachine?.id
+      ? `/machines/${selectedMachine.id}`
+      : "",
+    { enabled: editModalOpen && !!selectedMachine?.id },
   );
 
   return (
-    <>
+    <div>
       <DashboardBodyContent
         title="All Machines"
         addBtnText="Add New Machine"
@@ -258,7 +270,7 @@ const Machines = () => {
         itemName={selectedMachine?.name}
         isLoading={isDeleting}
       />
-    </>
+    </div>
   );
 };
 

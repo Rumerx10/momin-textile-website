@@ -1,6 +1,7 @@
 "use client";
-import { Building2, Shirt, Factory, Truck, Pill, Code } from "lucide-react";
-import { SisterConcerns } from "@/docs/data";
+import { useEffect, useState } from "react";
+import { Building2, Shirt, Factory } from "lucide-react";
+import { useFetchData } from "@/hooks/useApi";
 
 const iconMap: Record<number, React.ComponentType<{ className?: string }>> = {
   0: Building2,
@@ -50,7 +51,35 @@ const colors = [
   },
 ];
 
+interface ConcernItem {
+  id: number;
+  cardHeading: string;
+  shortParagraph: string;
+  businessMotto: string;
+  description: string;
+  details: string;
+  logo: string;
+  images: string[];
+  createdAt: string;
+  updatedAt: string;
+}
+
 const SisterConcern = () => {
+  const [concerns, setConcerns] = useState<ConcernItem[]>([]);
+
+  // Fetch concerns data
+  const { data: apiData, isLoading, error } = useFetchData(
+    ["concerns"],
+    "/concerns",
+    { enabled: true, refetchOnMount: true }
+  );
+
+  useEffect(() => {
+    if (apiData?.data && Array.isArray(apiData.data)) {
+      setConcerns(apiData.data);
+    }
+  }, [apiData]);
+
   const IconComponent = (idx: number) => {
     const icon = iconMap[idx % 6];
     return icon;
@@ -58,8 +87,32 @@ const SisterConcern = () => {
 
   // Split items into rows of 5
   const rows = [];
-  for (let i = 0; i < SisterConcerns.length; i += 5) {
-    rows.push(SisterConcerns.slice(i, i + 5));
+  for (let i = 0; i < concerns.length; i += 5) {
+    rows.push(concerns.slice(i, i + 5));
+  }
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-teal-800">
+        <div className="container px-4 mx-auto py-8 md:py-12 lg:py-16">
+          <div className="flex justify-center items-center h-64">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-teal-800">
+        <div className="container px-4 mx-auto py-8 md:py-12 lg:py-16">
+          <div className="text-center text-white">
+            <p>Failed to load sister concerns. Please try again later.</p>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -95,7 +148,7 @@ const SisterConcern = () => {
 
                     return (
                       <div
-                        key={actualIndex}
+                        key={item.id}
                         className={`
                           group relative rounded-3xl overflow-hidden
                           transition-all duration-500 ease-out
@@ -145,10 +198,7 @@ const SisterConcern = () => {
                             {/* Text Content */}
                             <div className="space-y-2 flex-1 flex flex-col items-center justify-center">
                               <p className="font-bold text-lg text-center text-white transition-colors">
-                                {item}
-                              </p>
-                              <p className="text-sm text-gray-300 text-center line-clamp-2">
-                                Excellence in innovation and quality
+                                {item.cardHeading}
                               </p>
                             </div>
 

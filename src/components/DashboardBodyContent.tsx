@@ -1,6 +1,6 @@
-import React, { ReactNode } from "react";
-import BreadcrumbComponent from "./BreadcrumbComponent";
+import { ReactNode } from "react";
 import AddNewBtn from "./AddNewBtn";
+import BreadcrumbComponent from "./BreadcrumbComponent";
 
 const DashboardBodyContent = ({
   children,

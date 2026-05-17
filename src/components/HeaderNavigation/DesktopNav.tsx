@@ -73,19 +73,17 @@ const DesktopNav = () => {
               );
             }
             return (
-              <div
+              <Link
                 key={index}
+                href={link.link}
                 className={`relative cursor-pointer hover:bg-red duration-300 transition-all 
                   ${isActive && "bg-red"}  h-full flex 
                 items-center justify-center`}
               >
-                <Link
-                  href={link.link}
-                  className="px-3 font-medium text-white group whitespace-nowrap"
-                >
+                <div className="px-3 font-medium text-white group whitespace-nowrap">
                   {link.label}
-                </Link>
-              </div>
+                </div>
+              </Link>
             );
           })}
         </div>

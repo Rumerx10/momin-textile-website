@@ -1,16 +1,10 @@
 "use client";
-import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FaArrowRightLong } from "react-icons/fa6";
-import { Autoplay, Pagination } from "swiper/modules";
 import LCarousel from "@/components/LCarousel";
 import ReadMoreBtn from "@/components/ReadMoreBtn";
 
 const AboutUs = () => {
-  // Gallery images data
-  const galleryImages = ["/abt2.png", "/abt3.png", "/abt4.png"];
 
   return (
     <div className="relative bg-bgGray">

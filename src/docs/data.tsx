@@ -157,13 +157,12 @@ export const CoreValuesData = [
 ];
 
 export const SisterConcerns = [
-  "Momin Spinning Mills Limited",
+  "Momin Textile Mills Limited",
   "Momin Spinning Mills Limited",
   "Momin Textile Mills Limited(Unit-2)",
-  "Mashfir Sino Giant International LTD",
   "Masud Textile",
+  "Mashfir Sino Giant International LTD",
   "Sreenagar Textile",
-  "Ahnaf Paper Cone Factory",
 ];
 
 export const QualityNSustainabilityData = [

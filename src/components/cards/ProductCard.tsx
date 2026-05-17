@@ -1,29 +1,31 @@
+// components/cards/ProductCard.jsx
+"use client";
 import Image from "next/image";
 
-
-const ProductCard = ({
-  img,
-  title,
-  category,
-}: {
+interface ProductCardProps {
   img: string;
   title: string;
-  category: string;
-}) => {
+  desc: string;
+}
+
+const ProductCard = ({ img, title, desc }: ProductCardProps) => {
   return (
-    <div className="rounded-lg overflow-hidden">
-      <div className="flex h-54">
+    <div className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer">
+      <div className="relative h-48 overflow-hidden">
         <Image
           src={img}
           alt={title}
-          height={216}
-          width={369}
-          className="object-cover h-full w-full"
+          fill
+          className="object-cover group-hover:scale-105 transition-transform duration-300"
         />
       </div>
-      <div className="py-3 space-y-2">
-        <p className="text-sm text-pGray">{category}</p>
-        <h6 className="font-bold text-tBlue text-xl">{title}</h6>
+      <div className="p-4">
+        <h5 className="font-bold text-pBlue text-lg mb-2 line-clamp-1">
+          {title}
+        </h5>
+        <p className="text-pGray text-sm line-clamp-2">
+          {desc}
+        </p>
       </div>
     </div>
   );

@@ -17,7 +17,7 @@ const AddNewBtn = ({
         className="flex gap-2 items-center bg-pBlue px-4 py-2.5 rounded-sm text-white font-medium"
       >
         <Plus />
-        <p>Add New Branch </p>
+        <p>{text}</p>
       </button>
     )
   );
