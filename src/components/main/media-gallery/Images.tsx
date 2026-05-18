@@ -1,3 +1,4 @@
+// app/media-gallery/Images.jsx
 "use client";
 import { useEffect, useState, useContext } from "react";
 import Image from "next/image";
@@ -32,35 +33,23 @@ const Images = ({ images: propImages, currentFilter }: ImagesProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Use prop images if provided, otherwise use empty structure
   const imageData = propImages || {
-    metadata: {
-      total: 0,
-      itemPerPage: 8,
-      totalPage: 0,
-      currentPage: 1,
-    },
+    metadata: { total: 0, itemPerPage: 8, totalPage: 0, currentPage: 1 },
     data: [],
   };
-  
+
   const { data: imagesData, metadata } = imageData;
-  const itemsPerPage = metadata.itemPerPage;
-  
-  // Calculate total pages based on filtered data
+  const itemsPerPage = metadata.itemPerPage || 8;
   const totalPages = Math.ceil(imagesData.length / itemsPerPage);
-  
-  // Calculate pagination for filtered images
+
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentImages = imagesData.slice(startIndex, endIndex);
 
   useEffect(() => {
-    if (setTitle) {
-      setTitle("Image Gallery");
-    }
+    if (setTitle) setTitle("Image Gallery");
   }, [setTitle]);
 
-  // Reset to first page when filter changes
   useEffect(() => {
     setCurrentPage(1);
   }, [currentFilter]);
@@ -84,13 +73,13 @@ const Images = ({ images: propImages, currentFilter }: ImagesProps) => {
   return (
     <div className="w-full">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6">
-        {currentImages.map((item, idx) => (
+        {currentImages?.map((item, idx) => (
           <div
             key={item.id}
             onClick={() => {
               setIsModalOpen(true);
               const originalIndex = imagesData.findIndex(
-                (img) => img.id === item.id
+                (img) => img.id === item.id,
               );
               setActiveIndex(originalIndex);
             }}
@@ -115,7 +104,6 @@ const Images = ({ images: propImages, currentFilter }: ImagesProps) => {
         ))}
       </div>
 
-      {/* Empty State */}
       {currentImages.length === 0 && (
         <div className="flex items-center justify-center h-64">
           <p className="text-pGray text-lg">
@@ -124,7 +112,6 @@ const Images = ({ images: propImages, currentFilter }: ImagesProps) => {
         </div>
       )}
 
-      {/* Pagination */}
       {totalPages > 1 && (
         <div className="mt-8 md:mt-10 lg:mt-12">
           <PaginationComponent
@@ -135,10 +122,9 @@ const Images = ({ images: propImages, currentFilter }: ImagesProps) => {
         </div>
       )}
 
-      {/* Modal */}
       {isModalOpen && (
         <ModalImageGallery
-          images={imagesData}
+          images={imagesData} // Pass the array directly, not wrapped in object
           setIsModalOpen={setIsModalOpen}
           initialIndex={activeIndex}
         />

@@ -23,7 +23,8 @@ interface ProductData {
 
 const ProductDetails = () => {
   const { setTitle } = useContext(HeroContext);
-  const { id } = useParams();
+  const { productId } = useParams();
+  console.log("Product Id ::: ", productId);
   const [product, setProduct] = useState<ProductData | null>(null);
 
   // Fetch product data by ID
@@ -31,12 +32,15 @@ const ProductDetails = () => {
     data: apiData,
     isLoading,
     error,
-  } = useFetchData(["product", `${id}`], `/products/${id}`, {
+  } = useFetchData(["product", `${productId}`], `/products/${productId}`, {
     enabled: true,
     refetchOnMount: true,
   });
 
   useEffect(() => {
+
+    console.log("Product Data ::: ", apiData);
+
     if (apiData?.data) {
       setProduct(apiData.data);
       setTitle(apiData.data.heading);
@@ -46,7 +50,7 @@ const ProductDetails = () => {
   if (isLoading) {
     return (
       <div className="py-8 md:py-12 lg:py-16">
-        <div className="container px-4 mx-auto">
+        <div className="container px-4 mx-auto h-screen">
           <div className="flex flex-col lg:flex-row gap-16 justify-between">
             <div className="w-full lg:w-[35%]">
               <div className="w-full h-130 bg-gray-200 rounded-lg animate-pulse"></div>
@@ -91,7 +95,7 @@ const ProductDetails = () => {
                 src={product.image}
                 alt={product.heading}
                 fill
-                className="object-contain"
+                className="object-cover"
               />
             </div>
           </div>

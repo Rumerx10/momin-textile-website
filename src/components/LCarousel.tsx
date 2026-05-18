@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 
-const LCarousel = ({ img, imgs }: { img: string; imgs: string[] }) => {
+const LCarousel = ({ img, imgs }: { img?: string; imgs?: string[] }) => {
 
   return (
     <div className="relative flex w-full h-full overflow-hidden">
@@ -17,7 +17,7 @@ const LCarousel = ({ img, imgs }: { img: string; imgs: string[] }) => {
         className="relative w-[75%] h-150"
       >
         <Image
-          src={img}
+          src={img || '/placeholder.svg'}
           alt="about img"
           height={665}
           width={513}
@@ -36,7 +36,7 @@ const LCarousel = ({ img, imgs }: { img: string; imgs: string[] }) => {
           }}
           className="border-2 shadow-xl border-white h-50 w-full"
         >
-          {imgs.map((img, index) => (
+          {imgs?.map((img, index) => (
             <SwiperSlide key={index} className="no-bottom-padding">
               <Image
                 src={img}

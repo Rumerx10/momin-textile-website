@@ -179,6 +179,24 @@ const OurProducts = () => {
           <div className="max-w-xs truncate line-clamp-1">{info.getValue()}</div>
         ),
       }),
+      columnHelper.accessor("details", {
+        header: "Details",
+        cell: (info) => (
+          <div className="max-w-xs truncate line-clamp-1">{info.getValue()}</div>
+        ),
+      }),
+      columnHelper.accessor("description", {
+        header: "Description",
+        cell: (info) => (
+          <div className="max-w-xs truncate line-clamp-1">{info.getValue()}</div>
+        ),
+      }),
+      columnHelper.accessor("specification", {
+        header: "Specification",
+        cell: (info) => (
+          <div className="max-w-xs truncate line-clamp-1">{info.getValue()}</div>
+        ),
+      }),
       columnHelper.display({
         id: "action",
         header: "Action",

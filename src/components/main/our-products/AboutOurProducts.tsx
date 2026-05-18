@@ -22,7 +22,7 @@ const AboutOurProducts = () => {
   const [itemsPerPage, setItemsPerPage] = useState(8);
   const [products, setProducts] = useState<ProductItem[]>([]);
   const [totalPages, setTotalPages] = useState(1);
-  const [totalItems, setTotalItems] = useState(0);
+  // const [totalItems, setTotalItems] = useState(0);
 
   // Build endpoint with pagination
   const buildEndpoint = () => {
@@ -40,7 +40,7 @@ const AboutOurProducts = () => {
     if (apiData?.data && Array.isArray(apiData.data)) {
       setProducts(apiData.data);
       setTotalPages(apiData.meta?.totalPages || 1);
-      setTotalItems(apiData.meta?.totalItems || 0);
+      // setTotalItems(apiData.meta?.totalItems || 0);
     }
   }, [apiData]);
 

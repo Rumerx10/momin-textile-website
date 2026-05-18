@@ -20,9 +20,9 @@ const BodyContent = ({ title, subTitle, children }: BodyContentProps) => {
 
   return (
     <div className="container px-4 mx-auto py-8 md:py-12 lg:py-16">
-      <div className="flex flex-col gap-8 lg:gap-12">
-        <div className="space-y-4 text-center">
-          <h4 className="font-bold text-pBlue text-2xl md:text-3xl lg:text-4xl">
+      <div className="flex flex-col gap-8 lg:gap-12 justify-center items-center ">
+        <div className="space-y-4 text-center max-w-4xl">
+          <h4 className="font-bold text-center text-pBlue text-2xl md:text-3xl lg:text-4xl">
             {formatTextWithLineBreaks(title)}
           </h4>
           {subTitle && (

@@ -1,13 +1,8 @@
-import GeneralServices from "@/components/main/our-services/GeneralServices";
+// app/news-events/page.jsx
+import NewsEvents from "@/components/main/NewsEvents";
 
 const page = () => {
-  return (
-    <GeneralServices
-      heroTitle="News and Events"
-      title="Latest Milestones and Insights"
-      subTitle="At Momin Textile Mills Ltd, we believe in continuous growth, innovation, and collaboration. Our News & Events"
-    />
-  );
+  return <NewsEvents />;
 };
 
 export default page;

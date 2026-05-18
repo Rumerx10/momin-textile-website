@@ -5,87 +5,46 @@ import { useContext, useEffect, useState } from "react";
 import { HeroContext } from "@/context/HeroContext";
 import Pagination from "@/components/Pagination";
 import CertificateCard from "../cards/CertificateCard";
+import BodyContent from "../BodyContent";
+import { useFetchData } from "@/hooks/useApi";
 
-// Certification Data with metadata pattern
-const CertificationsData = {
-  metadata: {
-    total: 8,
-    itemPerPage: 4,
-    totalPage: 2,
-    currentPage: 1,
-  },
-  data: [
-    {
-      id: 1,
-      img: "/certificate1.png",
-      subTitle: "Organic 100",
-      title: "Content Standard",
-      desc: "From our state-of-the-art manufacturing facilities to our dedicated team of professionals, every aspect of our operation reflects a passion for quality and a commitment to excellence. Over the years, we have evolved into a fully integrated textile manufacturing enterprise, capable of handling the entire production process — from spinning and dyeing to weaving, finishing, and packaging — ensuring precision and consistency at every stage. Momin Textile Mills Ltd is a distinguished name in Bangladesh's thriving textile industry — a company that has grown from humble beginnings into one of the most reliable manufacturers and exporters of woven fabrics for global apparel brands. Since its inception, Momin Textile has been driven by one core philosophy: to blend innovation, craftsmanship, and integrity into every thread we produce.",
-    },
-    {
-      id: 2,
-      img: "/certificate2.png",
-      subTitle: "OEKO TEX®",
-      title: "Standard 100",
-      desc: "From our state-of-the-art manufacturing facilities to our dedicated team of professionals, every aspect of our operation reflects a passion for quality and a commitment to excellence. Over the years, we have evolved into a fully integrated textile manufacturing enterprise, capable of handling the entire production process — from spinning and dyeing to weaving, finishing, and packaging — ensuring precision and consistency at every stage. Momin Textile Mills Ltd is a distinguished name in Bangladesh's thriving textile industry — a company that has grown from humble beginnings into one of the most reliable manufacturers and exporters of woven fabrics for global apparel brands.",
-    },
-    {
-      id: 3,
-      img: "/certificate3.png",
-      subTitle: "Organic Blended",
-      title: "Content Standard",
-      desc: "Since its inception, Momin Textile has been driven by one core philosophy: to blend innovation, craftsmanship, and integrity into every thread we produce. From our state-of-the-art manufacturing facilities to our dedicated team of professionals, every aspect of our operation reflects a passion for quality and a commitment to excellence. Over the years, we have evolved into a fully integrated textile manufacturing enterprise, capable of handling the entire production process — from spinning and dyeing to weaving, finishing, and packaging — ensuring precision and consistency at every stage.",
-    },
-    {
-      id: 4,
-      img: "/certificate4.png",
-      subTitle: "Recycled Blended",
-      title: "Claim Standard",
-      desc: "From our state-of-the-art manufacturing facilities to our dedicated team of professionals, every aspect of our operation reflects a passion for quality and a commitment to excellence. Over the years, we have evolved into a fully integrated textile manufacturing enterprise, capable of handling the entire production process — from spinning and dyeing to weaving, finishing, and packaging — ensuring precision and consistency at every stage. Momin Textile Mills Ltd is a distinguished name in Bangladesh's thriving textile industry — a company that has grown from humble beginnings into one of the most reliable manufacturers and exporters of woven fabrics for global apparel brands.",
-    },
-    {
-      id: 5,
-      img: "/certificate5.png",
-      subTitle: "Global Recycled",
-      title: "Standard (GRS)",
-      desc: "Our commitment to sustainability is validated through the Global Recycled Standard certification. We ensure traceability and responsible production of recycled materials throughout our manufacturing process, from sourcing to final product delivery. Every aspect of our operation reflects a passion for quality and a commitment to excellence.",
-    },
-    {
-      id: 6,
-      img: "/certificate6.png",
-      subTitle: "ISO 9001",
-      title: "Quality Management",
-      desc: "Our quality management system meets international standards, ensuring consistent product quality, continuous improvement, and customer satisfaction across all our manufacturing operations. We have evolved into a fully integrated textile manufacturing enterprise.",
-    },
-    {
-      id: 7,
-      img: "/certificate7.png",
-      subTitle: "ISO 14001",
-      title: "Environmental Management",
-      desc: "We are committed to minimizing our environmental impact through effective environmental management systems, waste reduction, and sustainable resource utilization throughout our production process.",
-    },
-    {
-      id: 8,
-      img: "/certificate8.png",
-      subTitle: "Higg Index",
-      title: "Facility Environmental Module",
-      desc: "Our facility's environmental performance is assessed through the Higg Index, demonstrating our commitment to sustainable practices and continuous environmental improvement across all operations.",
-    },
-  ],
-};
+interface CertificationItem {
+  id: number;
+  heading: string;
+  subheading: string;
+  description: string;
+  logo: string;
+  createdAt: string;
+  updatedAt: string;
+}
 
 const Certifications = () => {
   const { setTitle } = useContext(HeroContext);
   const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(4);
+  const [certifications, setCertifications] = useState<CertificationItem[]>([]);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totalItems, setTotalItems] = useState(0);
 
-  const { data: certificationsData, metadata } = CertificationsData;
-  const itemsPerPage = metadata.itemPerPage;
-  const totalPages = metadata.totalPage;
+  // Build endpoint with pagination
+  const buildEndpoint = () => {
+    return `/certifications?page=${currentPage}&limit=${itemsPerPage}&sortOrder=asc&isActive=true`;
+  };
 
-  // Calculate pagination for current page
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentItems = certificationsData.slice(startIndex, endIndex);
+  // Fetch certifications data
+  const { data: apiData, isLoading, error } = useFetchData(
+    ["certifications", String(currentPage), String(itemsPerPage)],
+    buildEndpoint(),
+    { enabled: true, refetchOnMount: true }
+  );
+
+  useEffect(() => {
+    if (apiData?.data && Array.isArray(apiData.data)) {
+      setCertifications(apiData.data);
+      setTotalPages(apiData.meta?.totalPages || 1);
+      setTotalItems(apiData.meta?.totalItems || 0);
+    }
+  }, [apiData]);
 
   useEffect(() => {
     setTitle("Certifications");
@@ -96,56 +55,95 @@ const Certifications = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  return (
-    <div className="container px-4 mx-auto py-8 md:py-12 lg:py-16">
-      <div className="flex flex-col gap-8 lg:gap-12">
-        {/* Header Section */}
-        <div className="space-y-4 text-center">
-          <h4 className="font-bold text-pBlue text-2xl md:text-3xl lg:text-4xl">
-            Certifications
-          </h4>
-          <p className="text-pGray text-sm md:text-base max-w-3xl mx-auto">
-            At Momin Textile Mills Ltd, we maintain the highest levels of
-            quality, safety, and sustainability through internationally
-            recognized certifications.
-          </p>
+  // Skeleton Card Component
+  const SkeletonCard = () => (
+    <div className="flex flex-col items-center lg:items-start md:flex-row gap-5 animate-pulse">
+      <div className="p-6 shrink-0 h-32.5 w-32.5 border-2 rounded-lg bg-gray-200"></div>
+      <div className="md:w-2/3 lg:w-full space-y-3">
+        <div>
+          <div className="h-4 bg-gray-200 rounded w-24 mb-2"></div>
+          <div className="h-8 bg-gray-200 rounded w-48"></div>
         </div>
-
-        {/* Certifications List with Pagination */}
-        <div className="w-full">
-          <div className="space-y-8 md:space-y-10 lg:space-y-12">
-            {currentItems.map((cert, idx) => (
-              <div
-                key={cert.id}
-                className={`${
-                  idx !== currentItems.length - 1
-                    ? "border-b border-gray-200 pb-8 md:pb-10 lg:pb-12"
-                    : ""
-                }`}
-              >
-                <CertificateCard
-                  img={cert.img}
-                  subTitle={cert.subTitle}
-                  title={cert.title}
-                  desc={cert.desc}
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Pagination Section */}
-          {totalPages > 1 && (
-            <div className="mt-10 md:mt-12 lg:mt-16">
-              <Pagination
-                currentPage={currentPage}
-                totalPages={totalPages}
-                onPageChange={handlePageChange}
-              />
-            </div>
-          )}
+        <div className="space-y-2">
+          <div className="h-4 bg-gray-200 rounded w-full"></div>
+          <div className="h-4 bg-gray-200 rounded w-full"></div>
+          <div className="h-4 bg-gray-200 rounded w-3/4"></div>
         </div>
       </div>
     </div>
+  );
+
+  if (isLoading) {
+    return (
+      <BodyContent
+        title="Certifications"
+        subTitle="At Momin Textile Mills Ltd, we maintain the highest levels of quality, safety, and sustainability through internationally recognized certifications."
+      >
+        <div className="w-full">
+          <div className="space-y-8 md:space-y-10 lg:space-y-12">
+            {[...Array(itemsPerPage)].map((_, idx) => (
+              <SkeletonCard key={idx} />
+            ))}
+          </div>
+        </div>
+      </BodyContent>
+    );
+  }
+
+  if (error) {
+    return (
+      <BodyContent
+        title="Certifications"
+        subTitle="At Momin Textile Mills Ltd, we maintain the highest levels of quality, safety, and sustainability through internationally recognized certifications."
+      >
+        <div className="text-center text-red-500 py-12">
+          Failed to load certifications. Please try again later.
+        </div>
+      </BodyContent>
+    );
+  }
+
+  return (
+    <BodyContent
+      title="Certifications"
+      subTitle="At Momin Textile Mills Ltd, we maintain the highest levels of quality, safety, and sustainability through internationally recognized certifications."
+    >
+      <div className="w-full">
+        <div className="space-y-8 md:space-y-10 lg:space-y-12">
+          {certifications.map((cert, idx) => (
+            <div
+              key={cert.id}
+              className={`${
+                idx !== certifications.length - 1
+                  ? "border-b border-gray-200 pb-8 md:pb-10 lg:pb-12"
+                  : ""
+              }`}
+            >
+              <CertificateCard
+                img={cert.logo}
+                title={cert.heading}      // heading -> title
+                subTitle={cert.subheading} // subheading -> subTitle
+                desc={cert.description}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Pagination Section */}
+        {totalPages > 1 && (
+          <div className="mt-10 md:mt-12 lg:mt-16">
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              itemsPerPage={itemsPerPage}
+              setItemsPerPage={setItemsPerPage}
+              onPageChange={handlePageChange}
+              showPaginationControl={true}
+            />
+          </div>
+        )}
+      </div>
+    </BodyContent>
   );
 };
 

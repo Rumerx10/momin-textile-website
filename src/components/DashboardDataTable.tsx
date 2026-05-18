@@ -172,7 +172,7 @@ const DashboardDataTable = <T,>({
         {/* Data Table */}
         {!isLoading && (
           <div>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto scrollbar-modern">
               <table className="min-w-225 w-full">
                 <thead>
                   {table.getHeaderGroups().map((headerGroup) => (
@@ -207,7 +207,7 @@ const DashboardDataTable = <T,>({
                       {row.getVisibleCells().map((cell) => (
                         <td
                           key={cell.id}
-                          className="border-slate-300 px-4 py-4 text-pGray"
+                          className="border-slate-300 max-w-80 px-4 py-4 text-pGray"
                         >
                           {flexRender(
                             cell.column.columnDef.cell,

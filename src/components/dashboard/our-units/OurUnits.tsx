@@ -28,16 +28,9 @@ const unitTypes = [
   { value: "FABRIC", label: "Fabric Manufacturing" },
 ];
 
-// Helper function to extract filename from URL
-const extractFilenameFromUrl = (url: string) => {
-  return url.split("/").pop() || "";
-};
-
-
 const OurUnits = () => {
   const [selectedUnitType, setSelectedUnitType] = useState("SPINNING");
   const [isEditMode, setIsEditMode] = useState(false);
-  const [removedImages, setRemovedImages] = useState<string[]>([]);
   const [existingImageUrl, setExistingImageUrl] = useState<string>("");
 
   // Fetch unit data for selected type
@@ -84,11 +77,6 @@ const OurUnits = () => {
     setExistingImageUrl(unitData.image || "");
   }
 
-  const handleImageRemove = (imageUrl: string) => {
-    setRemovedImages((prev) => [...prev, imageUrl]);
-    setExistingImageUrl("");
-  };
-
   const onSubmit = (data: UnitFormData) => {
     const formData = new FormData();
 
@@ -103,17 +91,11 @@ const OurUnits = () => {
       }
     }
 
-    if (removedImages.length > 0) {
-      const filenamesToDelete = removedImages.map(extractFilenameFromUrl).join(",");
-      formData.append("delImg", filenamesToDelete);
-    }
-
     const mutation = isDataAvailable ? updateUnit : addUnit;
     mutation(formData as any, {
       onSuccess: (response) => {
         toast.success(response?.message || `Unit ${isDataAvailable ? "updated" : "added"} successfully!`);
         setIsEditMode(false);
-        setRemovedImages([]);
         refetch();
         reset();
       },
@@ -126,7 +108,6 @@ const OurUnits = () => {
 
   const handleCancel = () => {
     setIsEditMode(false);
-    setRemovedImages([]);
     if (unitData) {
       reset({
         heading: unitData.heading || "",
@@ -140,7 +121,6 @@ const OurUnits = () => {
   const handleUnitTypeChange = (type: string) => {
     setSelectedUnitType(type);
     setIsEditMode(false);
-    setRemovedImages([]);
     setExistingImageUrl("");
   };
 
@@ -154,7 +134,6 @@ const OurUnits = () => {
         setOpenAddModal={() => {}}
         addBtn={false}
       >
-        {/* Unit Type Toggle Buttons Skeleton */}
         <div className="mb-6 flex gap-3 items-center justify-center">
           {unitTypes.map((type) => (
             <div
@@ -218,7 +197,6 @@ const OurUnits = () => {
                 subLabel="Upload Image or drag and drop PNG, JPG, GIF, up to 20MB"
                 maxFiles={1}
                 existingImages={existingImageUrl ? [existingImageUrl] : []}
-                onImageRemove={handleImageRemove}
               />
 
               {/* Heading Text */}

@@ -1,3 +1,4 @@
+// app/media-gallery/page.jsx
 "use client";
 
 import { HeroContext } from "@/context/HeroContext";
@@ -6,71 +7,129 @@ import { HiOutlineVideoCamera } from "react-icons/hi";
 import { SlPicture } from "react-icons/sl";
 import Videos from "./Videos";
 import Images from "./Images";
-import { VideoGalleryData, GalleryImagesData } from "@/docs/data";
+import { useFetchData } from "@/hooks/useApi";
+
+interface MediaItem {
+  id: number;
+  mediaType: string;
+  unitType: string;
+  caption: string;
+  subheading: string;
+  image: string;
+  url: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
 
 const MediaGallery = () => {
   const [mediaType, setMediaType] = useState("videos");
   const [filter, setFilter] = useState("all");
-  const [filteredVideos, setFilteredVideos] = useState(VideoGalleryData);
-  const [filteredImages, setFilteredImages] = useState(GalleryImagesData);
+  const [filteredVideos, setFilteredVideos] = useState<any>({ metadata: {}, data: [] });
+  const [filteredImages, setFilteredImages] = useState<any>({ metadata: {}, data: [] });
 
   const { setTitle } = useContext(HeroContext);
   
+  // Fetch all media data
+  const { data: apiData, isLoading } = useFetchData(
+    ["media", "all"],
+    "/media?sortOrder=asc&isActive=true",
+    { enabled: true, refetchOnMount: true }
+  );
+
   useEffect(() => {
     setTitle("Media Gallery");
   }, [setTitle]);
 
-  // Unit Types for filtering
+  // Unit Types for filtering (matching API unitType values)
   const UnitTypes = [
-    { label: "Spinning Unit", value: "Spinning Unit" },
-    { label: "Woven Dyeing & Finishing", value: "Woven Dyeing & Finishing" },
-    { label: "Fabric Manufacturing", value: "Fabric Manufacturing" },
+    { label: "Spinning Unit", value: "SPINNING" },
+    { label: "Woven Dyeing & Finishing", value: "WOVEN" },
+    { label: "Fabric Manufacturing", value: "FABRIC" },
   ];
 
-  // Filter videos based on selected category
+  // Process and filter media data
   useEffect(() => {
-    if (filter === "all") {
-      setFilteredVideos(VideoGalleryData);
-    } else {
-      const filteredData = VideoGalleryData.data.filter(
-        (video) => video.category === filter
-      );
-      setFilteredVideos({
-        metadata: {
-          ...VideoGalleryData.metadata,
-          total: filteredData.length,
-          totalPage: Math.ceil(filteredData.length / VideoGalleryData.metadata.itemPerPage),
-          currentPage: 1,
-        },
-        data: filteredData,
-      });
-    }
-  }, [filter]);
+    if (!apiData?.data) return;
 
-  // Filter images based on selected category
-  useEffect(() => {
-    if (filter === "all") {
-      setFilteredImages(GalleryImagesData);
-    } else {
-      const filteredData = GalleryImagesData.data.filter(
-        (image) => image.category === filter
-      );
-      setFilteredImages({
-        metadata: {
-          ...GalleryImagesData.metadata,
-          total: filteredData.length,
-          totalPage: Math.ceil(filteredData.length / GalleryImagesData.metadata.itemPerPage),
-          currentPage: 1,
-        },
-        data: filteredData,
-      });
+    const allMedia = apiData.data as MediaItem[];
+    
+    // Filter videos
+    const videos = allMedia.filter(item => item.mediaType === "VIDEO");
+    const images = allMedia.filter(item => item.mediaType === "IMAGE");
+
+    // Apply category filter to videos
+    let filteredVideosData = videos;
+    if (filter !== "all") {
+      filteredVideosData = videos.filter(video => video.unitType === filter);
     }
-  }, [filter]);
+
+    // Apply category filter to images
+    let filteredImagesData = images;
+    if (filter !== "all") {
+      filteredImagesData = images.filter(image => image.unitType === filter);
+    }
+
+    // Transform to required format
+    setFilteredVideos({
+      metadata: {
+        total: filteredVideosData.length,
+        itemPerPage: 6,
+        totalPage: Math.ceil(filteredVideosData.length / 6),
+        currentPage: 1,
+      },
+      data: filteredVideosData.map(video => ({
+        id: video.id,
+        videoUrl: video.url || "",
+        title: video.caption,
+        desc: video.subheading,
+        coverImg: video.image,
+        category: video.unitType,
+      })),
+    });
+
+    setFilteredImages({
+      metadata: {
+        total: filteredImagesData.length,
+        itemPerPage: 8,
+        totalPage: Math.ceil(filteredImagesData.length / 8),
+        currentPage: 1,
+      },
+      data: filteredImagesData.map(image => ({
+        id: image.id,
+        img: image.image,
+        title: image.caption,
+        desc: image.subheading,
+        category: image.unitType,
+      })),
+    });
+  }, [apiData, filter]);
 
   // Reset filter when media type changes
   useEffect(() => {
     setFilter("all");
   }, [mediaType]);
+
+  if (isLoading) {
+    return (
+      <div className="container px-4 mx-auto py-8 md:py-12 lg:py-16">
+        <div className="flex flex-col gap-6 md:gap-8 lg:gap-12 animate-pulse">
+          <div className="space-y-4 text-center">
+            <div className="h-10 bg-gray-200 rounded w-96 mx-auto"></div>
+            <div className="h-4 bg-gray-200 rounded w-2/3 mx-auto"></div>
+          </div>
+          <div className="flex justify-center gap-4">
+            <div className="h-10 w-32 bg-gray-200 rounded"></div>
+            <div className="h-10 w-32 bg-gray-200 rounded"></div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="h-64 bg-gray-200 rounded-lg"></div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="container px-4 mx-auto py-8 md:py-12 lg:py-16">

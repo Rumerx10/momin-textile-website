@@ -1,10 +1,11 @@
-// Videos.jsx - Updated to accept videos prop
+// app/media-gallery/Videos.jsx
 "use client";
 import VideoCard from "@/components/cards/VideoCard";
 import { useState, useEffect, useContext } from "react";
 import { HeroContext } from "@/context/HeroContext";
-import ModalVideoPlayer from "./ModalVideoPlayer";
+
 import Pagination from "@/components/Pagination";
+import ModalVideoPlayer from "./ModalVideoPlayer";
 
 interface VideoItem {
   id: string | number;
@@ -34,40 +35,27 @@ const Videos = ({ videos: propVideos, currentFilter }: VideosProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
 
-  // Use prop videos if provided, otherwise use empty structure
   const videoData = propVideos || {
-    metadata: {
-      total: 0,
-      itemPerPage: 6,
-      totalPage: 0,
-      currentPage: 1,
-    },
+    metadata: { total: 0, itemPerPage: 6, totalPage: 0, currentPage: 1 },
     data: [],
   };
   
   const { data: videosData, metadata } = videoData;
-  const itemsPerPage = metadata.itemPerPage;
-  
-  // Calculate total pages based on filtered data
+  const itemsPerPage = metadata.itemPerPage || 6;
   const totalPages = Math.ceil(videosData.length / itemsPerPage);
   
-  // Calculate pagination for filtered videos
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentVideos = videosData.slice(startIndex, endIndex);
 
   useEffect(() => {
-    if (setTitle) {
-      setTitle("Video Gallery");
-    }
+    if (setTitle) setTitle("Video Gallery");
   }, [setTitle]);
 
-  // Reset to first page when filter changes
   useEffect(() => {
     setCurrentPage(1);
   }, [currentFilter]);
 
-  // Manage body overflow when modal is open
   useEffect(() => {
     if (isModalOpen) {
       document.body.style.overflow = "hidden";
@@ -102,21 +90,18 @@ const Videos = ({ videos: propVideos, currentFilter }: VideosProps) => {
               img={video.coverImg}
               title={video.title}
               desc={video.desc}
+              videoUrl={video.videoUrl}
             />
           </div>
         ))}
       </div>
 
-      {/* Empty State */}
       {currentVideos.length === 0 && (
         <div className="flex items-center justify-center h-64">
-          <p className="text-pGray text-lg">
-            No videos found in this category.
-          </p>
+          <p className="text-pGray text-lg">No videos found in this category.</p>
         </div>
       )}
 
-      {/* Pagination */}
       {totalPages > 1 && (
         <div className="mt-8 md:mt-10 lg:mt-12">
           <Pagination
@@ -127,7 +112,6 @@ const Videos = ({ videos: propVideos, currentFilter }: VideosProps) => {
         </div>
       )}
 
-      {/* Video Player Modal */}
       {isModalOpen && selectedVideo && (
         <ModalVideoPlayer
           video={selectedVideo}

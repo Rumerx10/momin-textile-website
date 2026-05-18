@@ -1,16 +1,16 @@
 // app/dashboard/our-products/AddProductForm.jsx
 "use client";
-import { useContext, useEffect, useState } from "react";
-import { useForm, FormProvider } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { HeroContext } from "@/context/HeroContext";
 import toast from "react-hot-toast";
-import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import Input from "@/components/Input";
-import ImageInputField from "@/components/ImageInputField";
-import TipTapInputField from "@/components/TipTapInputField";
+import { useContext, useEffect } from "react";
+import { HeroContext } from "@/context/HeroContext";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm, FormProvider } from "react-hook-form";
 import { useAddData, usePatchData } from "@/hooks/useApi";
+import ImageInputField from "@/components/ImageInputField";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import TipTapInputField from "@/components/TipTapInputField";
 
 // Zod Schema
 const productSchema = z.object({
@@ -35,7 +35,6 @@ const AddProductForm = ({
 }) => {
   const { setTitle } = useContext(HeroContext);
   const isEditMode = !!editData;
-  const [removedImages, setRemovedImages] = useState<string[]>([]);
 
   const methods = useForm<ProductFormData>({
     resolver: zodResolver(productSchema),
@@ -72,14 +71,6 @@ const AddProductForm = ({
     return [];
   };
 
-  const handleImageRemove = (imageUrl: string) => {
-    setRemovedImages((prev) => [...prev, imageUrl]);
-  };
-
-  const extractFilenames = (urls: string[]) => {
-    return urls.map((url) => url.split("/").pop() || "").join(",");
-  };
-
   useEffect(() => {
     setTitle(isEditMode ? "Edit Product" : "Add New Product");
   }, [setTitle, isEditMode]);
@@ -99,11 +90,6 @@ const AddProductForm = ({
       if (imageFile instanceof File) {
         formData.append("image", imageFile);
       }
-    }
-
-    if (isEditMode && removedImages.length > 0) {
-      const filenamesToDelete = extractFilenames(removedImages);
-      formData.append("delImg", filenamesToDelete);
     }
 
     const mutation = isEditMode ? updateProduct : addProduct;
@@ -132,7 +118,6 @@ const AddProductForm = ({
 
   const handleCancel = () => {
     reset();
-    setRemovedImages([]);
     onCancel();
   };
 
@@ -162,7 +147,6 @@ const AddProductForm = ({
             subLabel="Upload image (PNG, JPG, JPEG, up to 10MB)"
             maxFiles={1}
             existingImages={getExistingImage()}
-            onImageRemove={handleImageRemove}
           />
 
           {/* Heading Text */}

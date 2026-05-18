@@ -1,4 +1,4 @@
-// app/our-services/page.jsx
+// components/main/NewsEvents.jsx
 "use client";
 
 import Link from "next/link";
@@ -8,56 +8,47 @@ import ServiceCard from "@/components/cards/ServiceCard";
 import Pagination from "@/components/Pagination";
 import { useFetchData } from "@/hooks/useApi";
 
-interface ServiceItem {
+interface NewsItem {
   id: number;
-  serviceType: string;
   heading: string;
-  subheading: string;
+  shortParagraph: string;
   details: string;
   image: string;
   createdAt: string;
   updatedAt: string;
 }
 
-const GeneralServices = ({
-  title,
-  heroTitle,
-  subTitle,
-}: {
-  title: string;
-  heroTitle?: string;
-  subTitle?: string;
-}) => {
+const NewsEvents = () => {
   const { setTitle } = useContext(HeroContext);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(8);
-  const [services, setServices] = useState<ServiceItem[]>([]);
+  const [news, setNews] = useState<NewsItem[]>([]);
   const [totalPages, setTotalPages] = useState(1);
   const [totalItems, setTotalItems] = useState(0);
 
   // Build endpoint with pagination
   const buildEndpoint = () => {
-    return `/services?page=${currentPage}&limit=${itemsPerPage}&sortOrder=asc&isActive=true&serviceType=GENERAL`;
+    return `/news-events?page=${currentPage}&limit=${itemsPerPage}&sortOrder=desc&isActive=true`;
   };
 
-  // Fetch services data
+  // Fetch news & events data
   const { data: apiData, isLoading, error } = useFetchData(
-    ["services", "GENERAL", String(currentPage), String(itemsPerPage)],
+    ["news-events", String(currentPage), String(itemsPerPage)],
     buildEndpoint(),
     { enabled: true, refetchOnMount: true }
   );
 
   useEffect(() => {
     if (apiData?.data && Array.isArray(apiData.data)) {
-      setServices(apiData.data);
+      setNews(apiData.data);
       setTotalPages(apiData.meta?.totalPages || 1);
       setTotalItems(apiData.meta?.totalItems || 0);
     }
   }, [apiData]);
 
   useEffect(() => {
-    heroTitle ? setTitle(heroTitle) : setTitle(title);
-  }, [setTitle, heroTitle, title]);
+    setTitle("News and Events");
+  }, [setTitle]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -69,12 +60,23 @@ const GeneralServices = ({
     setCurrentPage(1);
   };
 
+  // Format date to readable format
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+  };
+
   // Skeleton Card
   const SkeletonCard = () => (
     <div className="rounded-lg overflow-hidden border flex flex-col h-full animate-pulse">
       <div className="h-54 bg-gray-200"></div>
       <div className="p-6 flex flex-col grow space-y-3">
         <div className="h-6 bg-gray-200 rounded w-3/4"></div>
+        <div className="h-4 bg-gray-200 rounded w-1/2"></div>
         <div className="h-4 bg-gray-200 rounded w-full"></div>
         <div className="h-4 bg-gray-200 rounded w-5/6"></div>
         <div className="h-10 bg-gray-200 rounded w-32 mt-4"></div>
@@ -106,7 +108,7 @@ const GeneralServices = ({
     return (
       <div className="container px-4 mx-auto py-8 md:py-12 lg:py-16">
         <div className="text-center text-red-500">
-          Failed to load services. Please try again later.
+          Failed to load news and events. Please try again later.
         </div>
       </div>
     );
@@ -117,28 +119,59 @@ const GeneralServices = ({
       <div className="flex flex-col gap-8 lg:gap-16 items-center justify-center">
         <div className="space-y-4 text-center">
           <h4 className="font-bold text-2xl md:text-3xl lg:text-4xl">
-            {title}
+            News and Events
           </h4>
           <div className="flex justify-center">
             <p className="text-pGray max-w-210 text-sm md:text-base px-4">
-              {subTitle && subTitle}
+              At Momin Textile Mills Ltd, we believe in continuous growth, innovation, and collaboration. 
+              Stay updated with our latest milestones and insights.
             </p>
           </div>
         </div>
 
         <div className="w-full">
-          {/* Services Grid */}
+          {/* News Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5 lg:gap-6">
-            {services.map((item) => (
-              <Link
-                href={`/our-services/${item.id}`}
-                key={item.id}
-              >
-                <ServiceCard
-                  img={item.image}
-                  title={item.heading}
-                  desc={item.subheading}
-                />
+            {news.map((item) => (
+              <Link href={`/news-events/${item.id}`} key={item.id}>
+                <div className="rounded-lg overflow-hidden border flex flex-col h-full group hover:shadow-lg transition-all duration-300 cursor-pointer">
+                  {/* Image */}
+                  <div className="relative h-54 overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.heading}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="p-6 flex flex-col grow">
+                    {/* Date */}
+                    <p className="text-pGray text-sm mb-2">
+                      {formatDate(item.createdAt)}
+                    </p>
+                    
+                    {/* Title */}
+                    <h6 className="font-semibold text-tBlue text-xl mb-2 line-clamp-2">
+                      {item.heading}
+                    </h6>
+                    
+                    {/* Description */}
+                    <p className="text-pGray text-sm mb-4 line-clamp-3 grow">
+                      {item.shortParagraph}
+                    </p>
+                    
+                    {/* Read More Button */}
+                    <div className="mt-auto">
+                      <span className="text-pBlue font-medium text-sm hover:underline inline-flex items-center gap-1">
+                        Read More
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </Link>
             ))}
           </div>
@@ -161,4 +194,4 @@ const GeneralServices = ({
   );
 };
 
-export default GeneralServices;
+export default NewsEvents;

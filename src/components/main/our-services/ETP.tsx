@@ -1,113 +1,146 @@
+// components/main/our-services/ETP.jsx
 "use client";
-import { CorePoints } from "@/docs/data";
-import CompanyProfileCard from "@/components/CompanyProfileCard";
-import QuickLinks from "@/components/QuickLinks";
+import { useContext, useEffect, useState } from "react";
+import { HeroContext } from "@/context/HeroContext";
+import BodyContent from "@/components/BodyContent";
 import Image from "next/image";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import ExcellenceSection from "./ExcellenceSection";
-import ImageGallery from "@/components/ImageGallery";
-import { useContext, useEffect } from "react";
-import { HeroContext } from "@/context/HeroContext";
+import PriceQuotation from "@/components/PriceQuotation";
+import { useFetchData } from "@/hooks/useApi";
 
-const commonData = [
-  { title: "PH", subtitle: "Potential of Hydrogen" },
-  { title: "C/F Water", subtitle: "Cooling / Feed Water" },
-  { title: "Tear Strength", subtitle: "Elmendorf Tear Test" },
-  { title: "Tear Strength", subtitle: "Elmendorf Tear Test" },
-  { title: "Tear Strength", subtitle: "Elmendorf Tear Test" },
-  { title: "Tear Strength", subtitle: "Elmendorf Tear Test" },
-  { title: "Tear Strength", subtitle: "Elmendorf Tear Test" },
-];
-const columns = [commonData, commonData, commonData];
+interface ServiceData {
+  id: number;
+  serviceType: string;
+  heading: string;
+  subheading: string;
+  details: string;
+  image: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 const ETP = () => {
   const { setTitle } = useContext(HeroContext);
+  const [service, setService] = useState<ServiceData | null>(null);
+
+  // Fetch ETP service data
+  const { data: apiData, isLoading, error } = useFetchData(
+    ["services", "ETP"],
+    "/services?page=1&limit=10&sortOrder=asc&isActive=true&serviceType=ETP",
+    { enabled: true, refetchOnMount: true }
+  );
+
   useEffect(() => {
-    setTitle("Effluent Treatment Plant (ETP)");
-  }, [setTitle]);
-  return (
-    <div>
-      <div className="container px-4 mx-auto py-8 md:py-12 lg:py-16">
-        <div className="flex flex-col gap-8 lg:gap-12 items-center justify-center">
-          <div className="space-y-4 text-center">
-            <h4 className="font-bold text-3xl lg:text-4xl">
-              Effluent Treatment Plant (ETP)
-            </h4>
-            <div className="flex justify-center">
-              <p className=" text-pGray max-w-210">
-                At Momin Textile Mills Ltd, environmental responsibility is a
-                top priority. Our <br /> modern Effluent Treatment Plant (ETP)
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-col gap-8 lg:gap-12 items-center justify-center">
-            <div className="flex flex-col lg:flex-row gap-10">
-              <div className="w-full lg:w-[65%] space-y-10">
-                <div className="flex max-h-100 rounded-lg overflow-hidden">
-                  <Image
-                    src="/etp.png"
-                    alt="etp image"
-                    height={400}
-                    width={1920}
-                    className="object-cover"
-                  />
-                </div>
-                <div className="space-y-4 text-justify">
-                  <h4 className="font-bold text-tBlue text-3xl lg:text-4xl">
-                    ECO-Friendly Effluent Treatment Plant (ETP)
-                  </h4>
-                  <p className="text-pGray">
-                    Momin Textile Mills Limited is committed to environmental
-                    sustainability and ensuring that our production processes
-                    align with global eco-friendly practices. Our
-                    state-of-the-art Effluent Treatment Plant (ETP) has a
-                    capacity of 70m³ per hour. designed to effectively purify
-                    wastewater generated from our dyeing operations. By treating
-                    and purifying the water, we ensure that our impact on the
-                    environment is minimized, allowing for the safe discharge or
-                    reuse of treated water in compliance with environmental
-                    regulations. The ETP not only helps us meet stringent
-                    environmental standards but also reinforces our commitment
-                    to sustainability. This proactive approach to wastewater
-                    management ensures that we preserve natural resources while
-                    maintaining operational efficiency. By integrating advanced
-                    technologies, Momin Textile Mills continuously strives to
-                    reduce its ecological footprint, promoting cleaner and more
-                    sustainable textile production practices. <br /> Through our
-                    ETP, we demonstrate leadership in environmental
-                    responsibility. ensuring that we maintain a balance between
-                    industrial progress and the protection of the environment.
-                    This reflects our dedication to ethical practices and
-                    sustainable development in the textile industry.
-                  </p>
-                </div>
-                <div className="space-y-4">
-                  <h6 className="font-semibold text-pBlue text-xl">
-                    Core Points
-                  </h6>
-                  {CorePoints.map((item, idx) => (
-                    <div key={idx} className="flex gap-4 items-center">
-                      <div className="h-6 w-6 rounded-sm text-white flex items-center justify-center bg-pBlue">
-                        <MdOutlineKeyboardArrowRight size={24} />
-                      </div>
-                      <p className="text-pGray">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="space-y-10 w-full lg:w-[35%]">
-                <CompanyProfileCard />
-                <QuickLinks />
-              </div>
-            </div>
+    if (apiData?.data && Array.isArray(apiData.data) && apiData.data.length > 0) {
+      setService(apiData.data[0]);
+      setTitle(apiData.data[0].heading);
+    }
+  }, [apiData, setTitle]);
+
+  const extractCorePoints = (details: string) => {
+    if (!details) return [];
+    const liMatches = details.match(/<li>(.*?)<\/li>/g);
+    if (liMatches) {
+      return liMatches.map(li => li.replace(/<\/?li>/g, '').replace(/<[^>]*>/g, '').trim());
+    }
+    return [
+      "Modern Effluent Treatment Plant",
+      "Eco-friendly wastewater management",
+      "International environmental compliance",
+      "Sustainable water recycling systems",
+      "Zero liquid discharge initiative"
+    ];
+  };
+
+  const corePoints = service ? extractCorePoints(service.details) : [];
+
+  if (isLoading) {
+    return (
+      <BodyContent 
+        title="Effluent Treatment Plant (ETP)" 
+        subTitle="At Momin Textile Mills Ltd, environmental responsibility is a top priority. Our modern Effluent Treatment Plant (ETP)"
+      >
+        <div className="container px-4 mx-auto py-8 md:py-12 lg:py-16 animate-pulse">
+          <div className="w-full h-96 bg-gray-200 rounded-lg mb-8"></div>
+          <div className="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
+          <div className="space-y-3">
+            <div className="h-4 bg-gray-200 rounded w-full"></div>
+            <div className="h-4 bg-gray-200 rounded w-full"></div>
+            <div className="h-4 bg-gray-200 rounded w-5/6"></div>
           </div>
         </div>
-        <ExcellenceSection
-          heading="Effluent Treatment Plant (ETP) Excellence"
-          description="Momin Textile Mills Ltd provides complete fabric manufacturing services — from spinning and weaving to dyeing and finishing"
-          columns={columns}
-        />
+      </BodyContent>
+    );
+  }
+
+  if (error || !service) {
+    return (
+      <BodyContent 
+        title="Effluent Treatment Plant (ETP)" 
+        subTitle="At Momin Textile Mills Ltd, environmental responsibility is a top priority. Our modern Effluent Treatment Plant (ETP)"
+      >
+        <div className="container px-4 mx-auto py-8 md:py-12 lg:py-16">
+          <div className="text-center text-red-500">
+            Failed to load service details. Please try again later.
+          </div>
+        </div>
+      </BodyContent>
+    );
+  }
+
+  return (
+    <div className="container px-4 mx-auto py-8 md:py-12 lg:py-16">
+      <div className="flex flex-col gap-8 lg:gap-12">
+        <div className="space-y-4">
+          <h4 className="text-center font-bold text-2xl md:text-3xl lg:text-4xl text-pBlue">
+            {service.heading}
+          </h4>
+        </div>
+
+        <div className="w-full">
+          <div className="relative w-full h-62 md:h-88 lg:h-165 rounded-lg overflow-hidden">
+            <Image
+              src={service.image}
+              alt={service.heading}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </div>
+
+        <div className="space-y-8 lg:space-y-10">
+          <div className="space-y-4">
+            <h5 className="font-bold text-xl md:text-2xl text-pBlue">
+              {service.subheading || service.heading}
+            </h5>
+            <div 
+              className="text-pGray text-justify text-sm md:text-base leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: service.details }}
+            />
+          </div>
+
+          {corePoints.length > 0 && (
+            <div className="space-y-4">
+              <h5 className="font-bold text-xl md:text-2xl text-pBlue">Core Points</h5>
+              {corePoints.map((item, idx) => (
+                <div key={idx} className="flex gap-4 items-center">
+                  <div className="h-6 w-6 rounded-sm text-white flex items-center justify-center bg-pBlue">
+                    <MdOutlineKeyboardArrowRight size={24} />
+                  </div>
+                  <p className="text-pGray">{item}</p>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div className="flex justify-end mt-8 pt-6 border-t border-bdrGray">
+          <div className="w-full lg:w-1/2">
+            <PriceQuotation />
+          </div>
+        </div>
       </div>
-      <ImageGallery />
     </div>
   );
 };
