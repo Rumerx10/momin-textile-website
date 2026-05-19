@@ -10,19 +10,9 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { Plus, X, ChevronDown } from "lucide-react";
 import Input from "@/components/Input";
 import { useAddData, usePatchData } from "@/hooks/useApi";
+import { COUNTRY_CODES } from "@/docs/data";
 
-const COUNTRY_CODES = [
-  { code: "BD", name: "Bangladesh", phone: "+880", phoneLength: 10 },
-  { code: "US", name: "United States", phone: "+1", phoneLength: 10 },
-  { code: "GB", name: "United Kingdom", phone: "+44", phoneLength: 10 },
-  { code: "IN", name: "India", phone: "+91", phoneLength: 10 },
-  { code: "PK", name: "Pakistan", phone: "+92", phoneLength: 10 },
-  { code: "AU", name: "Australia", phone: "+61", phoneLength: 9 },
-  { code: "CA", name: "Canada", phone: "+1", phoneLength: 10 },
-  { code: "DE", name: "Germany", phone: "+49", phoneLength: 11 },
-  { code: "FR", name: "France", phone: "+33", phoneLength: 9 },
-  { code: "JP", name: "Japan", phone: "+81", phoneLength: 10 },
-];
+
 
 // Helper function to validate phone number length
 const validatePhoneNumber = (number: string, countryCode: string) => {

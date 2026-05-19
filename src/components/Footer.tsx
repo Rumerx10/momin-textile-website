@@ -3,10 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaFacebookF, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
-
 import { RiYoutubeLine } from "react-icons/ri";
 import { PiPhone } from "react-icons/pi";
-import { TbLetterR } from "react-icons/tb";
 import { FooterLinks } from "../docs/data";
 
 const Footer = () => {

@@ -16,9 +16,9 @@ const statisticsData = [
   },
   {
     id: 2,
-    icon: "/globalMarketers.png",
-    title: "Global Export Marketers",
-    subtitle: "Supplying Worldwide",
+    icon: "/vertical.png",
+    title: "Vertical",
+    subtitle: "Integrated Production",
   },
   {
     id: 3,
@@ -26,11 +26,12 @@ const statisticsData = [
     title: "Advance Machinery",
     subtitle: "European Technology",
   },
+
   {
     id: 4,
-    icon: "/vertical.png",
-    title: "Vertical",
-    subtitle: "Integrated Production",
+    icon: "/globalMarketers.png",
+    title: "Global Export Marketers",
+    subtitle: "Supplying Worldwide",
   },
 ];
 
