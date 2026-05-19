@@ -45,14 +45,10 @@ const Hero = () => {
     button2Url,
     heading,
     subheading,
-    image = [
-      { img: "/hero/hero1.jpg" },
-      { img: "/hero/hero2.jpg" },
-      { img: "/hero/hero3.jpg" },
-      { img: "/hero/hero4.jpg" },
-    ],
+    images,
   } = response;
-
+  const heroImages =
+    images && images.length > 0 ? images : ["/placeholder.svg"];
   return (
     <section className="relative">
       {/* Hero Slider Section */}
@@ -65,12 +61,7 @@ const Hero = () => {
             loop
             className="custom-swiper-pagination"
           >
-            {[
-              "/hero/hero1.jpg",
-              "/hero/hero2.jpg",
-              "/hero/hero3.jpg",
-              "/hero/hero4.jpg",
-            ].map((url: string, index: number) => (
+            {heroImages.map((url: string, index: number) => (
               <SwiperSlide key={index}>
                 <motion.div
                   initial={{ opacity: 0 }}

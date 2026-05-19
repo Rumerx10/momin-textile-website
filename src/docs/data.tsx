@@ -26,7 +26,7 @@ import {
   FileText,
   Briefcase,
 } from "lucide-react";
-
+import { RiUserSettingsLine } from "react-icons/ri";
 export const NavLinks = [
   { label: "Home", link: "/" },
   { label: "About Us", link: "/about-us" },
@@ -1444,6 +1444,11 @@ export const contentMenuItems = [
     icon: Package,
     label: "Our Units",
     href: "/dashboard/our-units",
+  },
+  {
+    icon: RiUserSettingsLine ,
+    label: "Members",
+    href: "/dashboard/members",
   },
   {
     icon: Package,

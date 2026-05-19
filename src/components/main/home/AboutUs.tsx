@@ -3,8 +3,51 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import LCarousel from "@/components/LCarousel";
 import ReadMoreBtn from "@/components/ReadMoreBtn";
+import { useFetchData } from "@/hooks/useApi";
+import { useEffect, useState } from "react";
 
 const AboutUs = () => {
+  const { data, isLoading, error } = useFetchData(["about-us"], "/about-us", {
+    enabled: true,
+    refetchOnMount: true,
+  });
+
+  const aboutData = data?.data;
+  if (isLoading) {
+    return (
+      <div className="relative bg-bgGray">
+        <div className="container px-4 mx-auto py-8 md:py-12 lg:py-16">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center justify-center">
+            <div className="w-full lg:w-6/12 h-full">
+              <div className="w-full h-96 bg-gray-200 animate-pulse rounded-lg"></div>
+            </div>
+            <div className="w-full lg:w-6/12 space-y-4">
+              <div className="h-4 bg-gray-200 rounded w-20 animate-pulse"></div>
+              <div className="h-8 bg-gray-200 rounded w-64 animate-pulse"></div>
+              <div className="h-1 w-36 bg-gray-200 rounded animate-pulse"></div>
+              <div className="space-y-2">
+                <div className="h-4 bg-gray-200 rounded w-full animate-pulse"></div>
+                <div className="h-4 bg-gray-200 rounded w-full animate-pulse"></div>
+                <div className="h-4 bg-gray-200 rounded w-3/4 animate-pulse"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="relative bg-bgGray">
+        <div className="container px-4 mx-auto py-8 md:py-12 lg:py-16">
+          <div className="text-center text-red-500">
+            Failed to load about us information. Please try again later.
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative bg-bgGray">
@@ -13,7 +56,10 @@ const AboutUs = () => {
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center justify-center lg:justify-between w-full">
             {/* Left Side - Images */}
             <div className="w-full lg:w-6/12 h-full">
-              <LCarousel />
+              <LCarousel
+                img={aboutData?.excellenceImage1}
+                imgs={aboutData?.excellenceImages}
+              />
             </div>
 
             {/* Right Side - Content */}
@@ -27,7 +73,7 @@ const AboutUs = () => {
               <div>
                 <p className="text-sm text-pGray mb-1">About Us</p>
                 <h4 className="text-pBlue text-3xl lg:text-4xl font-bold">
-                  Crafting Quality, Weaving Trust
+                  {aboutData?.heading}
                 </h4>
                 <div className="h-1 w-36 my-7 bg-linear-to-r from-pBlue to-pBlue/40 rounded-full" />
               </div>
