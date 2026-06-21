@@ -1,4 +1,4 @@
-// app/about-us/page.jsx
+
 "use client";
 import { useContext, useEffect, useState } from "react";
 import AboutUsDescription from "./AboutUsDescription";

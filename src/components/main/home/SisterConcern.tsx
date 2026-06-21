@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Building2, Shirt, Factory, Truck, Globe, Heart } from "lucide-react";
+import { Building2, Shirt, Factory } from "lucide-react";
 import { useFetchData } from "@/hooks/useApi";
 import { GiClothes, GiClothesline, GiLoincloth } from "react-icons/gi";
 
